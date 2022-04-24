@@ -95,24 +95,29 @@ export const passwords:PasswordMap = {
     ,"MINOTAUR": new Secret("A Series of IDS: 13",[new SourceDurationPair("Secrets/JR/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 13 Parking Lot Lost.mp3", "Secrets/JR/0.js")
     ,"NOT A MINOTAUR": new Secret("A Series of IDS: 14",[new SourceDurationPair("Secrets/NAM/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 14 Mall Closed.mp3", "Secrets/NAM/0.js")
     ,"THE NEIGHBOR": new Secret("A Series of IDS: 15",[new SourceDurationPair("Secrets/NEIGHBOR/0.jpg",2)],undefined, "Secrets/NEIGHBOR/0.js")
+    
     ,"TYRFING": new Secret("Thoughts.",[new SourceDurationPair("Secrets/TYRFING/0.jpg",2)],undefined, "Secrets/TYRFING/0.js")
 
 
+    ,"TRUTH": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/TRUTH/0.jpg",2)],undefined, "Secrets/TRUTH/0.js")
+    ,"RONIN": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/RONIN/0.jpg",2)],undefined, "Secrets/RONIN/0.js")
+    ,"THE WIGGLER EATER": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/THEWIGGLEREATER/0.jpg",2)],undefined, "Secrets/THEWIGGLEREATER/0.js")
+    ,"THE WANDERER": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/WANDERER/0.jpg",2)],undefined, "Secrets/WANDERER/0.js")
+    ,"THE TWINS": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/TWINS/0.jpg",2)],undefined, "Secrets/TWINS/0.js")
+    ,"THE SOLEMN": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"THE END IS NEVER THE END": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/THEENDISNEVERTHEND/clown.png",2)],undefined, "Secrets/THEENDISNEVERTHEND/0.js")
+    ,"YOU IS NEEDED TO END THE WORLD": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/YOUISNEEDEDTOENDTHEWORLD/0.jpg",2)],undefined, "Secrets/YOUISNEEDEDTOENDTHEWORLD/0.js")
+    ,"https://www.youtube.com/watch?v=WOrF94annCY": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/YOUTUBE/0.jpg",2)],undefined, "Secrets/YOUTUBE/0.js")
+
+    ,"THE TRUTH IS LAYERED": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/THETRUTHISLAYERED/0.jpg",2)],undefined, "Secrets/THETRUTHISLAYERED/0.js")
+    
+    ,"7342": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/7342/0.jpg",2)],undefined, "Secrets/7342/0.js")
+    
+    
 
 
-    ,"TRUTH": new Secret("Unknown",[new SourceDurationPair("Secrets/TRUTH/0.jpg",2)],undefined, "Secrets/TRUTH/0.js")
-    ,"RONIN": new Secret("Unknown",[new SourceDurationPair("Secrets/RONIN/0.jpg",2)],undefined, "Secrets/RONIN/0.js")
-    ,"THE WIGGLER EATER": new Secret("Unknown",[new SourceDurationPair("Secrets/THEWIGGLEREATER/0.jpg",2)],undefined, "Secrets/THEWIGGLEREATER/0.js")
-    ,"THE WANDERER": new Secret("Unknown",[new SourceDurationPair("Secrets/WANDERER/0.jpg",2)],undefined, "Secrets/WANDERER/0.js")
-    ,"THE TWINS": new Secret("Unknown",[new SourceDurationPair("Secrets/TWINS/0.jpg",2)],undefined, "Secrets/TWINS/0.js")
-    ,"THE SOLEMN": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"https://www.youtube.com/watch?v=WOrF94annCY": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"THE END IS NEVER THE END": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"YOU IS NEEDED TO END THE WORLD": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"THE TRUTH IS LAYERED": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"7342": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"1365": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"216": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"THE FOOL IS HURT": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"EVERYTHING IS CONNECTED": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"1365": new Secret("Unknown",[new SourceDurationPair("Secrets/1365/0.jpg",2)],undefined, "Secrets/1365/0.js")
+    ,"216": new Secret("Unknown",[new SourceDurationPair("Secrets/216/0.jpg",2)],undefined, "Secrets/216/0.js")
+    ,"THE FOOL IS HURT": new Secret("Unknown",[new SourceDurationPair("Secrets/THEFOOLISHURT/0.jpg",2)],undefined, "Secrets/THEFOOLISHURT/0.js")
+    ,"EVERYTHING IS CONNECTED": new Secret("Unknown",[new SourceDurationPair("Secrets/EVERYTHINGISCONNECTED/0.jpg",2)],undefined, "Secrets/EVERYTHINGISCONNECTED/0.js")
 };//omg easter egg lolol!!!!!!111!!1

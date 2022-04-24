@@ -156,10 +156,7 @@ export const CreditsScreen = (props: StatusProps) => {
                 </CreditLine>
                 <CreditHeader>Fan/Friend Works:</CreditHeader>
                 <CreditLine>
-                    <CreditLeft>Jeffery's Tapes: </CreditLeft> <CreditRight><span>aspiringWatcher</span></CreditRight>
-                </CreditLine>
-                <CreditLine>
-                    <CreditLeft>Dionysus and the Pirates: </CreditLeft> <CreditRight><span>Cathulhu</span></CreditRight>
+                    <CreditLeft>Quorum Quantified: </CreditLeft> <CreditRight><span>psychologicalFormaldehyde</span></CreditRight>
                 </CreditLine>
                 <CreditLine>
                     <CreditLeft>Music/Art/FNF Mod/Ronin Ramblings/Watt Character: </CreditLeft> <CreditRight><span>invitingCharon</span></CreditRight>
