@@ -1,6 +1,12 @@
 
 export const text = `
 
-[ID: A video of a wall made out of flesh. It pulsates rhythmically, as if possessing a heart. The person recording hesitantly touches the wall, recoiling when they make contact. They appear to be called away, and the video ends.]
+That's-- that's a little bit too comfortable! Hey! Wake up! Argh. No, that's fine. I'll stay down here. Good night, Devy.
+
+[SEVERAL MOMENTS PASS. AFTER THE TEN MINUTE MARK, THE MICROPHONE IS FISHED OUT OF WHERE IT HAD NESTLED ITSELF.]
+
+Oh. Hm. That was all recorded, huh? Hm. Well. This is… this is Researcher Ria, reporting that what you have heard shows… no new occurrences. Nothing else to report. 
+
+Ending log.
 
 `
