@@ -109,15 +109,18 @@ export const passwords:PasswordMap = {
     ,"YOU IS NEEDED TO END THE WORLD": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/YOUISNEEDEDTOENDTHEWORLD/0.jpg",2)],undefined, "Secrets/YOUISNEEDEDTOENDTHEWORLD/0.js")
     ,"https://www.youtube.com/watch?v=WOrF94annCY": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/YOUTUBE/0.jpg",2)],undefined, "Secrets/YOUTUBE/0.js")
 
-    ,"THE TRUTH IS LAYERED": new Secret("L-O-R4 Daily Logs",[new SourceDurationPair("Secrets/THETRUTHISLAYERED/0.jpg",2)],undefined, "Secrets/THETRUTHISLAYERED/0.js")
+    ,"THE TRUTH IS LAYERED": new Secret("L-O-R4 Daily Logs: 1",[new SourceDurationPair("Secrets/THETRUTHISLAYERED/0.jpg",2)],undefined, "Secrets/THETRUTHISLAYERED/0.js")
     
-    ,"7342": new Secret("L-O-R4 Daily Logs",[new SourceDurationPair("Secrets/7342/0.jpg",2)],undefined, "Secrets/7342/0.js")
+    ,"7342": new Secret("L-O-R4 Daily Logs: 2",[new SourceDurationPair("Secrets/7342/0.jpg",2)],undefined, "Secrets/7342/0.js")
     
     
 
+    ,"1365": new Secret("L-O-R4 Daily Logs: 3",[new SourceDurationPair("Secrets/1365/0.jpg",2)],undefined, "Secrets/1365/0.js")
+    ,"217": new Secret("L-O-R4 Daily Logs: 4",[new SourceDurationPair("Secrets/217/0.jpg",2)],undefined, "Secrets/217/0.js")
+    ,"THE FOOL IS HURT": new Secret("L-O-R4 Daily Logs: 5",[new SourceDurationPair("Secrets/THEFOOLISHURT/0.jpg",2)],undefined, "Secrets/THEFOOLISHURT/0.js")
+    ,"EVERYTHING IS CONNECTED": new Secret("L-O-R4 Daily Logs: 6",[new SourceDurationPair("Secrets/EVERYTHINGISCONNECTED/0.jpg",2)],undefined, "Secrets/EVERYTHINGISCONNECTED/0.js")
+    ,"IT HAS COLONIZED YOUR MIND ALREADY": new Secret("A Letter.",[new SourceDurationPair("Secrets/ithascolonizedyourmindalready/0.jpg",2)],undefined, "Secrets/ithascolonizedyourmindalready/0.js")
 
-    ,"1365": new Secret("L-O-R4 Daily Logs",[new SourceDurationPair("Secrets/1365/0.jpg",2)],undefined, "Secrets/1365/0.js")
-    ,"216": new Secret("L-O-R4 Daily Logs",[new SourceDurationPair("Secrets/216/0.jpg",2)],undefined, "Secrets/216/0.js")
-    ,"THE FOOL IS HURT": new Secret("L-O-R4 Daily Logs",[new SourceDurationPair("Secrets/THEFOOLISHURT/0.jpg",2)],undefined, "Secrets/THEFOOLISHURT/0.js")
-    ,"EVERYTHING IS CONNECTED": new Secret("L-O-R4 Daily Logs",[new SourceDurationPair("Secrets/EVERYTHINGISCONNECTED/0.jpg",2)],undefined, "Secrets/EVERYTHINGISCONNECTED/0.js")
 };//omg easter egg lolol!!!!!!111!!1
+
+//ithascolonizedyourmindalready from itch.io
