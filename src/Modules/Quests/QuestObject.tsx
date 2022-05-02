@@ -76,7 +76,7 @@ export  class QuestObject{
 
     unlocked = (observer: ObserverBot)=>{
         for(let item of this.unlockTriggers){
-            if(!item.triggered(observer)){
+            if(!item.triggered(observer,this.replaceTags)){
                 return false;
             }
         }
@@ -85,7 +85,7 @@ export  class QuestObject{
 
     canTurnIn = (observer: ObserverBot)=>{
         for(let item of this.turnInTriggers){
-            if(!item.triggered(observer)){
+            if(!item.triggered(observer,this.replaceTags)){
                 return false;
             }
         }
@@ -95,7 +95,6 @@ export  class QuestObject{
     replaceTags = (text: string)=>{
         let ret = `${text}`;
         if(this.god && this.god.name){
-            console.log("JR NOTE: replacing tags, god is", this.god, "text is ", text);
             ret = ret.replaceAll(GODNAME, this.god.name);
             ret = ret.replaceAll(GODDOMAINS, humanJoining(this.god.domains.map((item)=>{return item.key})));
         }
@@ -125,7 +124,7 @@ export  class QuestObject{
                 if(!this.string_possibilities[key]){
                     this.string_possibilities[key] = this.rand.pickFrom(themes).pickPossibilityFor(this.rand,key);
                 }
-                ret = ret.replaceAll(key,this.string_possibilities[key]);
+                ret = ret.replaceAll(key,this.string_possibilities[key].toUpperCase());
             }
         }
 

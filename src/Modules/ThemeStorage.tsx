@@ -1477,7 +1477,7 @@ export const genericStartingQuests = ()=>{
             `${COMPANIONNAME} introduces themselves to you as the ${COMPANIONTITLE}. They offer to join your party if you can retrieve their  ${ADJ} ${OBJECT} from a local gang of ${PERSON}s.`,
             `${COMPANIONNAME}  gives you a big grin and says you're simply the best there is at killing ${PERSON}s.`,
             [new AchievementTrigger(false)], //auto unlock
-            [new AchievementTrigger(false)], //auto unlock
+            [new ItemInInventory(false,`${OBJECT}`)], //auto unlock
             [new LoyaltyReward()]
         )
     ];

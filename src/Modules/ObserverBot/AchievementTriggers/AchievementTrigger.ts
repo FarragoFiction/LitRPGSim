@@ -11,7 +11,7 @@ export  class AchievementTrigger{
        return "AUTO UNLOCK";
    }
 
-   triggered = (observer: ObserverBot )=>{
+   triggered = (observer: ObserverBot, tagReplacingFunction?: (text:string)=>string )=>{
        return true; //JR NOTE: children will overwrite this
    }
 }

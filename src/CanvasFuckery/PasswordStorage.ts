@@ -119,7 +119,7 @@ export const passwords:PasswordMap = {
     ,"217": new Secret("L-O-R4 Daily Logs: 4",[new SourceDurationPair("Secrets/217/0.jpg",2)],undefined, "Secrets/217/0.js")
     ,"THE FOOL IS HURT": new Secret("L-O-R4 Daily Logs: 5",[new SourceDurationPair("Secrets/THEFOOLISHURT/0.jpg",2)],undefined, "Secrets/THEFOOLISHURT/0.js")
     ,"EVERYTHING IS CONNECTED": new Secret("L-O-R4 Daily Logs: 6",[new SourceDurationPair("Secrets/EVERYTHINGISCONNECTED/0.jpg",2)],undefined, "Secrets/EVERYTHINGISCONNECTED/0.js")
-    ,"IT HAS COLONIZED YOUR MIND ALREADY": new Secret("A Letter.",[new SourceDurationPair("Secrets/ithascolonizedyourmindalready/0.jpg",2)],undefined, "Secrets/ithascolonizedyourmindalready/0.js")
+    ,"IT HAS COLONIZED YOUR MIND ALREADY": new Secret("A(n Un)Sent Letter.",[new SourceDurationPair("Secrets/ithascolonizedyourmindalready/0.jpg",2)],undefined, "Secrets/ithascolonizedyourmindalready/0.js")
 
 };//omg easter egg lolol!!!!!!111!!1
 
