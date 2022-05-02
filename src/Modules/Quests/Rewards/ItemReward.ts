@@ -2,18 +2,21 @@ import { Player } from "../../Player";
 import { Reward } from "./GenericReward";
 
 export  class ItemReward extends Reward{
-    item: string;
+    item?: string;
     toString = ()=>{
         return `${this.item} obtained!`;
     }
 
-    constructor(item: string){
+    constructor(item?: string){
         super();
         this.item = item;
     }
 
     giveReward = (player: Player )=>{
         let ret = "";
+        if(!this.item){
+            this.item = player.generateItem();
+        }
         if(player.observer.inventoryMenuLevel>0){
             if(player.inventory.includes(this.item)){
                 ret = `You already have a/an ${this.item}!  S-sorry!`;

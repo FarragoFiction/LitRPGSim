@@ -1463,6 +1463,15 @@ export const genericStartingQuests = ()=>{
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         ),
+
+        new QuestObject(
+            "A New Community",
+            `A ${PERSON} inroduces themself to you as the mayor of ERROR: TOWN NOT FOUND! They need your help clearing out 10 ${ADJ} ${PERSON}s that have been causing problems on the main roads!`,
+            `The Mayor offers you their gratitude on behalf of the people and offers you a reward.`,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward()]
+        ),
         new QuestObject(
             "A New Friend!",
             `${COMPANIONNAME} introduces themselves to you as the ${COMPANIONTITLE}. They offer to join your party if you can retrieve their  ${ADJ} ${OBJECT} from a local gang of ${PERSON}s.`,
