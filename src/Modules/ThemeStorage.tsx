@@ -1465,6 +1465,15 @@ export const genericStartingQuests = ()=>{
         ),
 
         new QuestObject(
+            "A New Skill",
+            `A local ${PERSON} tells you that only someone who knows a ${ADJ} skill can pull the sword from the stone. Will you be the first in 50 years to do so?`,
+            `With a triumphant yell, you use your ${ADJ} skill and pull the sword from the stone! `,
+            [new AchievementTrigger(false)], //auto unlock
+            [new SkillAcquired(false,`${ADJ}`)], //auto unlock
+            [new ItemReward(`${ADJ} SWORD`)]
+        ),
+
+        new QuestObject(
             "A New Community",
             `A ${PERSON} inroduces themself to you as the mayor of ERROR: TOWN NOT FOUND! They need your help clearing out 10 ${ADJ} ${PERSON}s that have been causing problems on the main roads!`,
             `The Mayor offers you their gratitude on behalf of the people and offers you a reward.`,
