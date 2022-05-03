@@ -21,6 +21,7 @@ import { SkillReward } from './Quests/Rewards/SkillReward';
 import { HasChosenGod } from './ObserverBot/AchievementTriggers/HasChosenGod';
 import { GodReward } from './Quests/Rewards/GodReward';
 import { LoyaltyReward } from './Quests/Rewards/LoyaltyReward';
+import { RabbitReward } from './Quests/Rewards/RabbitReward';
 
 //categories within a theme
 export const PERSON="person-key";
@@ -1408,7 +1409,7 @@ const initQuests = ()=>{
             `You DIG and DIG and DIG and DIG and are never seen again.`,
             [new AchievementTrigger(false)],
             [new AchievementTrigger(false)],
-            [new EndReward()]
+            [new RabbitReward()]
         ),
     ]
 
