@@ -22,6 +22,13 @@ import { HasChosenGod } from './ObserverBot/AchievementTriggers/HasChosenGod';
 import { GodReward } from './Quests/Rewards/GodReward';
 import { LoyaltyReward } from './Quests/Rewards/LoyaltyReward';
 import { RabbitReward } from './Quests/Rewards/RabbitReward';
+import { GhostReward } from './Quests/Rewards/GhostReward';
+import { GameReward } from './Quests/Rewards/GameReward';
+import RageMode from '../RageMode';
+import { RageReward } from './Quests/Rewards/RageReward';
+import { TruthReward } from './Quests/Rewards/TruthReward';
+import { ApocalypseReward } from './Quests/Rewards/ApocalypseReward';
+import { pickFrom } from '../Utils/NonSeededRandUtils';
 
 //categories within a theme
 export const PERSON="person-key";
@@ -1410,6 +1417,67 @@ const initQuests = ()=>{
             [new AchievementTrigger(false)],
             [new AchievementTrigger(false)],
             [new RabbitReward()]
+        ),
+        new QuestObject(
+            `DIG`,
+            `DIG`,
+            `You DIG and DIG and DIG and DIG and are never seen again.`,
+            [new AchievementTrigger(false)],
+            [new AchievementTrigger(false)],
+            [new GhostReward()]
+        ),
+    ]
+
+    quest_possibilities[WASTE] = [
+        new QuestObject(
+            `Visit the Password Rabbithole`,
+            `If you chose to, you can take this shortcut to the password screen.`,
+            `Have fun :) :) ;)`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false,pickFrom(Object.values(Stat.all_stats)).copy(13))],
+            [new RabbitReward()]
+        ),
+        new QuestObject(
+            `Visit the Haunted Rabbithole`,
+            `If you chose to, you can take this shortcut to the haunted CCTV feed.`,
+            `Have fun :) :) ;)`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false,pickFrom(Object.values(Stat.all_stats)).copy(13))],
+            [new GhostReward()]
+        ),
+        new QuestObject(
+            `Twist Illusions to Be Raality`,
+            `If you chose to, you can take this shortcut to ignore the illusion of a game so hard it becomes just a bit more real.`,
+            `Have fun :) :) ;)`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false,pickFrom(Object.values(Stat.all_stats)).copy(13))],
+            [new GameReward()]
+        ),
+        new QuestObject(
+            `Tear Down Illusions`,
+            `If you chose to, you can take this shortcut to reject the illusion of a game.`,
+            `Have fun :) :) ;)`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false,pickFrom(Object.values(Stat.all_stats)).copy(13))],
+            [new RageReward()]
+        ),
+
+        new QuestObject(
+            `Tear Down Illusions But Gently`,
+            `If you chose to, you can take this shortcut to reject the illusion of a game WITHOUT being salty about it`,
+            `Have fun :) :) ;)`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false,pickFrom(Object.values(Stat.all_stats)).copy(13))],
+            [new TruthReward()]
+        ),
+
+        new QuestObject(
+            `Destroy It All`,
+            `If you chose to, you can make beings both real and imaginary stop giving a shit.`,
+            `Have fun :) :) ;)`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false,pickFrom(Object.values(Stat.all_stats)).copy(13))],
+            [new ApocalypseReward()]
         ),
     ]
 
