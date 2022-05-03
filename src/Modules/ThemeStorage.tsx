@@ -1402,31 +1402,61 @@ const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     quest_possibilities[ANGELS] = [
         new QuestObject(
-            `${GODNAME}'s favor!`,
+            `${GODNAME}'s Favor!`,
             `${GODNAME}, the God of ${GODDOMAINS} wishes you to swear fealty to them and not their rival. Will you do this?`,
             `With a flash of divine power, you are now an adherent to ${GODNAME}.`,
             [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
             [new HasChosenGod(true)],
-            [new GodReward(0)]
+            [new GodReward(0),new StatReward(Stat.BLOOD(3))]
             ,GodDescription.FIRST
         ),
         new QuestObject(
-            `${GODNAME}'s favor!`,
+            `${GODNAME}'s Favor!`,
             `${GODNAME}, the God of ${GODDOMAINS} wishes you to swear fealty to them and not their rival. Will you do this?`,
             `With a flash of divine power, you are now an adherent to ${GODNAME}.`,
             [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
             [new HasChosenGod(true)],
-            [new GodReward(1)]
+            [new GodReward(1),new StatReward(Stat.BLOOD(3))]
             ,GodDescription.SECOND
         ),
         new QuestObject(
-            `${GODNAME}'s grace!`,
+            `${GODNAME}'s Grace!`,
             `${GODNAME}, the God of ${GODDOMAINS} desires a show of loyalty to their cause. Bring them one ${OBJECT} to prove yourself. `,
             `With a flash of divine power, you feel even closer to ${GODNAME}.`,
             [new HasChosenGod(false)],
             [new ItemInInventory(false,`${OBJECT}`)],
-            [new GodReward(1),new SkillReward(new CustomSkill(`${GODNAME}'s Grace`, 3,`With a shower of ${EFFECTS} you feel the presence of ${GODNAME} bless you.`))]
+            [new StatReward(Stat.BLOOD(3)),new GodReward(1),new SkillReward(new CustomSkill(`${GODNAME}'s Grace`, 3,`With a shower of ${EFFECTS} you feel the presence of ${GODNAME} bless you.`))]
             ,GodDescription.CHOSEN
+        ),
+
+        new QuestObject(
+            `${GODNAME}'s Gift!`,
+            `${GODNAME}, the God of ${GODDOMAINS} desires additional loyalty. Purge 216 ${ADJ} ${OBJECT}S. `,
+            `With a flash of divine power, you feel even closer to ${GODNAME}.`,
+            [new SkillAcquired(false, ` ${GODDOMAINS}`)],
+            [new AchievementTrigger(false)],
+            [new GodReward(1),new ItemReward(`Sword of ${GODNAME}`), new StatReward(Stat.BLOOD(3))]
+            ,GodDescription.CHOSEN
+        ),
+
+        new QuestObject(
+            `${GODNAME}'s Bane!`,
+            `${GODNAME}, the God of ${GODDOMAINS} has opposed your God too many times. Purge 216 ${ADJ} ${OBJECT}S that have ${GODNAME}'s favor. `,
+            `You can feel the weakening influence of the hated ${GODNAME}.`,
+            [new HasChosenGod(false)],
+            [new StatExceedValueTrigger(false,Stat.BLOOD(10))],
+            [new ItemReward(`${GODNAME}'s Bane`)]
+            ,GodDescription.RIVAL
+        ),
+
+        new QuestObject(
+            `${GODNAME}'s Bane!`,
+            `${GODNAME}, the God of ${GODDOMAINS} has opposed your God too many times. Destroy 10  ${ADJ} ${LOCATION}S that have been blessed by ${GODNAME}. `,
+            `You can feel the weakening influence of the hated ${GODNAME}.`,
+            [new HasChosenGod(false)],
+            [new StatExceedValueTrigger(false,Stat.HOPE(10))],
+            [new SkillReward(new CustomSkill(`${GODNAME}'s Bane`, 3,`With a shower of ${EFFECTS} you feel the holy righteousness as the presence of ${GODNAME} retreats in pain and fear.`))]
+            ,GodDescription.RIVAL
         ),
     ];
 
