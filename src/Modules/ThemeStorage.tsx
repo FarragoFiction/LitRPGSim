@@ -568,7 +568,7 @@ const initMenuOptions = () =>{
     menu_options[TWISTING] =  [OPTIONS];
     menu_options[DEATH] =  [GODS];
     menu_options[APOCALYPSE] =  [WARROOM];
-    menu_options[ANGELS] =  [GODS];
+    menu_options[ANGELS] =  [GODS, QUESTS];
     menu_options[SERVICE] =  [QUESTS, RECAP];
     menu_options[FAMILY] =  [CITYBUILDING];
     menu_options[MAGIC] =  [RESISTANCES];
