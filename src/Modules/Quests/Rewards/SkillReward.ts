@@ -15,8 +15,11 @@ export  class SkillReward extends Reward{
     }
 
     giveReward = (player: Player, quest:QuestObject)=>{
-        this.skill.unlocked = true;
-        player.skills.push(this.skill);
+        const ret = this.skill.copy();
+        ret.name = quest.replaceTags(ret.name);
+        ret.description = quest.replaceTags(ret.description);
+        ret.unlocked = true;
+        player.skills.push(ret);
         return this.toString();
     }
  }

@@ -72,17 +72,15 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
         setCompleted(true);
     }
 
-    console.log("JR NOTE: quest is", quest)
-
     const [completed, setCompleted] = useState(quest.completed);
 
     return (
         <QuestLine>
             <QuestHeader>
-                {quest.replaceTags(quest.title)}
+                {quest.replaceTags(quest.title, player)}
             </QuestHeader>
             <QuestSection>
-                {quest.replaceTags(quest.flavorText)}
+                {quest.replaceTags(quest.flavorText, player)}
                 {completed ?
 
                     <Conditions> COMPLETED!</Conditions>

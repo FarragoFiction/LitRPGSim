@@ -138,6 +138,10 @@ export class CustomSkill extends SpecialSkill{
         this.tier = tier;
         this.description =description;
     }
+
+    copy =()=>{
+        return new CustomSkill(this.name, this.tier, this.description);
+    }
 }
 
 export class NovumMirror extends CustomSkill{

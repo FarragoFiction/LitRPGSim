@@ -158,6 +158,26 @@ export class Player {
 
     }
 
+    //if a quest didn't get  a god on creation nows the time
+    returnGodForQuest = (quest: QuestObject)=>{
+        console.log("JR NOTE: returnGodForQuest")
+        if(quest.god_index ){
+            console.log("JR NOTE: there was a god index and it was", quest.god_index);
+            if(quest.god_index === GodDescription.CHOSEN){
+                quest.god = this.chosen_god;
+            }else if(quest.god_index === GodDescription.RIVAL) {
+                quest.god = this.rival_god;
+            }else if(quest.god_index === GodDescription.FIRST) {
+                quest.god = this.gods[0]
+            }else if(quest.god_index === GodDescription.SECOND) {
+                quest.god = this.gods[1]
+            }
+        }else{
+            quest.god = this.rand.pickFrom(this.gods);
+        }
+
+    }
+
     addQuest = (input_quest: QuestObject)=>{
         const quest = input_quest.copy();
         this.quests.push(quest);
@@ -165,6 +185,7 @@ export class Player {
         quest.theme_keys = this.theme_keys;
         quest.rand = this.rand;
         if(quest.god_index ){
+            console.log("JR NOTE: there was a god index and it was", quest.god_index);
             if(quest.god_index === GodDescription.CHOSEN){
                 quest.god = this.chosen_god;
             }else if(quest.god_index === GodDescription.RIVAL) {

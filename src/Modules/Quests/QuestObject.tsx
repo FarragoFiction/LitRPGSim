@@ -92,7 +92,10 @@ export  class QuestObject{
         return true;
     }
 
-    replaceTags = (text: string)=>{
+    replaceTags = (text: string, player?: Player)=>{
+        if(player && !this.god){
+            player.returnGodForQuest(this);
+        }
         let ret = `${text}`;
         if(this.god && this.god.name){
             ret = ret.replaceAll(GODNAME, this.god.name);
@@ -107,6 +110,10 @@ export  class QuestObject{
         return ret;
     }
 
+    //why yes, it IS weird that only the main characters themes matter for anything
+    //including describing things gods or companions do
+    //it's almost as if this entire universe, friends and all,  is a paper thin mask designed to appeal solely to YOU
+    //so that it might colonize your mind
     replaceThemes = (text: string)=>{
         let ret = `${text}`;
         if(!this.theme_keys  || ! this.rand){
