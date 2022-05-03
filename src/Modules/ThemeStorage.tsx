@@ -554,8 +554,8 @@ const initMenuOptions = () =>{
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
     menu_options[ART] =  [INVENTORY,BACKSTORY];
     menu_options[TECHNOLOGY] =  [CODE];
-    menu_options[SPACE] =  [CITYBUILDING];
-    menu_options[TIME] =  [STATISTICS, QUESTS, RECAP];
+    menu_options[SPACE] =  [CITYBUILDING, QUESTS];
+    menu_options[TIME] =  [STATISTICS, RECAP];
     menu_options[STEALING] =  [INVENTORY,BACKSTORY];
     menu_options[FREEDOM] =  [QUESTS, RECAP];
     menu_options[FIRE] =  [WARROOM];
@@ -568,7 +568,7 @@ const initMenuOptions = () =>{
     menu_options[TWISTING] =  [OPTIONS];
     menu_options[DEATH] =  [GODS];
     menu_options[APOCALYPSE] =  [WARROOM];
-    menu_options[ANGELS] =  [GODS, QUESTS];
+    menu_options[ANGELS] =  [GODS, QUESTS,RECAP];
     menu_options[SERVICE] =  [QUESTS, RECAP];
     menu_options[FAMILY] =  [CITYBUILDING];
     menu_options[MAGIC] =  [RESISTANCES];
@@ -582,16 +582,16 @@ const initMenuOptions = () =>{
     menu_options[LOVE] = [COMPANIONS];
     menu_options[SOUL] = [STATUS] ;
     menu_options[ANGER] = [BACKSTORY,INVENTORY] ;
-    menu_options[WEB] =  [COMPANIONS] ;
-    menu_options[ROYALTY] =  [CITYBUILDING] ;
+    menu_options[WEB] =  [COMPANIONS,QUEST,RECAP] ;
+    menu_options[ROYALTY] =  [CITYBUILDING, QUEST,RECAP] ;
     menu_options[ENDINGS] =  [LORE,QUESTS, RECAP] ;
     menu_options[KNOWING] = [STATISTICS] ;
     menu_options[GUIDING] = [QUESTS, RECAP] ;
     menu_options[CRAFTING] =  [CITYBUILDING];
     menu_options[LANGUAGE] = [LORE,QUESTS, RECAP] ;
-    menu_options[BUGS] =  [CODE]; //get it? code? bugs? i refuse to appologize.
+    menu_options[BUGS] =  [CODE, QUESTS,]; //get it? code? bugs? i refuse to appologize.
     menu_options[ADDICTION] = [SKILLGRAPH]; //addicted to leveling up now are we?
-    menu_options[SPYING] =[STATISTICS] ;
+    menu_options[SPYING] =[STATISTICS, QUESTS, RECAP] ;
     menu_options[CLOWNS] =[LORE,QUESTS, RECAP] ;
     menu_options[DOLLS] = [CITYBUILDING] ;
     menu_options[OBFUSCATION] = [LORE,QUESTS, RECAP] ;
@@ -1400,6 +1400,18 @@ const initChildBackstories = () =>{
 // https://archiveofourown.org/works/37392859/chapters/93313978
 const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
+
+    quest_possibilities[BURIED] = [
+        new QuestObject(
+            `DIG`,
+            `DIG`,
+            `You DIG and DIG and DIG and DIG and are never seen again.`,
+            [new AchievementTrigger(false)],
+            [new AchievementTrigger(false)],
+            [new EndReward()]
+        ),
+    ]
+
     quest_possibilities[ANGELS] = [
         new QuestObject(
             `${GODNAME}'s Favor!`,
