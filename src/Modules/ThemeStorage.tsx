@@ -28,7 +28,7 @@ import RageMode from '../RageMode';
 import { RageReward } from './Quests/Rewards/RageReward';
 import { TruthReward } from './Quests/Rewards/TruthReward';
 import { ApocalypseReward } from './Quests/Rewards/ApocalypseReward';
-import { pickFrom } from '../Utils/NonSeededRandUtils';
+import { getRandomNumberBetween, pickFrom } from '../Utils/NonSeededRandUtils';
 
 //categories within a theme
 export const PERSON="person-key";
@@ -381,7 +381,7 @@ const initAdjs = () =>{
     adj_possibilities[GUIDING] = ["guiding","showing","explaining"];
     adj_possibilities[CRAFTING] = ["crafting","mining","logging","building","constructing","carving","smitting"];
     adj_possibilities[LANGUAGE] = ["reading","writing","speaking"];
-    adj_possibilities[BUGS] = ["swarming","buzzing","squirming"];
+    adj_possibilities[BUGS] = ["swarming","buzzing","squirming","buggy","chitinous"];
     adj_possibilities[ADDICTION] = ["craving","addicting","compelling","high"];
     adj_possibilities[SPYING] = ["spying","observing","watching","voyeuristic","seeking"];
     adj_possibilities[CLOWNS] = ["honking","funny","prancing","tumbling","joking","jeering","dancing","performing","jesting"];
@@ -1408,6 +1408,34 @@ const initChildBackstories = () =>{
 // https://archiveofourown.org/works/37392859/chapters/93313978
 const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
+    //maybe middle quests too
+
+    quest_possibilities[BUGS] = [
+        new QuestObject(
+            `The HiveQueen's Request`,
+            `The HiveQueen has approached you with a request: It is not fair that her Children starve while others have plenty. Bring her ${getRandomNumberBetween(1,13)} ${PERSON}S to feed her Children. Any quality will do. `,
+            `The ${PERSON}S are dragged off by the Children. You try not to think of their fate.`,
+            [new StatExceedValueTrigger(false,Stat.LIFE(10))],
+            [new AchievementTrigger(false)],
+            [new SkillReward(new CustomSkill(`The Hive Children`,3,`Thousands upon thousands of skittering many-legged Children devour your foes.`))]
+        ),
+        new QuestObject(
+            `The HiveQueen's Request Redux`,
+            `The Children have spread densely throughout the HiveQueen's territory. Claim ${getRandomNumberBetween(1,13)} ${LOCATION}S for them to colonize.`,
+            `The ${PERSON}S are dragged off by the Children. You try not to think of their fate.`,
+            [new SkillAcquired(false,"The Hive Children")],
+            [new AchievementTrigger(false)],
+            [new ItemReward("Hive Sword")]
+        ),
+        new QuestObject(
+            `A Home At Last`,
+            `Finally, it is time for the next stage in the HiveQueen's life cycle. Offer your body up to her, that she may turn you in to a home.`,
+            `You can feel them squirming beneath your skin. It itches. You dare not scratch. You would not want to harm those you love.`,
+            [new ItemInInventory(false,"Hive Sword")],
+            [new AchievementTrigger(false)],
+            [new EndReward()]
+        ),
+    ]
 
     quest_possibilities[BURIED] = [
         new QuestObject(
@@ -1446,7 +1474,7 @@ const initQuests = ()=>{
             [new GhostReward()]
         ),
         new QuestObject(
-            `Twist Illusions to Be Raality`,
+            `Twist Illusions to Be Reality`,
             `If you chose to, you can take this shortcut to ignore the illusion of a game so hard it becomes just a bit more real.`,
             `Have fun :) :) ;)`,
             [new AchievementTrigger(false)],
