@@ -29,6 +29,7 @@ import { RageReward } from './Quests/Rewards/RageReward';
 import { TruthReward } from './Quests/Rewards/TruthReward';
 import { ApocalypseReward } from './Quests/Rewards/ApocalypseReward';
 import { getRandomNumberBetween, pickFrom } from '../Utils/NonSeededRandUtils';
+import { QuestReward } from './Quests/Rewards/QuestReward';
 
 //categories within a theme
 export const PERSON="person-key";
@@ -1410,6 +1411,17 @@ const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     //maybe middle quests too
 
+    quest_possibilities[HUNTING] = [
+        new QuestObject(
+            `Everchase`,
+            `Rumor has it that anyone who manages to track down a(n) ${OBJECT} gains eternal happiness. Problem is no one has seen one in multiple lifetimes.  Are you up for the challenge?`,
+            `You hold the ${OBJECT} in trembling hands yet feel no happier. There must be some sort of mistake. Perhaps the rumor was wrong? Maybe it's some OTHER artifact you need to seek?`,
+            [new AchievementTrigger(false)],
+            [new ItemInInventory(false,`${OBJECT}`)],
+            [new QuestReward()]
+        ),
+    ]
+
     quest_possibilities[FLESH]= [
         new QuestObject(
             'Meat for the Meat Hole',
@@ -1442,7 +1454,7 @@ const initQuests = ()=>{
             [new ItemReward("Vial of Blood"),new StatReward(Stat.LIFE(3))]
         )
         ,new QuestObject(
-            'Become Hole',
+            'Become Hole, Become Whole',
             "You must become stronger.",
             `With Meat and Flesh and Blood And Bone you bind yourself. You feel your body twisting and stretching. The agony is indescribable but exquisite. This is how you were always meant to be. Whole. Your throat elongates and your teeth sharpen and grow and grow and grow as your torso sinks into the soft, soft earth. You are a mouth now. A mouth that eats.`,
             [new ItemInInventory(false,"Pulsating Meat"),new ItemInInventory(false,"Scrap of Flesh"),new ItemInInventory(false,"Splintered Bone"),new ItemInInventory(false,"Vial of Blood")],
