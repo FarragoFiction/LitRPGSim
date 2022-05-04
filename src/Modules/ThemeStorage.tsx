@@ -1425,13 +1425,13 @@ const initQuests = ()=>{
             `The ${PERSON}S are dragged off by the Children. You try not to think of their fate.`,
             [new SkillAcquired(false,"The Hive Children")],
             [new AchievementTrigger(false)],
-            [new ItemReward("Hive Sword")]
+            [new ItemReward("Hive Sack")]
         ),
         new QuestObject(
             `A Home At Last`,
             `Finally, it is time for the next stage in the HiveQueen's life cycle. Offer your body up to her, that she may turn you in to a home.`,
             `You can feel them squirming beneath your skin. It itches. You dare not scratch. You would not want to harm those you love.`,
-            [new ItemInInventory(false,"Hive Sword")],
+            [new ItemInInventory(false,"Hive")],
             [new AchievementTrigger(false)],
             [new EndReward()]
         ),
