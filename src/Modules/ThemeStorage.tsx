@@ -1666,6 +1666,24 @@ export const genericStartingQuests = ()=>{
         ),
 
         new QuestObject(
+            "A New Challenge!",
+            `A local ${PERSON} challenges you to find at least one ${OBJECT}. If you do, they'll make it worth your while.`,
+            `The ${PERSON} swallows the ${OBJECT} whole as you watch. You can faintly catch the whiff of ${SMELL} on their breath afterwards. What...is going on?  Before you can ask, they hand you a sack full of ITEMS and vanish into the night.`,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward(),new ItemReward(),new ItemReward()]
+        ),
+
+        new QuestObject(
+            "A New Mentor!",
+            `A local WISE ${PERSON} offers to teach you a skill if you can pay them with a ${OBJECT}.`,
+            `After a brief training montage set to the sound of ${SOUND} you have learned the ${ADJ} ${LOCATION} SKILL!`,
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemInInventory(false,`${OBJECT}`)], //auto unlock
+            [new SkillReward(new CustomSkill(`${ADJ} ${LOCATION} `,1,`${EFFECTS} as in your minds eye you visualize the ${ADJ}${LOCATION}. ${SOUND} fills the air. You feel stronger!  `))]
+        ),
+
+        new QuestObject(
             "A New Skill",
             `A local ${PERSON} tells you that only someone who knows a ${ADJ} skill can pull the sword from the stone. Will you be the first in 50 years to do so?`,
             `With a triumphant yell, you use your ${ADJ} skill and pull the sword from the stone! `,
@@ -1676,7 +1694,7 @@ export const genericStartingQuests = ()=>{
 
         new QuestObject(
             "A New Community",
-            `A ${PERSON} inroduces themself to you as the mayor of ERROR: TOWN NOT FOUND! They need your help clearing out 10 ${ADJ} ${PERSON}s that have been causing problems on the main roads!`,
+            `A ${PERSON} inroduces themself to you as the mayor of ERROR: TOWN NOT FOUND! They need your help clearing out 10 rival ${ADJ} ${PERSON}s that have been causing problems on the main roads!`,
             `The Mayor offers you their gratitude on behalf of the people and offers you a reward.`,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock

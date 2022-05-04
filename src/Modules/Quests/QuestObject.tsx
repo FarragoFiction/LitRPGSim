@@ -67,7 +67,7 @@ export  class QuestObject{
         this.setCompleted();
         const rewardRes = this.gatherRewards(player);
         (window as any).refresh();
-        AchivementPopupKickoff({ title: "Quest Reward!", text: this.replaceTags(this.completionText) + " "+ bonus, skillPoints: 10, reward: rewardRes });
+        AchivementPopupKickoff({ title: "Quest Reward! ", text: " " + this.replaceTags(this.completionText) + " "+ bonus, skillPoints: 10, reward: rewardRes });
     }
 
     setCompleted = ()=>{
