@@ -1411,6 +1411,24 @@ const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     //maybe middle quests too
 
+    quest_possibilities[FAMILY] =[
+        )
+        , new QuestObject("A Sudden Turn!",
+            "Oh no! Doc Slaughter has betrayed the party! No one could possibly have predicted this! Now the race is on to see who will be first to the TOWER OF ETERNITY to claim the EIGHTFOLD SWORD! ",
+            "As DOC SLAUGHTER grips the EIGHTFOLD SWORD, all seems lost. To your surprise, she turns and hands it to you. 'I'm sorry to have scared you so much. Actually, I am a double agent. I've been on your side the whole time', she explains, apologetically.",
+            [new ExceedValueTrigger(false,10, "numClicks")],
+            [new ExceedValueTrigger(false,30, "numClicks"),new StatExceedValueTrigger(false,Stat.BLOOD(3))],
+            [new ItemReward("EIGHTFOLD SWORD")]
+        )
+        , new QuestObject("A Sudden Turn Redux!",
+            `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to ${GODNAME}, god of ${GODDOMAINS} to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
+            "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
+            [new StatExceedValueTrigger(false,Stat.BLOOD(10))],
+            [new ItemInInventory(false,"PHOTO")],
+            [new SkillReward(new CustomSkill("The Power Of Friendship", 3,"As long as you have your friends by your side, no one, not even your former betrayer Doc Slaughter can stand against you.")), new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))]
+        ),
+    ]
+
     quest_possibilities[HUNTING] = [
         new QuestObject(
             `Everchase`,
@@ -1718,8 +1736,15 @@ export const genericEndingQuests = ()=>{
         new QuestObject("An Exciting Finish!",
             "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
             "THE END",
-            [new ExceedValueTrigger(false,1, "numberQuestsCompleted")],
-            [new ExceedValueTrigger(false,2, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false,10, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false,12, "numberQuestsCompleted")],
+            [new EndReward()]
+        ),
+        new QuestObject("Doc Slaughter's Demise!",
+            "You've finally corned the nevarious Doc Slaughter.  Prepare for the final battle! WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
+            "Justice has finally been served.",
+            [new ExceedValueTrigger(false,10, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false,12, "numberQuestsCompleted"),new StatExceedValueTrigger(false,Stat.DOOM(10))],
             [new EndReward()]
         )
     ]
