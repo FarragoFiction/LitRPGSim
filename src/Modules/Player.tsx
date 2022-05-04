@@ -149,7 +149,7 @@ export class Player {
         for(let theme of themes){
             quests = [...quests, ...theme.quests];
         }
-        quests = [...quests, ...this.rand.pickXFrom(genericEndingQuests(),5)];
+        quests = [...quests, ...this.rand.pickXFrom(genericEndingQuests(),2)];
        // quests = uniq(quests);
 
         for(let quest of quests){

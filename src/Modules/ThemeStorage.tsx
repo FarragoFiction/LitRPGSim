@@ -514,7 +514,7 @@ const initObjects = () =>{
     object_possibilities[FIRE] = ["match","lighter","charcoal","kindling"];
     object_possibilities[LONELY] = ["diary","locket","solitaire deck"];
     object_possibilities[OCEAN] = ["anchor","ship in a bottle","captains hat","raincoat"];
-    object_possibilities[FLESH] =  ["meat slab", "butcher knife","bone","flesh cube","meat","sirloin","ribeye","steak","beef","guts","intestines","blood"];
+    object_possibilities[FLESH] =  ["meat slab", "butcher knife","bone","flesh cube","meat","sirloin","ribeye","steak","beef","guts","intestines","blood","flesh"];
     object_possibilities[BURIED] =  ["shovel", "pickax","minecart","coffin","dirt","mudball","cave map"];
     object_possibilities[SCIENCE] =  ["test tube", "beaker","lab coat","microscope"];
     object_possibilities[MATH] =  ["calculator", "ruler","graph paper","pencil","compass","caliper"];
@@ -562,14 +562,14 @@ const initMenuOptions = () =>{
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
     menu_options[ART] =  [INVENTORY,BACKSTORY];
     menu_options[TECHNOLOGY] =  [CODE];
-    menu_options[SPACE] =  [CITYBUILDING, QUESTS];
+    menu_options[SPACE] =  [CITYBUILDING, QUESTS, RECAP];
     menu_options[TIME] =  [STATISTICS, RECAP];
     menu_options[STEALING] =  [INVENTORY,BACKSTORY];
     menu_options[FREEDOM] =  [QUESTS, RECAP];
     menu_options[FIRE] =  [WARROOM];
     menu_options[LONELY] =  [BACKSTORY,INVENTORY];
     menu_options[OCEAN] =  [CITYBUILDING];
-    menu_options[FLESH] =  [STATUS];
+    menu_options[FLESH] =  [STATUS,QUESTS, RECAP];
     menu_options[BURIED] =  [LORE,QUESTS, RECAP];
     menu_options[MATH] =  [STATISTICS];
     menu_options[SCIENCE] =  [LORE,QUESTS, RECAP];
@@ -1410,6 +1410,47 @@ const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     //maybe middle quests too
 
+    quest_possibilities[FLESH]= [
+        new QuestObject(
+            'Meat for the Meat Hole',
+            `There is a hole in the ground with teeth. Fill it with meat.`,
+            `You unceremoniously drop the meat into the hole. The teeth mash and chew. There is a sickening squelch, and then a chunk of meat is ejected from the hole.`,
+            [new StatExceedValueTrigger(false,Stat.LIFE(3))],
+            [new ItemInInventory(false,"Meat")],
+            [new ItemReward("Pulsating Meat"),new StatReward(Stat.LIFE(3))]
+        ),new QuestObject(
+            'Flesh for the Flesh Hole',
+            `There is a hole in the ground with teeth. Fill it with flesh.`,
+            `You unceremoniously drop the flesh into the hole. The teeth mash and chew. There is a sickening squelch, and then a chunk of flesh is ejected from the hole.`,
+            [new StatExceedValueTrigger(false,Stat.LIFE(6))],
+            [new ItemInInventory(false,"Flesh")],
+            [new ItemReward("Scrap of Flesh"),new StatReward(Stat.LIFE(3))]
+        ),
+        new QuestObject(
+            'Bone for the Bone Hole',
+            `There is a hole in the ground with teeth. Fill it with bone.`,
+            `You unceremoniously drop the bone into the hole. The teeth mash and chew. There is a sickening crunch, and then splinters of bone are ejected from the hole.`,
+            [new StatExceedValueTrigger(false,Stat.LIFE(9))],
+            [new ItemInInventory(false,"Bone")],
+            [new ItemReward("Splintered Bone"),new StatReward(Stat.LIFE(3))]
+        ),new QuestObject(
+            'Blood for the Blood Hole',
+            `There is a hole in the ground with teeth. Fill it with blood.`,
+            `You unceremoniously pour the blood into the hole. The teeth close. There is a sickening squelch, and then blood begins geysering back out of the hole.`,
+            [new StatExceedValueTrigger(false,Stat.LIFE(12))],
+            [new ItemInInventory(false,"Blood")],
+            [new ItemReward("Vial of Blood"),new StatReward(Stat.LIFE(3))]
+        )
+        ,new QuestObject(
+            'Become Hole',
+            "You must become stronger.",
+            `With Meat and Flesh and Blood And Bone you bind yourself. You feel your body twisting and stretching. The agony is indescribable but exquisite. This is how you were always meant to be. Whole. Your throat elongates and your teeth sharpen and grow and grow and grow as your torso sinks into the soft, soft earth. You are a mouth now. A mouth that eats.`,
+            [new ItemInInventory(false,"Pulsating Meat"),new ItemInInventory(false,"Scrap of Flesh"),new ItemInInventory(false,"Splintered Bone"),new ItemInInventory(false,"Vial of Blood")],
+            [new StatExceedValueTrigger(false,Stat.LIFE(18))],
+            [new EndReward()]
+        )
+    ]
+
     quest_possibilities[BUGS] = [
         new QuestObject(
             `The HiveQueen's Request`,
@@ -1429,9 +1470,9 @@ const initQuests = ()=>{
         ),
         new QuestObject(
             `A Home At Last`,
-            `Finally, it is time for the next stage in the HiveQueen's life cycle. Offer your body up to her, that she may turn you in to a home.`,
+            `Finally, it is time for the next stage in the HiveQueen's life cycle. Offer your body up to her Hive that she has gifted you, that she may turn you in to a home.`,
             `You can feel them squirming beneath your skin. It itches. You dare not scratch. You would not want to harm those you love.`,
-            [new ItemInInventory(false,"Hive")],
+            [new ItemInInventory(false,"Hive"),new StatExceedValueTrigger(false,Stat.LIFE(10))],
             [new AchievementTrigger(false)],
             [new EndReward()]
         ),

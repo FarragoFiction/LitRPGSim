@@ -29,6 +29,10 @@ export class ItemInInventory extends AchievementTrigger {
                 ret = true;
             }
         }
+        //seriously. just. if you don't have an inventory you don't have an inventory
+        if(observer.inventoryMenuLevel<=0){
+            ret = false;
+        }
         if (this.invert) {
             return !ret;
         } else {
