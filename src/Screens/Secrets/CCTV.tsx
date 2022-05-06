@@ -91,7 +91,7 @@ export const CCTVScreen = (props: StatusProps) => {
             blorbo_array.push(match);
             blorbo_array.push(end);
         }
-        localStorage[reportKey]  = blorbo_array;
+        localStorage[reportKey]  = JSON.stringify(blorbo_array);
 
 
     },[])
