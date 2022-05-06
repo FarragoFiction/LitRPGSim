@@ -1437,12 +1437,36 @@ const initQuests = () => {
 
     quest_possibilities[QUESTING] = [
         new QuestObject(
-            `Stat Test`,
-            `Get Gud. Have ${STAT} higher.`,
-            `You hold the ${OBJECT} in trembling hands yet feel no happier. There must be some sort of mistake. Perhaps the rumor was wrong? Maybe it's some OTHER artifact you need to seek?`,
+            `Everquest1`,
+            `You know you can do better. You set the personal goal for yourself to raise your ${STAT} stat higher.`,
+            `It's a good start.`,
             [new AchievementTrigger(false)],
             [new StatExceedValueTrigger(false, undefined, 10)], //not passing in a stat means 'pick the associated stat'
-            [new QuestReward()]
+            [new StatReward(undefined, 3), new QuestReward()]
+        ),
+        new QuestObject(
+            `Everquest2`,
+            `You know you can do better. You set the personal goal for yourself to get a  ${ADJ} item.`,
+            `It's a good start.`,
+            [new AchievementTrigger(false)],
+            [new ItemInInventory(false,`${ADJ}`)], 
+            [new ItemReward(), new QuestReward()]
+        ),
+        new QuestObject(
+            `Everquest3`,
+            `You know you can do better. You set the personal goal for yourself to get a  ${OBJECT} item.`,
+            `It's a good start.`,
+            [new AchievementTrigger(false)],
+            [new ItemInInventory(false,`${OBJECT}`)],
+            [new ItemReward(), new QuestReward()]
+        ),
+        new QuestObject(
+            `Everquest4`,
+            `You know you can do better. You set the personal goal for yourself to get a  ${ADJ} skill.`,
+            `It's a good start.`,
+            [new AchievementTrigger(false)],
+            [new SkillAcquired(false,`${OBJECT}`)],
+            [new SkillReward(new CustomSkill(`You Can Do Better`,3,`The siren song of 'You Can Do Better' sings to you. You have to keep grinding. EXP doubled for the next hour.`)), new QuestReward()]
         ),
     ]
 

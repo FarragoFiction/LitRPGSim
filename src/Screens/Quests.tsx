@@ -77,7 +77,7 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
     return (
         <QuestLine>
             <QuestHeader>
-                {quest.replaceTags(quest.title, player)} {quest.stat?.name()}
+                {quest.replaceTags(quest.title, player)}
             </QuestHeader>
             <QuestSection>
                 {quest.replaceTags(quest.flavorText, player)}
