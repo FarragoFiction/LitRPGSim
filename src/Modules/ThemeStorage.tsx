@@ -1549,23 +1549,41 @@ const initQuests = () => {
         ),
     ]
 
+    const dig1 = new QuestObject(
+        `DIG: 1`,
+        `DIG`,
+        `You DIG and DIG and DIG and DIG and are never seen again.`,
+        [new AchievementTrigger(false)],
+        [new AchievementTrigger(false)],
+        [new RabbitReward()]
+    );
+
+    const dig2 = new QuestObject(
+        `DIG: 2`,
+        `DIG`,
+        `You DIG and DIG and DIG and DIG and are never seen again.`,
+        [new AchievementTrigger(false)],
+        [new AchievementTrigger(false)],
+        [new GhostReward()]
+    );
+
     quest_possibilities[BURIED] = [
         new QuestObject(
             `DIG`,
             `DIG`,
-            `You DIG and DIG and DIG and DIG and are never seen again.`,
+            `You DIG.`,
             [new AchievementTrigger(false)],
             [new AchievementTrigger(false)],
-            [new RabbitReward()]
+            [new QuestReward(dig1)]
         ),
         new QuestObject(
             `DIG`,
             `DIG`,
-            `You DIG and DIG and DIG and DIG and are never seen again.`,
+            `You DIG.`,
             [new AchievementTrigger(false)],
             [new AchievementTrigger(false)],
-            [new GhostReward()]
-        ),
+            [new QuestReward(dig2)]
+        )
     ]
 
     quest_possibilities[WASTE] = [
