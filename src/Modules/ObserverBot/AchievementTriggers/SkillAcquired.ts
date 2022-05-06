@@ -1,3 +1,4 @@
+import { QuestObject } from "../../Quests/QuestObject";
 import { ObserverBot } from "../ObserverBot";
 import { AchievementTrigger } from "./AchievementTrigger";
 
@@ -18,11 +19,11 @@ export class SkillAcquired extends AchievementTrigger {
         return `A SKILL CALLED ${[this.text]} MUST BE KNOWN`;
     }
 
-    triggered = (observer: ObserverBot, tagReplacingFunction?: (text: string) => string) => {
+    triggered = (observer: ObserverBot,  quest?: QuestObject) => {
         let ret = false;
         this.text = this.skillName;
-        if (tagReplacingFunction) {
-            this.text = tagReplacingFunction(this.text);
+        if (quest) {
+            this.text = quest.replaceTags(this.text);
         }
         for (let item of observer.player.unlocked_skills()) {
             if (item.name.toUpperCase().includes(this.text.toUpperCase())) {

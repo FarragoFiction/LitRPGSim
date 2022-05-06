@@ -1,3 +1,4 @@
+import { QuestObject } from "../../Quests/QuestObject";
 import { ObserverBot } from "../ObserverBot";
 import { AchievementTrigger } from "./AchievementTrigger";
 
@@ -18,10 +19,10 @@ export class ItemInInventory extends AchievementTrigger {
         return `AN ITEM CALLED ${[this.text]} MUST BE IN YOUR INVENTORY`;
     }
 
-    triggered = (observer: ObserverBot, tagReplacingFunction?: (text: string) => string) => {
+    triggered = (observer: ObserverBot,  quest?: QuestObject) => {
         this.text = this.itemPart;
-        if (tagReplacingFunction) {
-            this.text = tagReplacingFunction(this.text);
+        if (quest) {
+            this.text = quest.replaceTags(this.text);
         }
         let ret = false;
         for (let item of observer.player.inventory) {

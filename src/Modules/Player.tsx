@@ -198,6 +198,13 @@ export class Player {
         }else{
             quest.god = this.rand.pickFrom(this.gods);
         }
+        //  return rand.pickFrom(Object.values(theme.stats)).copy(parent.tier +1);
+        if(!quest.stat){
+            const chosen_theme = all_themes[this.rand.pickFrom(this.theme_keys)]
+            quest.stat = this.rand.pickFrom(Object.values(chosen_theme.stats)).copy(3);
+        }
+
+
     }
 
     shadowInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[]) => {

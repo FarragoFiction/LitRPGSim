@@ -1,3 +1,4 @@
+import { QuestObject } from "../../Quests/QuestObject";
 import { ObserverBot } from "../ObserverBot";
 
 export  class AchievementTrigger{
@@ -7,11 +8,12 @@ export  class AchievementTrigger{
         this.invert = invert;
     }
 
-   toString = ()=>{
+   toString = (quest?: QuestObject)=>{
        return "AUTO UNLOCK";
    }
 
-   triggered = (observer: ObserverBot, tagReplacingFunction?: (text:string)=>string )=>{
+   triggered = (observer: ObserverBot, quest?: QuestObject )=>{
        return true; //JR NOTE: children will overwrite this
    }
+   
 }

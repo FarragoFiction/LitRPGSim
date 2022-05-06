@@ -77,7 +77,7 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
     return (
         <QuestLine>
             <QuestHeader>
-                {quest.replaceTags(quest.title, player)}
+                {quest.replaceTags(quest.title, player)} {quest.stat?.name()}
             </QuestHeader>
             <QuestSection>
                 {quest.replaceTags(quest.flavorText, player)}
@@ -86,9 +86,9 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
                     <Conditions> COMPLETED!</Conditions>
                     :
                     <Fragment>
-                        <Conditions>Unlocked via: {quest.unlockTriggers.join(". ") + "."}</Conditions>
+                        <Conditions>Unlocked via: {quest.unlockTriggers.map((item)=>{return item.toString(quest)}).join(". ") + "."}</Conditions>
 
-                        <Conditions>To Turn In: {quest.turnInTriggers.join(". ") + "."}</Conditions>
+                        <Conditions>To Turn In: {quest.turnInTriggers.map((item)=>{return item.toString(quest)}).join(". ") + "."}</Conditions>
                         <button onClick={giveReward} disabled={!quest.canTurnIn(player.observer)} className="styled_button"> TURN IN!</button>
                     </Fragment>
                 }

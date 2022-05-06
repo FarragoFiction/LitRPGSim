@@ -5,7 +5,9 @@ import { AchievementTrigger } from "../ObserverBot/AchievementTriggers/Achieveme
 import AchivementPopupKickoff from "../ObserverBot/AchivementPopup";
 import { ObserverBot } from "../ObserverBot/ObserverBot";
 import { Companion, Player } from "../Player";
+import { Stat } from "../Stat";
 import { collateThemes, Theme } from "../Theme";
+import { STAT } from "../ThemeStorage";
 import { Reward } from "./Rewards/GenericReward";
 
 export const GODNAME = "<GODNAME>"
@@ -39,12 +41,13 @@ export  class QuestObject{
     companion: Companion | undefined;
     god: God | undefined;
     god_index : GodDescription | undefined;
+    stat?: Stat;
     rand: SeededRandom | undefined;
     string_possibilities: PossibilitiesMap;
 
 
 
-    constructor(title:string, flavorText: string, completionText: string, unlockTrigger: AchievementTrigger[],turnInTrigger: AchievementTrigger[], reward: Reward[], god_index?: GodDescription){
+    constructor(title:string, flavorText: string, completionText: string, unlockTrigger: AchievementTrigger[],turnInTrigger: AchievementTrigger[], reward: Reward[], god_index?: GodDescription, stat?:Stat){
         this.title = title;
         this.god_index = god_index;
         this.flavorText = flavorText;
@@ -54,6 +57,7 @@ export  class QuestObject{
         this.rewards = reward;
         this.completed = false;
         this.string_possibilities = {};
+        this.stat = stat;
     }
 
     copy = ()=>{
@@ -76,7 +80,7 @@ export  class QuestObject{
 
     unlocked = (observer: ObserverBot)=>{
         for(let item of this.unlockTriggers){
-            if(!item.triggered(observer,this.replaceTags)){
+            if(!item.triggered(observer,this)){
                 return false;
             }
         }
@@ -85,7 +89,7 @@ export  class QuestObject{
 
     canTurnIn = (observer: ObserverBot)=>{
         for(let item of this.turnInTriggers){
-            if(!item.triggered(observer,this.replaceTags)){
+            if(!item.triggered(observer,this)){
                 return false;
             }
         }
@@ -104,6 +108,11 @@ export  class QuestObject{
         if(this.companion){
             ret = ret.replaceAll(COMPANIONNAME, this.companion.fullName);
             ret = ret.replaceAll(COMPANIONTITLE, this.companion.title);
+        }
+
+        if(this.stat){
+            ret = ret.replaceAll(STAT, this.stat.name());
+
         }
         ret = this.replaceThemes(ret);
 

@@ -57,6 +57,7 @@ export const TASTE = "TASTE-key";
 export const FEELING = "FEELING-key";
 export const SOUND = "SOUND-key";
 export const EFFECTS = "EFFECTS-key";
+export const STAT = "STAT-key";
 
 
 //themes
@@ -1434,6 +1435,17 @@ const initQuests = () => {
         
     ]
 
+    quest_possibilities[QUESTING] = [
+        new QuestObject(
+            `Stat Test`,
+            `Get Gud. Have ${STAT} higher.`,
+            `You hold the ${OBJECT} in trembling hands yet feel no happier. There must be some sort of mistake. Perhaps the rumor was wrong? Maybe it's some OTHER artifact you need to seek?`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false, undefined, 10)], //not passing in a stat means 'pick the associated stat'
+            [new QuestReward()]
+        ),
+    ]
+
     quest_possibilities[HUNTING] = [
         new QuestObject(
             `Everchase`,
@@ -1693,7 +1705,7 @@ export const genericStartingQuests = () => {
             `A local ${PERSON} challenges you to find at least one ${OBJECT}. If you do, they'll make it worth your while.`,
             `The ${PERSON} swallows the ${OBJECT} whole as you watch. You can faintly catch the whiff of ${SMELL} on their breath afterwards. What...is going on?  Before you can ask, they hand you a sack full of ITEMS and vanish into the night.`,
             [new AchievementTrigger(false)], //auto unlock
-            [new AchievementTrigger(false)], //auto unlock
+            [new ItemInInventory(false, `${OBJECT}`)], 
             [new ItemReward(), new ItemReward(), new ItemReward()]
         ),
 
