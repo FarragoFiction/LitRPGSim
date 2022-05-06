@@ -35,6 +35,7 @@ export  class QuestObject{
     turnInTriggers: AchievementTrigger[];
     unlockTriggers: AchievementTrigger[];
     rewards: Reward[];
+    rewardText = "";
     theme_keys: string[] | undefined;
     completed: boolean;
     //only ONE companion because theres no guarantee of any more than that
@@ -71,6 +72,7 @@ export  class QuestObject{
         this.setCompleted();
         const rewardRes = this.gatherRewards(player);
         (window as any).refresh();
+        this.rewardText = rewardRes;
         AchivementPopupKickoff({ title: "Quest Reward! ", text: " " + this.replaceTags(this.completionText) + " "+ bonus, skillPoints: 10, reward: rewardRes });
     }
 

@@ -25,6 +25,6 @@ export  class StatReward extends Reward{
             return "ERROR NO STAT FOUND";
         }
         player.addStat(stat);
-        return `Raised ${stat.name()} by ${stat.absolute_value()}!;`;
+        return `Raised ${stat.name()} by ${stat.absolute_value()}!`;
     }
  }

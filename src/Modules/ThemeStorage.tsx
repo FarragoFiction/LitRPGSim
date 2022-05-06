@@ -1735,11 +1735,11 @@ export const genericStartingQuests = () => {
     const ret = [
         new QuestObject(
             "A New Beginning!",
-            `After finally joining the wild world of Zampanio, a ${PERSON} has given you a starter Quest! Bring him 4 ${ADJ} RABBITS! You can find them in STARTER ${LOCATION} during the DAY!`,
+            `After finally joining the wild world of Zampanio, a ${PERSON} has given you a starter Quest! Bring them 4 ${ADJ} RABBITS! You can find them in STARTER ${LOCATION} during the DAY!`,
             `The ${PERSON} scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, they hand you ten rabbit skins. You.... guess they just really like rabbit?`,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
-            [new ItemReward("Rabbit Pelts")]
+            [new ItemReward("Rabbit Pelts"),new StatReward(undefined,3)]
         ),
 
         new QuestObject(
@@ -1775,28 +1775,88 @@ export const genericStartingQuests = () => {
             `With a triumphant yell, you use your ${ADJ} skill and pull the sword from the stone! `,
             [new AchievementTrigger(false)], //auto unlock
             [new SkillAcquired(false, `${ADJ}`)], //auto unlock
-            [new ItemReward(`${ADJ} SWORD`)]
+            [new ItemReward(`${ADJ} SWORD`),new StatReward(undefined,3)]
         ),
 
         new QuestObject(
             "A New Community",
-            `A ${PERSON} inroduces themself to you as the mayor of ERROR: TOWN NOT FOUND! They need your help clearing out 10 rival ${ADJ} ${PERSON}s that have been causing problems on the main roads!`,
+            `A ${PERSON} inroduces themself to you as the mayor of ERROR: TOWN NOT FOUND! They need your help clearing out 10 rival ${ADJ} ${PERSON}S that have been causing problems on the main roads!`,
             `The Mayor offers you their gratitude on behalf of the people and offers you a reward.`,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
-            [new ItemReward()]
+            [new ItemReward(),new StatReward(undefined,3)]
         ),
         new QuestObject(
             "A New Friend!",
-            `${COMPANIONNAME} introduces themselves to you as the ${COMPANIONTITLE}. They offer to join your party if you can retrieve their  ${ADJ} ${OBJECT} from a local gang of ${PERSON}s.`,
-            `${COMPANIONNAME}  gives you a big grin and says you're simply the best there is at killing ${PERSON}s.`,
+            `${COMPANIONNAME} introduces themselves to you as the ${COMPANIONTITLE}. They offer to join your party if you can retrieve their  ${ADJ} ${OBJECT} from a local gang of ${PERSON}S.`,
+            `${COMPANIONNAME}  gives you a big grin and says you're simply the best there is at killing ${PERSON}S.`,
             [new AchievementTrigger(false)], //auto unlock
             [new ItemInInventory(false, `${OBJECT}`)],
-            [new LoyaltyReward()]
+            [new LoyaltyReward(),new StatReward(undefined,3)]
         )
     ];
     return ret;
 }
+
+export const genericMiddleQuests = () => {
+    const ret = [
+        new QuestObject(
+            "A Reputation Earned!",
+            `A ${PERSON} approaches you in desperate need of four ${ADJ} DRAGON'S killed. They've heard you're the only person up to the task, won't you please help them?`,
+            `With tears in their eyes, the  ${PERSON} transforms into a ${ADJ} DRAGON and thanks you for disposing of their rivals.`,
+            [new StatExceedValueTrigger(false, undefined, 5)], 
+            [new AchievementTrigger(false)],
+            [new ItemReward(), new StatReward(undefined,5)]
+        ),
+
+        new QuestObject(
+            "A Challenge Earned!",
+            `The local ${OBJECT} guild  challenges you to collect a rare and highly valued ${OBJECT}. If you do, they'll officially offer to let you become a member.`,
+            `With a sneer, the ${OBJECT} guild representative explains that your specimen is no where NEAR good enough to become a member. They offer you a trinket from their excess donation pile as a consolation prize.`,
+            [new StatExceedValueTrigger(false, undefined, 5)], 
+            [new ItemInInventory(false, `${OBJECT}`)], 
+            [new ItemReward(),new StatReward(undefined,5)]
+        ),
+
+        new QuestObject(
+            "Becoming the Teacher",
+            `A young ${PERSON} begs you to teach them an ${ADJ} skill, and offers  ${OBJECT} as payment.`,
+            `After a brief training montage set to the sound of ${SOUND} you have taught the  ${ADJ}  SKILL!`,
+            [new StatExceedValueTrigger(false, undefined, 5)], 
+            [new SkillAcquired(false, `${ADJ}`)], 
+            [new ItemReward(`${ADJ} ${OBJECT}`),new StatReward(undefined,5)]
+        ),
+
+        new QuestObject(
+            "Becoming the Trainer",
+            `A newbie ${PERSON} asks if you could teach them more about ${STAT} in exchange for an ${ADJ} ${OBJECT}.`,
+            `After a brief training montage set to the sound of ${SOUND} you have taught your student!`,
+            [new StatExceedValueTrigger(false, undefined, 5)], 
+            [new StatExceedValueTrigger(false, undefined, 10)], 
+            [new ItemReward(`${ADJ} ${OBJECT}`)]
+        ),
+
+        new QuestObject(
+            "Inventng Skills",
+            `After learning a basic ${ADJ} skill, you feel there MUST be a ${ADJ} ${OBJECT} skill out there. You can feel it in your bones. Do you dare try to invent it?`,
+            `With a triumphant yell, you use your ${ADJ} ${OBJECT} skill for the first time without anything exploding. You've done it!`,
+            [new SkillAcquired(false, `${ADJ}`)],
+            [new StatExceedValueTrigger(false, undefined, 10)], 
+            [new StatReward(undefined,5),new SkillReward(new CustomSkill(`${ADJ} ${Object}`,3,`There is nothing quite like the satisfaction of hard work paying off.  The ${EFFECTS} of your skill seems stronger than you'd think, because you created it yourself.`))]
+        ),
+
+        new QuestObject(
+            "Recruiting Allies!",
+            `${COMPANIONNAME} suggests that a few more allies couldn't hurt. If you raise your ${STAT} stat high enough you may attract worthy ones.`,
+            `With your ${STAT} high enough a nearby ${PERSON} is impressed and offers to join your party!`,
+            [new StatExceedValueTrigger(false, undefined, 5)], //auto unlock
+            [new StatExceedValueTrigger(false, undefined, 10)],
+            [new StatReward(undefined,5),new CompanionReward(`${ADJ} ${PERSON}`,`The ${ADJ} ${PERSON} was so taken in by your alluring ${STAT} stat that they could not help but join your cause.`, `${PERSON} of ${OBJECT}`)]
+        )
+    ];
+    return ret;
+}
+
 
 //turning in any of these should roll credits
 export const genericEndingQuests = () => {
@@ -1805,14 +1865,14 @@ export const genericEndingQuests = () => {
             "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
             "THE END",
             [new ExceedValueTrigger(false, 10, "numberQuestsCompleted")],
-            [new ExceedValueTrigger(false, 12, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false, 15, "numberQuestsCompleted")],
             [new EndReward()]
         ),
         new QuestObject("Doc Slaughter's Demise!",
             "You've finally corned the nefarious Doc Slaughter.  Prepare for the final battle! WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
             "Justice has finally been served.",
             [new ExceedValueTrigger(false, 10, "numberQuestsCompleted")],
-            [new ExceedValueTrigger(false, 12, "numberQuestsCompleted"), new StatExceedValueTrigger(false, Stat.DOOM(10))],
+            [new ExceedValueTrigger(false, 15, "numberQuestsCompleted"), new StatExceedValueTrigger(false, Stat.DOOM(10))],
             [new EndReward()]
         )
     ]

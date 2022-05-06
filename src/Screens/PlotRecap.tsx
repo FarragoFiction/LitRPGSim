@@ -114,6 +114,9 @@ const StoryItem: React.FC<StoryItemProps> = ({ storyItem }) => {
             <QuestSection>
                 {storyItem.replaceTags(storyItem.completionText)}
             </QuestSection>
+            <QuestSection>
+                {storyItem.replaceTags(storyItem.rewardText)}
+            </QuestSection>
         </QuestLine>
     )
 

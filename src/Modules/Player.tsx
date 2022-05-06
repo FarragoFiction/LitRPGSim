@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, genericEndingQuests, genericStartingQuests, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, testQuestObjects, TWISTING } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, genericEndingQuests, genericMiddleQuests, genericStartingQuests, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, testQuestObjects, TWISTING } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -146,9 +146,20 @@ export class Player {
     generateQuests = (themes: Theme[])=>{
         let quests = [...this.rand.pickXFrom(genericStartingQuests(),5)];
 
+        const questsBeforeThemes = quests.length;
+
         for(let theme of themes){
             quests = [...quests, ...theme.quests];
         }
+        const questsAfterThemes = quests.length;
+
+        const amountNeededForPadding = 10-Math.max(0,questsAfterThemes-questsBeforeThemes);
+        console.log("JR NOTE: amount of generic middle quests needed for padding is", amountNeededForPadding)
+        if(amountNeededForPadding>0){
+            quests =[...quests, ...this.rand.pickXFrom(genericMiddleQuests(),amountNeededForPadding)];
+        }
+
+        //genericMiddleQuests
         quests = [...quests, ...this.rand.pickXFrom(genericEndingQuests(),2)];
        // quests = uniq(quests);
 
