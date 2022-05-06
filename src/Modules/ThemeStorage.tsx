@@ -1554,7 +1554,7 @@ const initQuests = () => {
         `DIG`,
         `You DIG and DIG and DIG and DIG and are never seen again.`,
         [new AchievementTrigger(false)],
-        [new AchievementTrigger(false)],
+        [new StatExceedValueTrigger(false, undefined, 10)],
         [new RabbitReward()]
     );
 
@@ -1563,7 +1563,7 @@ const initQuests = () => {
         `DIG`,
         `You DIG and DIG and DIG and DIG and are never seen again.`,
         [new AchievementTrigger(false)],
-        [new AchievementTrigger(false)],
+        [new StatExceedValueTrigger(false, undefined, 10)],
         [new GhostReward()]
     );
 
@@ -1573,7 +1573,7 @@ const initQuests = () => {
             `DIG`,
             `You DIG.`,
             [new AchievementTrigger(false)],
-            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false, undefined, 5)],
             [new QuestReward(dig1)]
         ),
         new QuestObject(
@@ -1581,7 +1581,7 @@ const initQuests = () => {
             `DIG`,
             `You DIG.`,
             [new AchievementTrigger(false)],
-            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false, undefined, 5)],
             [new QuestReward(dig2)]
         )
     ]
