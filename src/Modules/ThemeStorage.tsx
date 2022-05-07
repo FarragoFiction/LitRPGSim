@@ -1854,6 +1854,14 @@ export const genericMiddleQuests = () => {
             [new StatReward(undefined,5),new CompanionReward(`${ADJ} ${PERSON}`,`The ${ADJ} ${PERSON} was so taken in by your alluring ${STAT} stat that they could not help but join your cause.`, `${PERSON} of ${OBJECT}`)]
         )
     ];
+    /*
+    now
+    i can absolutely give this random companion a real name 
+    but i feel like its funnier if you have like
+    tiers of companions
+    the ones without names are just a little less real
+    don't you think
+    */
     return ret;
 }
 
