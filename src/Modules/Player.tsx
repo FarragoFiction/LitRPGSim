@@ -567,7 +567,7 @@ export   class Companion{
         this.backstory = shadowPlayer.backstory;
         const first_names = ["Ria","Devona","Neville","Witherby","Camille","Craig","John","Jude","Jade","Joey","Rose","Roxy","Jeff","Dave","Dirk","Jove","Jake","Sophie","Jaxon","Basira","Daisy","Martin","Georgie","Sasha","James","Taylor","Victoria","Jean-Paul","Bob","Alice","Carol","Eve","Adam","Rachel","Brian","Aisha","Alexandra","Alex","Tobias","Marco","Cassie","Tom","Lisa","Sarah"," Sylvester","Gordon","Helen","Jamie","Lillian","Mary","Ashton","Peter","Zawhei","Eirikr","Volour","Okarin","Peewee","Hagala","Despap","Othala","Gertrude","Mike","Michael","Peter","Simon","Manuela","Annabel"];
         const last_names = ["Researcher","Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
-        this.fullName = `${ rand.pickFrom(first_names) } ${ rand.pickFrom(last_names) } `;
+        this.fullName = `${ rand.pickFrom(first_names) } ${ rand.pickFrom(last_names) }`;
         this.theme_keys = shadowPlayer.theme_keys;//needed for shoving them into quests
         this.loyalty = shadowPlayer.stats[LOYAL].value;
         this.inventory = shadowPlayer.inventory;

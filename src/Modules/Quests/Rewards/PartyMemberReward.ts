@@ -3,15 +3,15 @@ import { QuestObject } from "../QuestObject";
 import { Reward } from "./GenericReward";
 
 export  class CompanionReward extends Reward{
-    name: string;
-    backstory: string;
-    title: string
+    name?: string;
+    backstory?: string;
+    title?: string
 
     toString = ()=>{
         return `${this.name} joins the party!`;
     }
 
-    constructor(name: string, backstory: string, title: string){
+    constructor(name?: string, backstory?: string, title?: string){
         super();
         this.name = name;
         this.backstory = backstory;
@@ -19,9 +19,13 @@ export  class CompanionReward extends Reward{
     }
 
     giveReward = (player: Player, quest:QuestObject)=>{
-        let ret = this.toString();
-        const companion = randomCompanion(player.rand,false,quest.replaceTags(this.name), quest.replaceTags(this.backstory), quest.replaceTags(this.title));
+        //if its undefined, just pass it through and it'll randomize
+        const name  = this.name?quest.replaceTags(this.name):this.name;
+        const backstory  = this.backstory?quest.replaceTags(this.backstory):this.backstory;
+        const title  = this.title?quest.replaceTags(this.title):this.title;
+
+        const companion = randomCompanion(player.rand,false,name, backstory, title);
         player.companions.push(companion);
-        return ret;
+        return `${companion.fullName}, the ${companion.title} joins the party!`;
     }
  }

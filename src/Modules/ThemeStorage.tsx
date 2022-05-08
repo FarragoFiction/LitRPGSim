@@ -163,79 +163,79 @@ export let super_name_possibilities_map: ThemePossibilitiesMap = {};
 export const checkIfAllKeysPresent = () => {
     for (let key of keys) {
         if (!(key in stats_map)) {
-            console.error("JR NOTE: key", key, "not found in stats_map");
+            //console.error("JR NOTE: key", key, "not found in stats_map");
         }
 
         if (!(key in person_posibilities)) {
-            console.error("JR NOTE: key", key, "not found in noun_possibilities");
+            //console.error("JR NOTE: key", key, "not found in noun_possibilities");
         }
 
         if (!(key in adj_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in adj_possibilities");
+            //console.error("JR NOTE: key", key, "not found in adj_possibilities");
         }
 
         if (!(key in super_name_possibilities_map)) {
-            console.error("JR NOTE: key", key, "not found in super_name_possibilities_map");
+            //console.error("JR NOTE: key", key, "not found in super_name_possibilities_map");
         }
 
         if (!(key in insult_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in insult_possibilities");
+            //console.error("JR NOTE: key", key, "not found in insult_possibilities");
         }
 
         if (!(key in compliment_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in compliment_possibilities");
+            //console.error("JR NOTE: key", key, "not found in compliment_possibilities");
         }
 
         if (!(key in location_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in location_possibilities");
+            //console.error("JR NOTE: key", key, "not found in location_possibilities");
         }
 
         if (!(key in object_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in object_possibilities");
+            //console.error("JR NOTE: key", key, "not found in object_possibilities");
         }
 
         if (!(key in child_backstories)) {
-            console.error("JR NOTE: key", key, "not found in child_backstories");
+            //console.error("JR NOTE: key", key, "not found in child_backstories");
         }
 
         if (!(key in general_backstories)) {
-            console.error("JR NOTE: key", key, "not found in general_backstories");
+            //console.error("JR NOTE: key", key, "not found in general_backstories");
         }
 
         if (!(key in miracles)) {
-            console.error("JR NOTE: key", key, "not found in miracles");
+            //console.error("JR NOTE: key", key, "not found in miracles");
         }
 
         if (!(key in loc_desc)) {
-            console.error("JR NOTE: key", key, "not found in loc_desc");
+            //console.error("JR NOTE: key", key, "not found in loc_desc");
         }
 
         if (!(key in philosophy)) {
-            console.error("JR NOTE: key", key, "not found in your philosophy");
+            //console.error("JR NOTE: key", key, "not found in your philosophy");
         }
 
         if (!(key in monster_desc)) {
-            console.error("JR NOTE: key", key, "not found in monster_desc");
+            //console.error("JR NOTE: key", key, "not found in monster_desc");
         }
 
         if (!(key in smell_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in smell_possibilities");
+           // console.error("JR NOTE: key", key, "not found in smell_possibilities");
         }
 
         if (!(key in taste_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in taste_possibilities");
+           // console.error("JR NOTE: key", key, "not found in taste_possibilities");
         }
 
         if (!(key in sound_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in sound_possibilities");
+           // console.error("JR NOTE: key", key, "not found in sound_possibilities");
         }
 
         if (!(key in feeling_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in feeling_possibilities");
+        // console.error("JR NOTE: key", key, "not found in feeling_possibilities");
         }
 
         if (!(key in effect_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in visual_effect_possibilities");
+            //console.error("JR NOTE: key", key, "not found in visual_effect_possibilities");
         }
     }
 }
@@ -387,7 +387,7 @@ const initAdjs = () => {
     adj_possibilities[ADDICTION] = ["craving", "addicting", "compelling", "high"];
     adj_possibilities[SPYING] = ["spying", "observing", "watching", "voyeuristic", "seeking"];
     adj_possibilities[CLOWNS] = ["honking", "funny", "prancing", "tumbling", "joking", "jeering", "dancing", "performing", "jesting"];
-    adj_possibilities[DOLLS] = ["delicate", "beautiful", "unsettling", "playing", "dressing", "plastic", "ceramic"];
+    adj_possibilities[DOLLS] = ["delicate", "beautiful", "unsettling", "playing", "dressing", "plastic", "ceramic","uncanny"];
     adj_possibilities[OBFUSCATION] = ["hiding", "hidden", "obscured", "confusing", "blinding", "secret", "unknowable", "censored"];
     adj_possibilities[DARKNESS] = ["darkened", "blackened", "midnight", "blinding"];
     adj_possibilities[KILLING] = ["killing", "murderous", "massacred", "bloody", "savage", "blood-stained", "gory", "brutal"];
@@ -1415,6 +1415,37 @@ const initChildBackstories = () => {
 const initQuests = () => {
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     //maybe middle quests too
+
+    const doll3 = new QuestObject(
+        `Dollhouse 3`,
+        `You open  ${COMPANIONNAME}'s study door only to find the dollhouse yet again. This time they want to play dress up with them. They are so close to finishing your costume, that they made extra special just for you. Bring them a(n) ${OBJECT} and it will be done! `,
+        `With a fixed grin you don the final part of your costume. The Dolls laugh and play around you as you remain frozen in place. Day becomes night becomes day and still the dolls play and still you remain unmoving. The best of dolls, they sing to you, the biggest and most life like. Any child would be delighted to play with you.`,
+        [new AchievementTrigger(false)],
+        [new ItemInInventory(false, `${OBJECT}`)],
+        [new  EndReward()]
+    );
+
+    const doll2 =  new QuestObject(
+        `Dollhouse 2`,
+        `The Dolls have apparently moved to ${COMPANIONNAME}'s basement and beg you to bring them a ${OBJECT} so they can have a feast!`,
+        `The Dolls tear into the ${OBJECT} and chew and swallow and scratch at each other to get a better grip on it with their oh-so-very-sharp teeth. A DOLL dressed as a ${PERSON} climbs up your leg and clings there with an uncanny strength. `,
+        [new AchievementTrigger(false)],
+        [new ItemInInventory(false, `${OBJECT}`)],
+        [new QuestReward(doll3),new CompanionReward(undefined,`One for sadness, two for earth, three for a life, four for a birth! How many will you collect? `,`${PERSON} DOLL`)]
+    );
+
+    quest_possibilities[DOLLS] = [
+        new QuestObject(
+            `Dollhouse 1`,
+            `The mysterious dollhouse in ${COMPANIONNAME}'s attic turns out to be filled with living dolls! Bring them one ${OBJECT} so you can have a festival.`,
+            `The Dolls dance and sing around the ${OBJECT}. A ${ADJ} DOLL climbs slowly onto your shoulder and seems unwilling to move. `,
+            [new AchievementTrigger(false)],
+            [new ItemInInventory(false, `${OBJECT}`)],
+            [new QuestReward(doll2),new CompanionReward(undefined,`First comes love. Then comes marriage. Then comes PLAYER with the baby carriage! `,`${ADJ} DOLL`)]
+        ),
+       
+        
+    ]
 
     const slaughterReward =  new QuestObject("A Sudden Turn Redux!",
     `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to ${GODNAME}, god of ${GODDOMAINS} to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,

@@ -17,6 +17,6 @@ export  class QuestReward extends Reward{
     giveReward = (player: Player,quest:QuestObject )=>{
         const rewardQuest = this.quest? this.quest: quest.copy();
         player.addQuest(rewardQuest);
-        return "You Acquire a New Potential Quest: " +rewardQuest.title;
+        return "You Acquire a New Potential Quest: " +rewardQuest.title + ". ";
     }
  }
