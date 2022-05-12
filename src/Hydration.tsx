@@ -152,6 +152,9 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
     console.log(`%c${title}%c  ${text}`, "width: 1000px;background: black; padding: 10px;font-weight: bold;font-family: norwester, monospace;color:#e39447; font-size:25px;text-decoration:underline;", "background: black; padding: 10px;font-weight: bold;font-family: norwester, monospace;color:#e39447; font-size:25px;");
   }
 
+  //why yes i did in fact make all of these mislabled specifically to trap myself in a labyrinth of my own making
+  //thanks for asking
+
   const right = () => {
     fancyLog("JR NOTE:", "To the East is raw chaos.");
     numberDrinksRef.current = getRandomNumberBetween(1,113);
@@ -165,6 +168,11 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   }
 
   const down = () => {
+    fancyLog("JR NOTE:", "To the North is more of the same.");
+    setSeed(seed - 1)
+  }
+
+  const left = () => {
     fancyLog("JR NOTE:", "To the South is the destruction of illusions.");
     numberDrinksRef.current = numberDrinksRef.current + 100;
 
@@ -201,7 +209,7 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
         } else  {
           quest = rand.pickFrom(genericEndingQuests());
         }
-        if (numberDrinksRef.current > 1300) {
+        if (numberDrinksRef.current > 600) {
           quest.flavorText = poem;
         }
       }
@@ -227,11 +235,13 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
 
   const handleUserKeyPress = (event: KeyboardEvent) => {
     if(event.key === "ArrowLeft"){
-      right();
+      down();
     }else if(event.key === "ArrowRight"){
       up();
+    }else if(event.key === "ArrowUp"){
+      right();
     }else if(event.key === "ArrowDown"){
-      down();
+      left();
     }
 }
 
@@ -254,9 +264,9 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
         <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
         <TextContainer>{text}</TextContainer>
         <SeedContainer autoFocus={true} onChange={(e) => setSeed(isNumeric(e.target.value) ? parseInt(e.target.value) : stringtoseed(e.target.value))} defaultValue={`${seed}`}></SeedContainer>
-        <UpContainer onClick={right}>V</UpContainer>
+        <UpContainer onClick={down}>V</UpContainer>
         <RightContainer onClick={up}>V</RightContainer>
-        <DownContainer onClick={down}>V</DownContainer>
+        <DownContainer onClick={right}>V</DownContainer>
       </HydrationContainer>
 
     </div>
