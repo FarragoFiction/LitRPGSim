@@ -1941,6 +1941,29 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
+        ),new QuestObject(
+            "",
+            `The smell of ${SMELL} is overpowering. You wish you could wash the taste of it from the back of your throat.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+        ,new QuestObject(
+            "",
+            `The taste of ${TASTE}, the smell of ${SMELL}. It calls you, somehow. You want to drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+        ,new QuestObject(
+            "",
+            `Is that ${FEELING} you feel? Unsettling...`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
         ),
         new QuestObject(
             "",
@@ -2015,6 +2038,14 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `The water is ${ADJ} and cold. You can practically taste ${TASTE} on the air. You should drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
         )
     ];
     /*
@@ -2042,6 +2073,38 @@ export const genericEndingQuests = () => {
         ),
         new QuestObject(
             "",
+            `There is something watching you, ${MONSTER_DESC}`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `As you ponder whether or not to finally drink, something is waiting in the depths, ${MONSTER_DESC}`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Is water known for being only surface deep?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `What hidden depths may be underneath the water? How would you find something hidden here?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
             `Not long now. Drink while you still have a chance.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
@@ -2055,7 +2118,7 @@ export const genericEndingQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
-        ),
+        )
     ]
 
     return ret;
