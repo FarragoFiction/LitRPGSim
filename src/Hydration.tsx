@@ -330,10 +330,6 @@ so anyone who tries to look in the network tab will have a rabbit hole and a hal
 
   return (
     <div>
-      <p>JR NOTE: STAY HYDRATED,arc 3 with the poem printed out and timed to the words.
-
-
-      </p>
       <HydrationContainer>
 
         <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
