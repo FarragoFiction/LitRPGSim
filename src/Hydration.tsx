@@ -216,7 +216,10 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
       quest.theme_keys = themes.map((item) => {
         return item.key;
       });
+      quest.god = props.player.gods[0];
+      quest.companion = props.player.companions[0];
       quest.rand = rand;
+
 
       setText(quest.replaceTags(quest.flavorText, props.player));
       numberDrinksRef.current = numberDrinksRef.current + 1;
