@@ -250,7 +250,7 @@ function App(props: AppProps) {
 
  if(player){
    return(
-     <Hydration player/>
+     <Hydration player={player}/>
    )
  }else{
    return(

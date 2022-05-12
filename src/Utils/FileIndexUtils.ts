@@ -15,11 +15,9 @@ export const getHydrationImages = async()=>{
   try{
   const rawText = await httpGetAsync(hydrationUrl) as string;
   
-  console.log("JR NOTE: patterns are", {filePattern, extensionPattern});
   let files:string[] = [];
   const match = rawText.matchAll(filePattern);
   const matches = Array.from(match, (res) => res);
-  console.log("JR NOTE: matches are: ", matches)
   for(let m of matches){
     const item = m[1];
     if(item.match(extensionPattern)){

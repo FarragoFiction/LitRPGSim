@@ -4,28 +4,36 @@ import { click, clickEffect } from ".";
 import { initAspects } from "./Modules/Aspect";
 import { initInterests } from "./Modules/Interest";
 import { Player, randomPlayer } from "./Modules/Player";
+import { GodDescription, QuestObject } from "./Modules/Quests/QuestObject";
 import { initClasses } from "./Modules/RPGClass";
 import { initStats } from "./Modules/Stat";
-import { initThemes } from "./Modules/ThemeStorage";
+import { all_themes } from "./Modules/Theme";
+import { genericEndingQuests, genericMiddleQuests, genericStartingQuests, initThemes } from "./Modules/ThemeStorage";
+import { QUESTS } from "./Utils/constants";
 import { getHydrationImages, hydrationUrl } from "./Utils/FileIndexUtils";
 import { getRandomSeed } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 
-export const Hydration = (props:any) => {
+
+
+interface StatusProps {
+  player: Player;
+}
+export const Hydration = (props: StatusProps) => {
 
   const [imgSrc, setImageSrc] = useState<string>();
   const [images, setImages] = useState<string[]>();
   const urlSeed = getParameterByName("seed", null);
 
-  const [seed, setSeed] = useState(urlSeed? parseInt(urlSeed):getRandomSeed());
+  const [seed, setSeed] = useState(urlSeed ? parseInt(urlSeed) : getRandomSeed());
 
-  const seedRef = useRef(urlSeed? new SeededRandom(parseInt(urlSeed)):new SeededRandom(getRandomSeed()) );
+  const numberDrinksRef = useRef(0);
 
-  const [text, setText] = useState("Loading...");
+  const seedRef = useRef(urlSeed ? new SeededRandom(parseInt(urlSeed)) : new SeededRandom(getRandomSeed()));
 
-  props.player;
+  const [text, setText] = useState("You seem thirsty. Why not have a drink?");
 
   const poem = `
   
@@ -49,7 +57,7 @@ A NEW SUIT AND TIE AND A COLOR OF PAINT
 BECAUSE EVEN THOUGH YOU’LL COME TO FORGET
 I DREAM IN MY THROES OF BEING LOVED AGAIN`;
 
-const Hydration = styled.img`
+  const Hydration = styled.img`
   position: absolute;
   display: block;
   width: 1000px;
@@ -59,7 +67,7 @@ const Hydration = styled.img`
   border-radius: 13px;
 `
 
-const HydrationContainer = styled.div`
+  const HydrationContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   height: 600px;
@@ -68,7 +76,7 @@ const HydrationContainer = styled.div`
   position: relative;
 `
 
-const TextContainer = styled.div`
+  const TextContainer = styled.div`
   position: absolute; 
   padding: 25px;
   margin: 25px;
@@ -78,7 +86,7 @@ const TextContainer = styled.div`
 `
 
 
-const SeedContainer = styled.input`
+  const SeedContainer = styled.input`
   position: absolute; 
   right: 25px;
   bottom: 25px;
@@ -89,15 +97,118 @@ const SeedContainer = styled.input`
   border: none;
 `
 
-useEffect(()=>{
-  if(images && seedRef.current.initial_seed !== seed){
-    seedRef.current.internal_seed = seed;
-    window.history.pushState('', '', `?seed=${seed}`);
+  const UpContainer = styled.div`
+  position: absolute; 
+  left: 25px;
+  bottom: 275px;
+  font-size: 32px;
+  background: rgba(255,255,255,0.75);
+  font-weight: bolder;
+  border-radius: 13px;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  transform: rotate(90deg);
+  :hover{
+    background: rgba(255,255,255,0.95);
+  }
+`
 
-    setImageSrc(seedRef.current.pickFrom(images));
+  const RightContainer = styled.div`
+  position: absolute; 
+  right: 25px;
+  bottom: 275px;
+  font-size: 32px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.75);
+  font-weight: bolder;
+  transform: rotate(-90deg);
+
+  border-radius: 13px;
+  padding: 10px;
+  border: none;
+  :hover{
+    background: rgba(255,255,255,0.95);
+  }
+`
+
+  const DownContainer = styled.div`
+  position: absolute; 
+  right: 515px;
+  font-size: 32px;
+  cursor: pointer;
+  bottom: 5px;
+  background: rgba(255,255,255,0.75);
+  font-weight: bolder;
+  border-radius: 13px;
+  padding: 10px;
+  border: none;
+  :hover{
+    background: rgba(255,255,255,0.95);
+  }
+`
+
+  const fancyLog = (title: string, text: string) => {
+    console.log(`%c${title}%c  ${text}`, "width: 1000px;background: black; padding: 10px;font-weight: bold;font-family: norwester, monospace;color:#e39447; font-size:25px;text-decoration:underline;", "background: black; padding: 10px;font-weight: bold;font-family: norwester, monospace;color:#e39447; font-size:25px;");
   }
 
-},[seed, seedRef,images])
+  const right = () => {
+    fancyLog("JR NOTE:", "To the East is raw chaos.");
+    setSeed(getRandomSeed())
+  }
+
+  const up = () => {
+    fancyLog("JR NOTE:", "To the North is more of the same.");
+    setSeed(seed + 1)
+  }
+
+  const down = () => {
+    fancyLog("JR NOTE:", "To the South is the destruction of illusions.");
+    numberDrinksRef.current = numberDrinksRef.current + 100;
+
+    setSeed(seed * 1000)
+
+  }
+
+  const startPoemMode = () => {
+    window.alert("TODO POEM MODE");
+  }
+
+  useEffect(() => {
+    if (images && (seedRef.current.initial_seed !== seed || !imgSrc)) {
+      seedRef.current.internal_seed = seed;
+      window.history.pushState('', '', `?seed=${seed}`);
+      const rand = seedRef.current;
+      setImageSrc(rand.pickFrom(images));
+      let themes = [];
+      let number = rand.getRandomNumberBetween(1, 3);
+      for (let i = 0; i < number; i++) {
+        themes.push(rand.pickFrom(Object.values(all_themes)));
+      }
+      let core_theme = rand.pickFrom(themes)
+      let quest = rand.pickFrom(core_theme.quests);
+      if (!quest) {
+        if (numberDrinksRef.current < 10) {
+          quest = rand.pickFrom(genericStartingQuests());
+        } else if (numberDrinksRef.current < 50) {
+          quest = rand.pickFrom(genericMiddleQuests());
+        } else  {
+          quest = rand.pickFrom(genericEndingQuests());
+        }
+        if (numberDrinksRef.current > 1300) {
+          quest.flavorText = poem;
+        }
+      }
+      quest.theme_keys = themes.map((item) => {
+        return item.key;
+      });
+      quest.rand = rand;
+
+      setText(quest.replaceTags(quest.flavorText, props.player));
+      numberDrinksRef.current = numberDrinksRef.current + 1;
+    }
+
+  }, [seed, seedRef, images, numberDrinksRef])
 
 
   useEffect(() => {
@@ -108,12 +219,6 @@ useEffect(()=>{
     async_func();
   }, [])
 
-  useEffect(() => {
-    if (images && !imgSrc) {
-      setImageSrc(seedRef.current.pickFrom(images));
-    }
-  }, [imgSrc, images, seedRef])
-
   return (
     <div>
       <p>JR NOTE: STAY HYDRATED, muzak, text description of glass, up and right and down arrows to pick new image, if you go south 13 times in a row and nothing else you get the muzak from arc 3 with the poem printed out and timed to the words.
@@ -122,10 +227,14 @@ useEffect(()=>{
       </p>
       <HydrationContainer>
 
-      <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
-      <TextContainer>{text}</TextContainer>
-      <SeedContainer autoFocus={true} onChange={(e)=>setSeed(isNumeric(e.target.value)?parseInt(e.target.value):stringtoseed(e.target.value))} defaultValue={`${seed}`}></SeedContainer>
+        <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
+        <TextContainer>{text}</TextContainer>
+        <SeedContainer autoFocus={true} onChange={(e) => setSeed(isNumeric(e.target.value) ? parseInt(e.target.value) : stringtoseed(e.target.value))} defaultValue={`${seed}`}></SeedContainer>
+        <UpContainer onClick={up}>V</UpContainer>
+        <RightContainer onClick={right}>V</RightContainer>
+        <DownContainer onClick={down}>V</DownContainer>
       </HydrationContainer>
-      </div>
+
+    </div>
   )
 }
