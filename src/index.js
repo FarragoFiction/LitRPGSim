@@ -20,8 +20,8 @@ import funky_voice from './Voice/truth_but_funky.mp3';
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
 
-import {Hydration} from './Hydration';
 import reportWebVitals from './reportWebVitals'; 
+import AppWrapper from './AppWrapper';
 
 
 const audio = new Audio(generic_menu_music);
@@ -152,7 +152,7 @@ window.addEventListener('beforeunload', function(e) {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hydration />
+    <AppWrapper />
   </React.StrictMode>,
   document.getElementById('ThisIsNotAGame')
 );

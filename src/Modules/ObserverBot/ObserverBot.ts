@@ -137,31 +137,8 @@ export class ObserverBot{
         }
 
         window.onkeydown = (evt:KeyboardEvent)=>{
-            const notbg = document.querySelector("#ThisIsNotABG") as HTMLElement;
             const processWalk =(key:string)=>{
-                if(notbg){
-                    let prevTop = parseInt(notbg.style.top);
-                    if(!prevTop){
-                        prevTop =0;
-                    }
-
-                    let prevLeft = parseInt(notbg.style.left);
-                    if(!prevLeft){
-                        prevLeft =0;
-                    }
-                    if(key === "w" || key === "ArrowUp"){
-                        notbg.style.top = `${prevTop+10}px`;
-                    }
-                    if(key === "s" || key === "ArrowDown"){
-                        notbg.style.top = `${prevTop-10}px`;
-                    }
-                    if(key === "a" || key === "ArrowLeft"){
-                        notbg.style.left = `${prevLeft+10}px`;
-                    }
-                    if(key === "d" || key === "ArrowRight"){
-                        notbg.style.left = `${prevLeft-10}px`;
-                    }
-                }
+                
             }
             if(evt.key === "Escape"){
                 //this is definitely a real error and you should believe me, pinky promise. :) :) :)
@@ -447,13 +424,13 @@ export class ObserverBot{
 
    handleTrueBG = ()=>{
        if(!(window as any).apocalypse){
-        scrawlOverBG(shuffle(this.vitriol));
+        //scrawlOverBG(shuffle(this.vitriol));
        }
    }
 
    belowComment = (title: string, text: string)=>{
        this.vitriol.push(text);
-       this.handleTrueBG();
+       //this.handleTrueBG();
        console.log(`%c${title}:%c  ${text}`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;",this.trueStyle);
    }
 

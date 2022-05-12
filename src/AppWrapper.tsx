@@ -8,6 +8,7 @@ import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import { CrowSim } from "./Screens/Attic/CrowSim";
+import { getRandomSeed } from "./Utils/NonSeededRandUtils";
 /*
 as simple as possible, handles the three main screens of "enter your birthday", 
 "play the game", "jr rambles about dev log shit"
@@ -27,69 +28,6 @@ export const LIE = "LIE";
 
 function AppWrapper() {
   const [seed, setSeed] = useState<number>();
-  const [mode, setMode] = useState<string>(BIRTHDAY);
-
-  //handle param hacks
-  useEffect (()=>{
-    const ghost = getParameterByName("cctv", null);
-    const pw = getParameterByName("pw", null);
-    const end = getParameterByName("end", null);
-    const jr = getParameterByName("jr", null);
-
-    if(ghost){
-      (window as any).ghost = true;
-      setMode(GHOST);
-    }else if(pw){
-      (window as any).pwMode = true;
-      setMode(PW);
-    }else if(end){
-      (window as any).apocalypse = true;
-      setMode(APOCALYPSE);
-    }else if (jr === "truth"){
-      setMode(TRUTH);
-    }else if (jr === "lies"){
-      setMode(LIE);
-    }
-  },[]);
-  
-  //handle regular waste hacking
-  useEffect(()=>{
-    if(!(window as any).setGhostMode){
-      // :) :) :)
-      (window as any).setGhostMode = ()=>{
-        setMode(GHOST);
-      };
-    }
-
-    if(!(window as any).setPWMode){
-      // :) :) :)
-      (window as any).setPWMode = ()=>{
-        setMode(PW);
-      };
-    }
-
-    if(!(window as any).setLie){
-      // :) :) :)
-      (window as any).setLie = ()=>{
-        setMode(LIE);
-      };
-    }
-
-    if(!(window as any).setTruth){
-      // :) :) :)
-      (window as any).setTruth = ()=>{
-        setMode(TRUTH);
-      };
-    }
-
-    if(!(window as any).triggerApocalypse){
-      // :) :) :)
-      (window as any).triggerApocalypse = (value:boolean)=>{
-        setMode(APOCALYPSE);
-        (window as any).apocalypse = true;
-      };
-    }
-  },[])
 
 
   useEffect(() => {
@@ -103,46 +41,22 @@ function AppWrapper() {
           initial_seed = parseInt(urlseed);
         }
         setSeed(initial_seed);
+      } else {
+        setSeed(getRandomSeed());
       }
     }
   }, [seed, setSeed]);
 
 
-  if (mode === BIRTHDAY && (seed === undefined || seed === null)) {
+  if (seed) {
     return (
-      <Birthday setMode={setMode} />
+      <App seed={seed} />
     )
-  } else if (mode === ABOUT) {
+  } else {
     return (
-      <About setMode={setMode} />
+      <div>Loading Optimal Hydration...</div>
     )
-  } else if (mode === APOCALYPSE) {
-    return (
-      <ApocalypseScreen/>
-    )
-  } else if (mode === GHOST) {
-    return (
-      <CCTVScreen ghosts={true}/>  
-    )
-  } else if (mode === PW) {
-    return (
-      <CCTVScreen ghosts={false}/> 
-    )
-  } else if (mode === TRUTH) {
-    return( <AtticSim pathType={PathType.Truth}/>)
-
-  } else if (mode === LIE) {
-    return( <AtticSim pathType={PathType.Game}/>)
-
-  }else if (seed === 0){ //:) :) :)
-     return( <AtticSim pathType={PathType.NotGame}/>)
-  }else if (seed === 41){ //:) :) :)
-    return(<CrowSim/>)
- }else if (seed) {
-  return (
-    <App seed={seed} />
-  )
-}
+  }
 }
 
 export default AppWrapper;

@@ -51,7 +51,7 @@ export  class Achievement{
         }else{
             reward = ` Oh no! I wanted to give you a/an ${this.item} as a reward, but you have no where to put it! Hurry and find your inventory!`;
         }
-        AchivementPopupKickoff({title: this.title, text: above, skillPoints: this.skillPoints, reward});
+        //AchivementPopupKickoff({title: this.title, text: above, skillPoints: this.skillPoints, reward});
         observer.belowComment(this.title, below);
     }
 
