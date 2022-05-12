@@ -216,7 +216,10 @@ const DrinkButton = styled.div`
   }
 
   const startPoemMode = () => {
-    //JR NOTE: should this be timed?
+    const ele = document.querySelector("#muzak");
+      if(ele){
+        (ele as any).src ="http://farragofiction.com/TwoGayJokes/Stories/normal_muzak_2.mp3";
+      }
   }
 
   //its not shitty code that should be refactored and cleand up its PERFORMANCE art
@@ -316,9 +319,18 @@ const DrinkButton = styled.div`
     };
 });
 
+/*
+here's how the hydration puzzle works
+one: it has all the shit zampanio has in its dom, including links to the knucklessux blog and the puzzle box
+two: the images are all coming from zampaniohotlink which is full of mysteries
+three: the audio is all coming from CodexofRuin
+and four, the muzak with the poem is coming from TwoGayJokes, specially where all IC's blorbo stories are kept 
+so anyone who tries to look in the network tab will have a rabbit hole and a half to go through
+*/
+
   return (
     <div>
-      <p>JR NOTE: STAY HYDRATED, muzak,piano, if number more than 1000 muzak from arc 3 with the poem printed out and timed to the words.
+      <p>JR NOTE: STAY HYDRATED,arc 3 with the poem printed out and timed to the words.
 
 
       </p>
@@ -330,7 +342,7 @@ const DrinkButton = styled.div`
         <UpContainer id="down" onClick={down}>V</UpContainer>
         <RightContainer id="up" onClick={up}>V</RightContainer>
         <DownContainer id="right" onClick={right}>V</DownContainer>
-        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink by pressing a button?")}}>DRINK</DrinkButton>
+        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink by pressing a button? How fascinating.")}}>DRINK</DrinkButton>
       </HydrationContainer>
 
     </div>
