@@ -24,7 +24,8 @@ import reportWebVitals from './reportWebVitals';
 import AppWrapper from './AppWrapper';
 
 
-const audio = new Audio(generic_menu_music);
+const audio = new Audio('http://farragofiction.com/CodexOfRuin/MallMusicMuzakMallOf1974/Mall%20Music%20Muzak%20-%20Mall%20Of%201974%20-%2013%20Parking%20Lot%20Lost.mp3');
+audio.autoplay = true;
 const voiceAudio = new Audio(voice);
 const clickAudio = new Audio(clickSound);
 
@@ -111,22 +112,6 @@ export function justTruthSong(){
 
  function playLightlyFuckedUpBGMusic(){
   audio.play();
-  audio.onended = function() {
-    if(!window.dontrotatemusic && !window.rageMode && !window.justTruthMode && !window.ghost && !window.pwMode){
-      if (Math.random() > 0.5) {
-        audio.src = helen_kin_song;
-      } else {
-        audio.src = subtle_heart;
-      }
-    }else if (window.justTruthMode || window.ghost || window.pwMode){
-      audio.src = heartbeat;
-    }else if(!window.dontrotatemusic){
-      audio.src = heart;
-    }else{
-      audio.loop = true;
-    }
-    audio.play();
-};
 }
 
 export const click = () =>{
