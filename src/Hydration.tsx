@@ -97,6 +97,28 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   border: none;
 `
 
+const DrinkButton = styled.div`
+  position: absolute; 
+  right: 424px;
+  bottom: 253px;
+  font-size: 48px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.75);
+  font-weight: bolder;
+  height: 75px;
+  line-height: 62px;
+
+  border-radius: 13px;
+  padding: 12px;
+  border: none;
+  :hover{
+    background: rgba(255,255,255,0.95);
+  }
+  :active{
+    transform: translateY(5px);
+  }
+`
+
   const UpContainer = styled.div`
   position: absolute; 
   left: 25px;
@@ -111,6 +133,9 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   transform: rotate(90deg);
   :hover{
     background: rgba(255,255,255,0.95);
+  }
+  :active{
+    transform: translateY(5px);
   }
 `
 
@@ -130,6 +155,9 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   :hover{
     background: rgba(255,255,255,0.95);
   }
+  :active{
+    transform: translateY(5px);
+  }
 `
 
   const DownContainer = styled.div`
@@ -146,6 +174,11 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   :hover{
     background: rgba(255,255,255,0.95);
   }
+  :active{
+    transform: translateY(5px);
+  }
+
+
 `
 
   const fancyLog = (title: string, text: string) => {
@@ -181,7 +214,7 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   }
 
   const startPoemMode = () => {
-    window.alert("TODO POEM MODE");
+    //JR NOTE: should this be timed?
   }
 
   useEffect(() => {
@@ -211,13 +244,14 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
         }
         if (numberDrinksRef.current > 600) {
           quest.flavorText = poem;
+          startPoemMode();
         }
       }
       quest.theme_keys = themes.map((item) => {
         return item.key;
       });
-      quest.god = props.player.gods[0];
-      quest.companion = props.player.companions[0];
+      quest.god = rand.pickFrom(props.player.gods);
+      quest.companion = rand.pickFrom(props.player.companions);
       quest.rand = rand;
 
 
@@ -239,10 +273,22 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   const handleUserKeyPress = (event: KeyboardEvent) => {
     if(event.key === "ArrowLeft"){
       down();
+      const ele = document.querySelector("#down");
+      if(ele){
+        ele.classList.add("active");
+      }
     }else if(event.key === "ArrowRight"){
       up();
+      const ele = document.querySelector("#up");
+      if(ele){
+        ele.classList.add("active");
+      }
     }else if(event.key === "ArrowUp"){
       right();
+      const ele = document.querySelector("#right");
+      if(ele){
+        ele.classList.add("active");
+      }
     }else if(event.key === "ArrowDown"){
       left();
     }
@@ -267,9 +313,10 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
         <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
         <TextContainer>{text}</TextContainer>
         <SeedContainer autoFocus={true} onChange={(e) => setSeed(isNumeric(e.target.value) ? parseInt(e.target.value) : stringtoseed(e.target.value))} defaultValue={`${seed}`}></SeedContainer>
-        <UpContainer onClick={down}>V</UpContainer>
-        <RightContainer onClick={up}>V</RightContainer>
-        <DownContainer onClick={right}>V</DownContainer>
+        <UpContainer id="down" onClick={down}>V</UpContainer>
+        <RightContainer id="up" onClick={up}>V</RightContainer>
+        <DownContainer id="right" onClick={right}>V</DownContainer>
+        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink by pressing a button?")}}>DRINK</DrinkButton>
       </HydrationContainer>
 
     </div>

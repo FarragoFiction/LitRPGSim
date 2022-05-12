@@ -154,7 +154,6 @@ export class Player {
         const questsAfterThemes = quests.length;
 
         const amountNeededForPadding = 10-Math.max(0,questsAfterThemes-questsBeforeThemes);
-        console.log("JR NOTE: amount of generic middle quests needed for padding is", amountNeededForPadding)
         if(amountNeededForPadding>0){
             quests =[...quests, ...this.rand.pickXFrom(genericMiddleQuests(),amountNeededForPadding)];
         }

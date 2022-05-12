@@ -57,7 +57,7 @@ export   class Theme{
         if((key in this.string_possibilities) && this.string_possibilities[key] ){
             return  this.string_possibilities[key];
         }else{
-            console.error(`[ERROR: ${key} NOT FOUND ]`, this.string_possibilities);
+           // console.error(`[ERROR: ${key} NOT FOUND ]`, this.string_possibilities);
             return [`[ERROR: ${key} NOT FOUND]`];
         }        
     }

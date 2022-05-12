@@ -1936,6 +1936,30 @@ export const genericMiddleQuests = () => {
         ),
         new QuestObject(
             "",
+            `${COMPANIONNAME} wants you to drink. You don't want to disappoint them, do you?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Your best friend, ${COMPANIONNAME} asks you to drink, for them. For your friendship. For your health. They're worried about you. You seem so distant. Surely water would help.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `${COMPANIONNAME} may be an asshole but they have a point when they ask you to drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
             `Drinking cool, clean water helps you to feel cool. Does it feel hot here to you? Can you feel the sensation of ${FEELING} against your skin?`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
