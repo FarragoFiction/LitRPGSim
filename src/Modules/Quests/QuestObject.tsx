@@ -142,7 +142,7 @@ export  class QuestObject{
                 if(!this.string_possibilities[key]){
                     this.string_possibilities[key] = this.rand.pickFrom(themes).pickPossibilityFor(this.rand,key);
                 }
-                ret = ret.replaceAll(key,this.string_possibilities[key].toUpperCase());
+                ret = ret.replaceAll(key,this.string_possibilities[key].toLowerCase());
             }
         }
 

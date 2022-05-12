@@ -11,7 +11,7 @@ import { all_themes } from "./Modules/Theme";
 import { genericEndingQuests, genericMiddleQuests, genericStartingQuests, initThemes } from "./Modules/ThemeStorage";
 import { QUESTS } from "./Utils/constants";
 import { getHydrationImages, hydrationUrl } from "./Utils/FileIndexUtils";
-import { getRandomSeed } from "./Utils/NonSeededRandUtils";
+import { getRandomNumberBetween, getRandomSeed } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
@@ -154,6 +154,8 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
 
   const right = () => {
     fancyLog("JR NOTE:", "To the East is raw chaos.");
+    numberDrinksRef.current = getRandomNumberBetween(1,113);
+
     setSeed(getRandomSeed())
   }
 
@@ -186,11 +188,11 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
         themes.push(rand.pickFrom(Object.values(all_themes)));
       }
       let core_theme = rand.pickFrom(themes)
-      let quest = rand.pickFrom(core_theme.quests);
-      if (!quest) {
-        if (numberDrinksRef.current < 10) {
+      let quest = rand.pickFrom(core_theme.quests); //use an actual theme quest only if you've been here a bit, don't start with one
+      if (!quest || numberDrinksRef.current < 10) {
+        if (numberDrinksRef.current < 50) {
           quest = rand.pickFrom(genericStartingQuests());
-        } else if (numberDrinksRef.current < 50) {
+        } else if (numberDrinksRef.current < 75) {
           quest = rand.pickFrom(genericMiddleQuests());
         } else  {
           quest = rand.pickFrom(genericEndingQuests());
