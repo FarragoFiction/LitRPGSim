@@ -1783,7 +1783,23 @@ export const genericStartingQuests = () => {
         ),
         new QuestObject(
             "",
+            `Do you think the water tastes like ${TASTE}?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
             `It's okay. I won't tell anyone if you drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `You should set an alarm to make sure you drink regularly.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -1860,7 +1876,49 @@ export const genericStartingQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Water helps to create saliva. Saliva helps you to talk and swallow. You will need these abilities going forwards.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Drinking cool, clean water helps you to feel cool. Does it feel hot here to you?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
         )
+        ,
+        new QuestObject(
+            "",
+            `Do you remember the last time you drank?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Has your tongue always felt like this?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Thirst saps your strength and will and energy. You can fix it. Why haven't you?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+
         
     ];
     return ret;
@@ -1871,6 +1929,31 @@ export const genericMiddleQuests = () => {
         new QuestObject(
             "",
             `I promise. No harm will come to you if you drink. No ${EFFECTS} will occur.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Drinking cool, clean water helps you to feel cool. Does it feel hot here to you? Can you feel the sensation of ${FEELING} against your skin?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Being hydrated can protect your spinal cord. That seems an important thing to protect, personally.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+        ,
+        new QuestObject(
+            "",
+            `The sound of ${SOUND} is pounding in your head, isn't it? If only you had water, then you would feel better.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -1908,7 +1991,7 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
-        ),
+        )
     ];
     /*
     now
@@ -1928,6 +2011,22 @@ export const genericEndingQuests = () => {
         new QuestObject(
             "",
             `Drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Not long now. Drink while you still have a chance.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `We are here, together. Can you quench the blaze that lead you here?`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock

@@ -181,7 +181,11 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
       seedRef.current.internal_seed = seed;
       window.history.pushState('', '', `?seed=${seed}`);
       const rand = seedRef.current;
-      setImageSrc(rand.pickFrom(images));
+      if(seed < images.length){ //to help debug
+          setImageSrc(images[seed]);
+      }else{
+        setImageSrc(rand.pickFrom(images));
+      }
       let themes = [];
       let number = rand.getRandomNumberBetween(1, 3);
       for (let i = 0; i < number; i++) {
@@ -192,7 +196,7 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
       if (!quest || numberDrinksRef.current < 10) {
         if (numberDrinksRef.current < 50) {
           quest = rand.pickFrom(genericStartingQuests());
-        } else if (numberDrinksRef.current < 75) {
+        } else if (numberDrinksRef.current < 100) {
           quest = rand.pickFrom(genericMiddleQuests());
         } else  {
           quest = rand.pickFrom(genericEndingQuests());
@@ -221,6 +225,24 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
     async_func();
   }, [])
 
+  const handleUserKeyPress = (event: KeyboardEvent) => {
+    if(event.key === "ArrowLeft"){
+      right();
+    }else if(event.key === "ArrowRight"){
+      up();
+    }else if(event.key === "ArrowDown"){
+      down();
+    }
+}
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleUserKeyPress);
+
+    return () => {
+        window.removeEventListener('keydown', handleUserKeyPress);
+    };
+});
+
   return (
     <div>
       <p>JR NOTE: STAY HYDRATED, muzak,piano, if number more than 1000 muzak from arc 3 with the poem printed out and timed to the words.
@@ -232,8 +254,8 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
         <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
         <TextContainer>{text}</TextContainer>
         <SeedContainer autoFocus={true} onChange={(e) => setSeed(isNumeric(e.target.value) ? parseInt(e.target.value) : stringtoseed(e.target.value))} defaultValue={`${seed}`}></SeedContainer>
-        <UpContainer onClick={up}>V</UpContainer>
-        <RightContainer onClick={right}>V</RightContainer>
+        <UpContainer onClick={right}>V</UpContainer>
+        <RightContainer onClick={up}>V</RightContainer>
         <DownContainer onClick={down}>V</DownContainer>
       </HydrationContainer>
 
