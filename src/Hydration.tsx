@@ -223,7 +223,7 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
 
   return (
     <div>
-      <p>JR NOTE: STAY HYDRATED, muzak, text description of glass, up and right and down arrows to pick new image, if you go south 13 times in a row and nothing else you get the muzak from arc 3 with the poem printed out and timed to the words.
+      <p>JR NOTE: STAY HYDRATED, muzak,piano, if number more than 1000 muzak from arc 3 with the poem printed out and timed to the words.
 
 
       </p>

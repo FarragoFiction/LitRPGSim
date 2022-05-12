@@ -1876,6 +1876,15 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         ),
+
+        new QuestObject(
+            "",
+            `PLAYER, sometimes the ectasy of Drink overtakes us.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
         new QuestObject(
             "",
             `Is that a ${OBJECT} you see floating in the water?`,
