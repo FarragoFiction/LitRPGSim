@@ -1,14 +1,40 @@
 export const hydrationUrl = 'http://farragofiction.com/ZampanioHotlink/Hydration/';
+export const hydrationMusicUrl = 'http://farragofiction.com/CodexOfRuin/MallMusicMuzakMallOf1974/';
 
-const extensions:string[] = [
+const imageExtendsions:string[] = [
   "png",
   "gif",
   "jpg",
-  "jpeg",
+  "jpeg"
 ];
 
+const audioExtensions:string[]=["mp3"]
+
 const filePattern = new RegExp('<a href="([^?]*?)">','g');
-const extensionPattern = new RegExp(`\\\.(${extensions.join("|")})\$`);
+const extensionPattern = new RegExp(`\\\.(${imageExtendsions.join("|")})\$`);
+const audioextensionPattern = new RegExp(`\\\.(${audioExtensions.join("|")})\$`);
+
+export const getHydrationMusic = async()=>{
+  try{
+  const rawText = await httpGetAsync(hydrationMusicUrl) as string;
+  
+  let files:string[] = [];
+  const match = rawText.matchAll(filePattern);
+  const matches = Array.from(match, (res) => res);
+  for(let m of matches){
+    const item = m[1];
+    if(item.match(audioextensionPattern)){
+      files.push(item);
+    }
+  }
+
+  return files;
+  }catch(e){
+    console.log("JR NOTE: error",e)
+    return [];
+  }
+}
+
 
 
 export const getHydrationImages = async()=>{
@@ -31,6 +57,8 @@ export const getHydrationImages = async()=>{
     return [];
   }
 }
+
+
 
 //async, you'll want to await this.
 //since using this will mean you don't have anything on screen yet, you'll want some kinda placeholder

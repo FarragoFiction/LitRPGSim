@@ -208,6 +208,9 @@ function App(props: AppProps) {
   useEffect(()=>{
     if(!player){
       window.addEventListener('click', click);
+      window.addEventListener('keydown', click);
+      window.addEventListener('touchend', click);
+
       window.addEventListener('click', clickEffect);
       (window as any).seed = seed;
       const rand = new SeededRandom(seed);  

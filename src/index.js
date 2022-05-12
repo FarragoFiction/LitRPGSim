@@ -111,13 +111,16 @@ export function justTruthSong(){
 }
 
  function playLightlyFuckedUpBGMusic(){
-  audio.play();
+  //audio.play();
 }
 
 export const click = () =>{
   console.log("first click!");
-  playLightlyFuckedUpBGMusic();
+  document.querySelector("#muzak").play();
   window.removeEventListener('click', click);
+  window.removeEventListener('keydown', click);
+  window.removeEventListener('touchend', click);
+
 }
 export const beepEffect = () =>{
   clickAudio.play();

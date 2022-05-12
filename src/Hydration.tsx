@@ -10,7 +10,7 @@ import { initStats } from "./Modules/Stat";
 import { all_themes } from "./Modules/Theme";
 import { genericEndingQuests, genericMiddleQuests, genericStartingQuests, initThemes } from "./Modules/ThemeStorage";
 import { QUESTS } from "./Utils/constants";
-import { getHydrationImages, hydrationUrl } from "./Utils/FileIndexUtils";
+import { getHydrationImages, getHydrationMusic, hydrationMusicUrl, hydrationUrl } from "./Utils/FileIndexUtils";
 import { getRandomNumberBetween, getRandomSeed } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
@@ -25,6 +25,8 @@ export const Hydration = (props: StatusProps) => {
 
   const [imgSrc, setImageSrc] = useState<string>();
   const [images, setImages] = useState<string[]>();
+  const  audioFilesRef = useRef(["http://farragofiction.com/CodexOfRuin/MallMusicMuzakMallOf1974/Mall%20Music%20Muzak%20-%20Mall%20Of%201974%20-%2013%20Parking%20Lot%20Lost.mp3"]);
+
   const urlSeed = getParameterByName("seed", null);
 
   const [seed, setSeed] = useState(urlSeed ? parseInt(urlSeed) : getRandomSeed());
@@ -217,6 +219,11 @@ const DrinkButton = styled.div`
     //JR NOTE: should this be timed?
   }
 
+  //its not shitty code that should be refactored and cleand up its PERFORMANCE art
+  /*
+  srsly tho its thereaputic to make a shitty labyrinth of code that only serves to confuse my future self
+  makes jorb feel less of a mess
+  */
   useEffect(() => {
     if (images && (seedRef.current.initial_seed !== seed || !imgSrc)) {
       seedRef.current.internal_seed = seed;
@@ -226,6 +233,11 @@ const DrinkButton = styled.div`
           setImageSrc(images[seed]);
       }else{
         setImageSrc(rand.pickFrom(images));
+      }
+
+      const ele = document.querySelector("#muzak");
+      if(ele){
+        (ele as any).src = hydrationMusicUrl  + rand.pickFrom(audioFilesRef.current);
       }
       let themes = [];
       let number = rand.getRandomNumberBetween(1, 3);
@@ -265,6 +277,8 @@ const DrinkButton = styled.div`
   useEffect(() => {
     const async_func = async () => {
       const images = await getHydrationImages();
+      const audio_files = await getHydrationMusic();
+      audioFilesRef.current = audio_files;
       setImages(images);
     }
     async_func();
