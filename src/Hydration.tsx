@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { useEffect, useState } from "react"
 import { getHydrationImages, hydrationUrl } from "./Utils/FileIndexUtils";
 import { pickFrom } from "./Utils/NonSeededRandUtils";
@@ -6,6 +7,8 @@ export const Hydration = () => {
 
   const [imgSrc, setImageSrc] = useState<string>();
   const [images, setImages] = useState<string[]>();
+
+  const [text, setText] = useState("Loading...");
 
   const poem = `
   
@@ -29,6 +32,34 @@ A NEW SUIT AND TIE AND A COLOR OF PAINT
 BECAUSE EVEN THOUGH YOU’LL COME TO FORGET
 I DREAM IN MY THROES OF BEING LOVED AGAIN`;
 
+const Hydration = styled.img`
+  position: absolute;
+  display: block;
+  width: 1000px;
+  object-fit: cover;
+  height: 600px;
+  border: 5px solid #eeeeee;
+  border-radius: 13px;
+`
+
+const HydrationContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+  width: 1000px;
+  display: block;
+  position: relative;
+`
+
+const TextContainer = styled.div`
+  position: absolute; 
+  padding: 25px;
+  margin: 25px;
+  background: rgba(255,255,255,0.75);
+  font-weight: bolder;
+  border-radius: 13px;
+`
+
 
   useEffect(() => {
     const async_func = async () => {
@@ -39,18 +70,21 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   }, [])
 
   useEffect(() => {
-    if (images) {
+    if (images && !imgSrc) {
       setImageSrc(pickFrom(images));
     }
   }, [imgSrc, images])
 
   return (
     <div>
-      <p>JR NOTE: STAY HYDRATED, TODO random full page image, muzak, text description of glass, up and right and down arrows to pick new image, if you go south 13 times in a row and nothing else you get the muzak from arc 3 with the poem printed out and timed to the words.
+      <p>JR NOTE: STAY HYDRATED, muzak, text description of glass, up and right and down arrows to pick new image, if you go south 13 times in a row and nothing else you get the muzak from arc 3 with the poem printed out and timed to the words.
 
 
       </p>
-      <img src={`${hydrationUrl}${imgSrc}`} />
-    </div>
+      <HydrationContainer>
+      <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
+      <TextContainer>{text}</TextContainer>
+      </HydrationContainer>
+      </div>
   )
 }

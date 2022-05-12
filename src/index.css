@@ -70,9 +70,7 @@ body {
   margin: 0;
   font-family: 'nunito', sans-serif;
   font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-repeat: repeat;
+  background-image: linear-gradient(#6b98c3, #cbddf0);
 }
 
 .lore{
