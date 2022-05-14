@@ -13,7 +13,7 @@ import { QUESTS } from "./Utils/constants";
 import { getHydrationImages, getHydrationMusic, hydrationMusicUrl, hydrationUrl } from "./Utils/FileIndexUtils";
 import { getRandomNumberBetween, getRandomSeed } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
-import { isNumeric, stringtoseed } from "./Utils/StringUtils";
+import { isNumeric } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 
 
@@ -335,11 +335,11 @@ so anyone who tries to look in the network tab will have a rabbit hole and a hal
 
         <Hydration className="hydration" src={`${hydrationUrl}${imgSrc}`} />
         <TextContainer>{text}</TextContainer>
-        <SeedContainer autoFocus={true} onChange={(e) => setSeed(isNumeric(e.target.value) ? parseInt(e.target.value) : stringtoseed(e.target.value))} defaultValue={`${seed}`}></SeedContainer>
+        <SeedContainer autoFocus={true} onChange={(e) => setSeed(isNumeric(e.target.value) ? parseInt(e.target.value) : 13)} defaultValue={`${seed}`}></SeedContainer>
         <UpContainer id="down" onClick={down}>V</UpContainer>
         <RightContainer id="up" onClick={up}>V</RightContainer>
         <DownContainer id="right" onClick={right}>V</DownContainer>
-        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink from the depths by pressing a button? How fascinating.")}}>DRINK</DrinkButton>
+        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink from the depths by pressing a button with your mouse? How fascinating. Have you considered keyboard commands?")}}>DRINK</DrinkButton>
       </HydrationContainer>
 
     </div>
