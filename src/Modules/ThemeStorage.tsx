@@ -1564,7 +1564,7 @@ const initQuests = () => {
         ),
         new QuestObject(
             `The HiveQueen's Request Redux`,
-            `The Children have spread densely throughout the HiveQueen's territory. Claim ${getRandomNumberBetween(1, 13)} ${LOCATION}S for them to colonize.`,
+            `The Children have spread densely throughout the HiveQueen's territory. Claim ${getRandomNumberBetween(1, 13)} ${LOCATION}s for them to colonize.`,
             `The ${PERSON}S are dragged off by the Children. You try not to think of their fate.`,
             [new SkillAcquired(false, "The Hive Children")],
             [new AchievementTrigger(false)],
@@ -1945,6 +1945,14 @@ export const genericStartingQuests = () => {
         new QuestObject(
             "",
             `Thirst saps your strength and will and energy. You can fix it. Why haven't you?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Hallucination is a symptom of dehydration.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
