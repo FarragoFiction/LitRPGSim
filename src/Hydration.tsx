@@ -339,7 +339,7 @@ so anyone who tries to look in the network tab will have a rabbit hole and a hal
         <UpContainer id="down" onClick={down}>V</UpContainer>
         <RightContainer id="up" onClick={up}>V</RightContainer>
         <DownContainer id="right" onClick={right}>V</DownContainer>
-        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink by pressing a button? How fascinating.")}}>DRINK</DrinkButton>
+        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink from the depths by pressing a button? How fascinating.")}}>DRINK</DrinkButton>
       </HydrationContainer>
 
     </div>
