@@ -1791,6 +1791,30 @@ export const genericStartingQuests = () => {
         ),
         new QuestObject(
             "",
+            `Would you drink for a ${OBJECT}?`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Let me introduce you to ${COMPANIONNAME}. ${COMPANIONNAME} wants you to drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `I know we've just met and all, but it would mean a lot if you drank.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
             `It's okay. I won't tell anyone if you drink.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
@@ -1808,6 +1832,14 @@ export const genericStartingQuests = () => {
         new QuestObject(
             "",
             `The water is here for you.  No ${PERSON} would even know if you drank.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Extreme thirst can lead to muscle cramps and weakness. Trust me. You don't want those.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -1929,6 +1961,22 @@ export const genericMiddleQuests = () => {
         new QuestObject(
             "",
             `I promise. No harm will come to you if you drink. No ${EFFECTS} will occur.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `${EFFECTS}.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Hydrate or Die-drate.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
