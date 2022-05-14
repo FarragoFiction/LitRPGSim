@@ -52,13 +52,13 @@ export   class Theme{
     //takes in things like noun, adj, insult etc etc
     getPossibilitiesFor=(key: string)=>{
         if(!this.string_possibilities){
-            return ["item"];
+            return ["[ERROR: DATA NOT FOUND]"];
         }
         if((key in this.string_possibilities) && this.string_possibilities[key] ){
             return  this.string_possibilities[key];
         }else{
            // console.error(`[ERROR: ${key} NOT FOUND ]`, this.string_possibilities);
-            return [`item`];
+            return [`${key}`];
         }        
     }
 
