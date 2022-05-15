@@ -1557,7 +1557,7 @@ const initQuests = () => {
     quest_possibilities[BUGS] = [
         new QuestObject(
             `The HiveQueen's Request`,
-            `The HiveQueen has approached you with a request: It is not fair that her Children starve while others have plenty. Bring her ${getRandomNumberBetween(1, 13)} ${PERSON}S to feed her Children. Any quality will do. `,
+            `The HiveQueen has approached you with a request: It is not fair that her Children starve while others have plenty. Bring her ${getRandomNumberBetween(1, 13)} ${PERSON}s to feed her Children. Any quality will do. `,
             `The ${PERSON}S are dragged off by the Children. You try not to think of their fate.`,
             [new StatExceedValueTrigger(false, Stat.LIFE(10))],
             [new AchievementTrigger(false)],
@@ -1937,7 +1937,7 @@ export const genericStartingQuests = () => {
         ),
         new QuestObject(
             "",
-            `Remember to hydrate!But you can probably survive without food.`,
+            `Remember to hydrate! But you can probably survive without food.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
