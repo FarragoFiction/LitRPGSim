@@ -219,19 +219,19 @@ export const checkIfAllKeysPresent = () => {
         }
 
         if (!(key in smell_possibilities)) {
-           // console.error("JR NOTE: key", key, "not found in smell_possibilities");
+            // console.error("JR NOTE: key", key, "not found in smell_possibilities");
         }
 
         if (!(key in taste_possibilities)) {
-           // console.error("JR NOTE: key", key, "not found in taste_possibilities");
+            // console.error("JR NOTE: key", key, "not found in taste_possibilities");
         }
 
         if (!(key in sound_possibilities)) {
-           // console.error("JR NOTE: key", key, "not found in sound_possibilities");
+            // console.error("JR NOTE: key", key, "not found in sound_possibilities");
         }
 
         if (!(key in feeling_possibilities)) {
-        // console.error("JR NOTE: key", key, "not found in feeling_possibilities");
+            // console.error("JR NOTE: key", key, "not found in feeling_possibilities");
         }
 
         if (!(key in effect_possibilities)) {
@@ -387,7 +387,7 @@ const initAdjs = () => {
     adj_possibilities[ADDICTION] = ["craving", "addicting", "compelling", "high"];
     adj_possibilities[SPYING] = ["spying", "observing", "watching", "voyeuristic", "seeking"];
     adj_possibilities[CLOWNS] = ["honking", "funny", "prancing", "tumbling", "joking", "jeering", "dancing", "performing", "jesting"];
-    adj_possibilities[DOLLS] = ["delicate", "beautiful", "unsettling", "playing", "dressing", "plastic", "ceramic","uncanny"];
+    adj_possibilities[DOLLS] = ["delicate", "beautiful", "unsettling", "playing", "dressing", "plastic", "ceramic", "uncanny"];
     adj_possibilities[OBFUSCATION] = ["hiding", "hidden", "obscured", "confusing", "blinding", "secret", "unknowable", "censored"];
     adj_possibilities[DARKNESS] = ["darkened", "blackened", "midnight", "blinding"];
     adj_possibilities[KILLING] = ["killing", "murderous", "massacred", "bloody", "savage", "blood-stained", "gory", "brutal"];
@@ -1422,16 +1422,16 @@ const initQuests = () => {
         `With a fixed grin you don the final part of your costume. The Dolls laugh and play around you as you remain frozen in place. Day becomes night becomes day and still the dolls play and still you remain unmoving. The best of dolls, they sing to you, the biggest and most life like. Any child would be delighted to play with you.`,
         [new AchievementTrigger(false)],
         [new ItemInInventory(false, `${OBJECT}`)],
-        [new  EndReward()]
+        [new EndReward()]
     );
 
-    const doll2 =  new QuestObject(
+    const doll2 = new QuestObject(
         `Dollhouse 2`,
         `The Dolls have apparently moved to ${COMPANIONNAME}'s basement and beg you to bring them a ${OBJECT} so they can have a feast!`,
         `The Dolls tear into the ${OBJECT} and chew and swallow and scratch at each other to get a better grip on it with their oh-so-very-sharp teeth. A DOLL dressed as a ${PERSON} climbs up your leg and clings there with an uncanny strength. `,
         [new AchievementTrigger(false)],
         [new ItemInInventory(false, `${OBJECT}`)],
-        [new QuestReward(doll3),new CompanionReward(undefined,`One for sadness, two for earth, three for a life, four for a birth! How many will you collect? `,`${PERSON} DOLL`)]
+        [new QuestReward(doll3), new CompanionReward(undefined, `One for sadness, two for earth, three for a life, four for a birth! How many will you collect? `, `${PERSON} DOLL`)]
     );
 
     quest_possibilities[DOLLS] = [
@@ -1441,19 +1441,19 @@ const initQuests = () => {
             `The Dolls dance and sing around the ${OBJECT}. A ${ADJ} DOLL climbs slowly onto your shoulder and seems unwilling to move. `,
             [new AchievementTrigger(false)],
             [new ItemInInventory(false, `${OBJECT}`)],
-            [new QuestReward(doll2),new CompanionReward(undefined,`First comes love. Then comes marriage. Then comes PLAYER with the baby carriage! `,`${ADJ} DOLL`)]
+            [new QuestReward(doll2), new CompanionReward(undefined, `First comes love. Then comes marriage. Then comes PLAYER with the baby carriage! `, `${ADJ} DOLL`)]
         ),
-       
-        
+
+
     ]
 
-    const slaughterReward =  new QuestObject("A Sudden Turn Redux!",
-    `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to ${GODNAME}, god of ${GODDOMAINS} to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
-    "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
-    [new StatExceedValueTrigger(false, Stat.BLOOD(10))],
-    [new ItemInInventory(false, "PHOTO")],
-    [new SkillReward(new CustomSkill("The Power Of Friendship", 3, "As long as you have your friends by your side, no one, not even your former betrayer Doc Slaughter can stand against you.")), new CompanionReward("Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood")]
-)
+    const slaughterReward = new QuestObject("A Sudden Turn Redux!",
+        `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to ${GODNAME}, god of ${GODDOMAINS} to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
+        "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
+        [new StatExceedValueTrigger(false, Stat.BLOOD(10))],
+        [new ItemInInventory(false, "PHOTO")],
+        [new SkillReward(new CustomSkill("The Power Of Friendship", 3, "As long as you have your friends by your side, no one, not even your former betrayer Doc Slaughter can stand against you.")), new CompanionReward("Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood")]
+    )
 
     quest_possibilities[FAMILY] = [
         new QuestObject("A Sudden Turn!",
@@ -1463,7 +1463,7 @@ const initQuests = () => {
             [new StatExceedValueTrigger(false, Stat.BLOOD(10))],
             [new ItemReward("EIGHTFOLD SWORD"), new QuestReward(slaughterReward)]
         )
-        
+
     ]
 
     quest_possibilities[QUESTING] = [
@@ -1480,7 +1480,7 @@ const initQuests = () => {
             `You know you can do better. You set the personal goal for yourself to get a  ${ADJ} item.`,
             `It's a good start.`,
             [new AchievementTrigger(false)],
-            [new ItemInInventory(false,`${ADJ}`)], 
+            [new ItemInInventory(false, `${ADJ}`)],
             [new ItemReward(), new QuestReward()]
         ),
         new QuestObject(
@@ -1488,7 +1488,7 @@ const initQuests = () => {
             `You know you can do better. You set the personal goal for yourself to get a  ${OBJECT} item.`,
             `It's a good start.`,
             [new AchievementTrigger(false)],
-            [new ItemInInventory(false,`${OBJECT}`)],
+            [new ItemInInventory(false, `${OBJECT}`)],
             [new ItemReward(), new QuestReward()]
         ),
         new QuestObject(
@@ -1496,8 +1496,8 @@ const initQuests = () => {
             `You know you can do better. You set the personal goal for yourself to get a  ${ADJ} skill.`,
             `It's a good start.`,
             [new AchievementTrigger(false)],
-            [new SkillAcquired(false,`${OBJECT}`)],
-            [new SkillReward(new CustomSkill(`You Can Do Better`,3,`The siren song of 'You Can Do Better' sings to you. You have to keep grinding. EXP doubled for the next hour.`)), new QuestReward()]
+            [new SkillAcquired(false, `${OBJECT}`)],
+            [new SkillReward(new CustomSkill(`You Can Do Better`, 3, `The siren song of 'You Can Do Better' sings to you. You have to keep grinding. EXP doubled for the next hour.`)), new QuestReward()]
         ),
     ]
 
@@ -1764,7 +1764,26 @@ export const initThemes = () => {
 // but can have minor trigger requirements.
 export const genericStartingQuests = () => {
 
+    //why YES, this means that each person to play hydration sim gets a different description of what Zampanio was
+    // that is stable for them but conflicting between users. thank you for noticing.
+    let chosenDescription = localStorage.getItem("ZampanioWas");
+    if (!chosenDescription) {
+        const zampanioWas = ["colonizing your mind already.", "the game you're playing right now.", "a really good game, you should play it!", "a game with an insane but hidden fandom.", "a game that changes you.", "a story about an office worker who goes mad.", "a space adventure about pirates.", "not a game.", "a western rpg about greek gods.", "a jrpg with a lot of glitches.", "an old school text adventure game.", "a game about obession.", "full of secrets.", "full of glitches.", "incredibly personalized for each player.", "a lost game where only fanworks remain.", "possibly the inspiration of house of leaves (or the other way around if the rumors of it being from the 70s are wrong).", "a game that is shrouded in rumor.", "said to have come out in 1972, in Italy."];
+        chosenDescription = pickFrom(zampanioWas);
+        if (chosenDescription) {
+            localStorage.setItem("ZampanioWas", chosenDescription);
+        }
+    }
+
     const ret = [
+        new QuestObject(
+            "",
+            `Zampanio is ${chosenDescription} You'll need to stay hydrated if you intend to continue playing it. `,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
         new QuestObject(
             "",
             `You look thirsty. The water is cold and delicious, I promise. It tastes nothing like ${TASTE}.`,
@@ -1903,6 +1922,30 @@ export const genericStartingQuests = () => {
         ),
         new QuestObject(
             "",
+            `It has been said to take upwards of two weeks to complete Zampanio to the point where you are prepared. The human body can only survive three days without water. You need to drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Remember to hydrate!But you can probably survive without food.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `You should probably be drinking every few hours or so.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
             `Thirst is a base need and you are a base creature.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
@@ -1957,9 +2000,17 @@ export const genericStartingQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `Drinking water can help with headaches.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
         )
 
-        
+
     ];
     return ret;
 }
@@ -1997,7 +2048,7 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
-        ),new QuestObject(
+        ), new QuestObject(
             "",
             `The smell of ${SMELL} is overpowering. You wish you could wash the taste of it from the back of your throat.`,
             ``,
@@ -2005,7 +2056,7 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         )
-        ,new QuestObject(
+        , new QuestObject(
             "",
             `The taste of ${TASTE}, the smell of ${SMELL}. It calls you, somehow. You want to drink.`,
             ``,
@@ -2013,7 +2064,7 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         )
-        ,new QuestObject(
+        , new QuestObject(
             "",
             `Is that ${FEELING} you feel? Unsettling...`,
             ``,
@@ -2073,7 +2124,7 @@ export const genericMiddleQuests = () => {
         ),
         new QuestObject(
             "",
-            `Is that a ${OBJECT} you see floating in the water?`,
+            `Is that a ${OBJECT} you see floating in the water? It's probably fine...`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -2097,21 +2148,35 @@ export const genericMiddleQuests = () => {
         ),
         new QuestObject(
             "",
+            `You're probably just tired, that's why the water looks ${ADJ}.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
             `The water is ${ADJ} and cold. You can practically taste ${TASTE} on the air. You should drink.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ), new QuestObject(
+            "",
+            `Do you remember that time by the ${LOCATION}? You were so thirsty then. What you wouldn't have done for a glass of cold and clear and refreshing water.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),  new QuestObject(
+            "",
+            `Two directions behave as you would expect. One takes you to unexpected locations. Where does the final direction lead you?`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         )
     ];
-    /*
-    now
-    i can absolutely give this random companion a real name 
-    but i feel like its funnier if you have like
-    tiers of companions
-    the ones without names are just a little less real
-    don't you think
-    */
     return ret;
 }
 

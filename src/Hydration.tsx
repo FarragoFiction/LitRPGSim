@@ -302,13 +302,13 @@ const DrinkButton = styled.div`
         ele.classList.add("active");
       }
     }else if(event.key === "ArrowUp"){
-      right();
+      left();
       const ele = document.querySelector("#right");
       if(ele){
         ele.classList.add("active");
       }
     }else if(event.key === "ArrowDown"){
-      left();
+      right();
     }
 }
 
@@ -339,7 +339,7 @@ so anyone who tries to look in the network tab will have a rabbit hole and a hal
         <UpContainer id="down" onClick={down}>V</UpContainer>
         <RightContainer id="up" onClick={up}>V</RightContainer>
         <DownContainer id="right" onClick={right}>V</DownContainer>
-        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink from the depths by pressing a button with your mouse? How fascinating. Have you considered keyboard commands?")}}>DRINK</DrinkButton>
+        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink from the depths by pressing a button with your mouse? How fascinating. Have you considered using the keyboard? That won't let you drink, either. I DO mean literally. With your physical body.  But trying out the keyboard can't hurt.")}}>DRINK</DrinkButton>
       </HydrationContainer>
 
     </div>
