@@ -98,7 +98,6 @@ export class Player {
 
         this.skillGenAlg = new BonesFirstAlg();
         let themes: Theme[] = [];
-        console.log("JR NOTE: rip out test quest objects from player");
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
         //a god from your first three themes, a god for your back three, you are supposed to pick ones
