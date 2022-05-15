@@ -9,9 +9,10 @@ import { initClasses } from "./Modules/RPGClass";
 import { initStats } from "./Modules/Stat";
 import { all_themes } from "./Modules/Theme";
 import { genericEndingQuests, genericMiddleQuests, genericStartingQuests, initThemes } from "./Modules/ThemeStorage";
-import { QUESTS } from "./Utils/constants";
+import { gaslightaboutZampanio, QUESTS } from "./Utils/constants";
 import { getHydrationImages, getHydrationMusic, hydrationMusicUrl, hydrationUrl } from "./Utils/FileIndexUtils";
-import { getRandomNumberBetween, getRandomSeed } from "./Utils/NonSeededRandUtils";
+import { valueAsArray } from "./Utils/LocalStorageUtils";
+import { getRandomNumberBetween, getRandomSeed, pickFrom } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
 import { isNumeric } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
@@ -25,7 +26,7 @@ export const Hydration = (props: StatusProps) => {
 
   const [imgSrc, setImageSrc] = useState<string>();
   const [images, setImages] = useState<string[]>();
-  const  audioFilesRef = useRef(["http://farragofiction.com/CodexOfRuin/MallMusicMuzakMallOf1974/Mall%20Music%20Muzak%20-%20Mall%20Of%201974%20-%2013%20Parking%20Lot%20Lost.mp3"]);
+  const audioFilesRef = useRef(["http://farragofiction.com/CodexOfRuin/MallMusicMuzakMallOf1974/Mall%20Music%20Muzak%20-%20Mall%20Of%201974%20-%2013%20Parking%20Lot%20Lost.mp3"]);
 
   const urlSeed = getParameterByName("seed", null);
 
@@ -99,7 +100,7 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
   border: none;
 `
 
-const DrinkButton = styled.div`
+  const DrinkButton = styled.div`
   position: absolute; 
   right: 424px;
   bottom: 253px;
@@ -192,7 +193,7 @@ const DrinkButton = styled.div`
 
   const right = () => {
     fancyLog("JR NOTE:", "To the East is raw chaos.");
-    numberDrinksRef.current = getRandomNumberBetween(1,113);
+    numberDrinksRef.current = getRandomNumberBetween(1, 113);
 
     setSeed(getRandomSeed())
   }
@@ -217,10 +218,10 @@ const DrinkButton = styled.div`
 
   const startPoemMode = () => {
     const ele = document.querySelector("#muzak");
-      if(ele){
-        (ele as any).src ="http://farragofiction.com/TwoGayJokes/Stories/normal_muzak_2.mp3";
-      }
-      fancyLog("JR NOTE: ","I'm impressed. You've started to drink. What else might you find if you search the depths? Or is this enough? Is your thirst for secrets quenched? Are you satisfied calling this an ending? Some of you will be. Even more won't even get this far. But what interests me is those who go further, who dig deeper and deeper. What drives those for whom an ending is not an ending? Tell me? Tell the world. If you dig deep enough you'll find a way.");
+    if (ele) {
+      (ele as any).src = "http://farragofiction.com/TwoGayJokes/Stories/normal_muzak_2.mp3";
+    }
+    fancyLog("JR NOTE: ", "I'm impressed. You've started to drink. What else might you find if you search the depths? Or is this enough? Is your thirst for secrets quenched? Are you satisfied calling this an ending? Some of you will be. Even more won't even get this far. But what interests me is those who go further, who dig deeper and deeper. What drives those for whom an ending is not an ending? Tell me? Tell the world. If you dig deep enough you'll find a way.");
   }
 
   //its not shitty code that should be refactored and cleand up its PERFORMANCE art
@@ -233,15 +234,15 @@ const DrinkButton = styled.div`
       seedRef.current.internal_seed = seed;
       window.history.pushState('', '', `?seed=${seed}`);
       const rand = seedRef.current;
-      if(seed < images.length){ //to help debug
-          setImageSrc(images[seed]);
-      }else{
+      if (seed < images.length) { //to help debug
+        setImageSrc(images[seed]);
+      } else {
         setImageSrc(rand.pickFrom(images));
       }
 
       const ele = document.querySelector("#muzak");
-      if(ele){
-        (ele as any).src = hydrationMusicUrl  + rand.pickFrom(audioFilesRef.current);
+      if (ele) {
+        (ele as any).src = hydrationMusicUrl + rand.pickFrom(audioFilesRef.current);
       }
       let themes = [];
       let number = rand.getRandomNumberBetween(1, 3);
@@ -255,7 +256,7 @@ const DrinkButton = styled.div`
           quest = rand.pickFrom(genericStartingQuests());
         } else if (numberDrinksRef.current < 100) {
           quest = rand.pickFrom(genericMiddleQuests());
-        } else  {
+        } else {
           quest = rand.pickFrom(genericEndingQuests());
         }
         if (numberDrinksRef.current > 600) {
@@ -284,50 +285,63 @@ const DrinkButton = styled.div`
       const audio_files = await getHydrationMusic();
       audioFilesRef.current = audio_files;
       setImages(images);
+      //why YES, this means that each person to play hydrationsim gets a different description of what Zampanio was
+      // that is stable for them but conflicting between users. thank you for noticing.
+      const zampanioWas = ["a point and click adventure game that is beautiful.", "a game that wants to be your friend.", "a game with hidden depths.", "a game about forging your own path.", "a game about questions.", "a game about a game about a faq about a maze.", "a game that someone is spending a great deal of effort to keep buried.", "a creepypasta about a game that does not exist.", "a game on Roblox that inspired the Myths.", "a game that looks like it was released in the 90s.", "an rpg/platformer hybrid for the playstation.", "colonizing your mind already.", "the game you're playing right now.", "a really good game, you should play it!", "a game with an insane but hidden fandom.", "a game that changes you.", "a story about an office worker who goes mad.", "a space adventure about pirates.", "not a game.", "a western rpg about greek gods.", "a jrpg with a lot of glitches.", "an old school text adventure game.", "a game about obession.", "full of secrets.", "full of glitches.", "incredibly personalized for each player.", "a lost game where only fanworks remain.", "possibly the inspiration of house of leaves (or the other way around if the rumors of it being from the 70s are wrong).", "a game that is shrouded in rumor.", "said to have come out in 1972, in Italy."];
+
+      let chosenDescriptions = valueAsArray(gaslightaboutZampanio)
+      if (!chosenDescriptions) {
+        chosenDescriptions = [pickFrom(zampanioWas)];
+      } else {
+        //now that we have at least one description of the game. add another on subsequent page loads
+        //to draw attention to the lack of consistency
+        chosenDescriptions.push(pickFrom(zampanioWas));
+        localStorage.setItem(gaslightaboutZampanio, JSON.stringify(chosenDescriptions));
+      }
     }
     async_func();
   }, [])
 
   const handleUserKeyPress = (event: KeyboardEvent) => {
-    if(event.key === "ArrowLeft"){
+    if (event.key === "ArrowLeft") {
       down();
       const ele = document.querySelector("#down");
-      if(ele){
+      if (ele) {
         ele.classList.add("active");
       }
-    }else if(event.key === "ArrowRight"){
+    } else if (event.key === "ArrowRight") {
       up();
       const ele = document.querySelector("#up");
-      if(ele){
+      if (ele) {
         ele.classList.add("active");
       }
-    }else if(event.key === "ArrowUp"){
+    } else if (event.key === "ArrowUp") {
       left();
       const ele = document.querySelector("#right");
-      if(ele){
+      if (ele) {
         ele.classList.add("active");
       }
-    }else if(event.key === "ArrowDown"){
+    } else if (event.key === "ArrowDown") {
       right();
     }
-}
+  }
 
   useEffect(() => {
     window.addEventListener('keydown', handleUserKeyPress);
 
     return () => {
-        window.removeEventListener('keydown', handleUserKeyPress);
+      window.removeEventListener('keydown', handleUserKeyPress);
     };
-});
+  });
 
-/*
-here's how the hydration puzzle works
-one: it has all the shit zampanio has in its dom, including links to the knucklessux blog and the puzzle box
-two: the images are all coming from zampaniohotlink which is full of mysteries
-three: the audio is all coming from CodexofRuin
-and four, the muzak with the poem is coming from TwoGayJokes, specially where all IC's blorbo stories are kept 
-so anyone who tries to look in the network tab will have a rabbit hole and a half to go through
-*/
+  /*
+  here's how the hydration puzzle works
+  one: it has all the shit zampanio has in its dom, including links to the knucklessux blog and the puzzle box
+  two: the images are all coming from zampaniohotlink which is full of mysteries
+  three: the audio is all coming from CodexofRuin
+  and four, the muzak with the poem is coming from TwoGayJokes, specially where all IC's blorbo stories are kept 
+  so anyone who tries to look in the network tab will have a rabbit hole and a half to go through
+  */
 
   return (
     <div>
@@ -339,7 +353,7 @@ so anyone who tries to look in the network tab will have a rabbit hole and a hal
         <UpContainer id="down" onClick={down}>V</UpContainer>
         <RightContainer id="up" onClick={up}>V</RightContainer>
         <DownContainer id="right" onClick={right}>V</DownContainer>
-        <DrinkButton onClick={()=>{fancyLog("JR NOTE: ","Do you REALLY think you drink from the depths by pressing a button with your mouse? How fascinating. Have you considered using the keyboard? That won't let you drink, either. I DO mean literally. With your physical body.  But trying out the keyboard can't hurt.")}}>DRINK</DrinkButton>
+        <DrinkButton onClick={() => { fancyLog("JR NOTE: ", "Do you REALLY think you drink from the depths by pressing a button with your mouse? How fascinating. Have you considered using the keyboard? That won't let you drink, either. I DO mean literally. With your physical body.  But trying out the keyboard can't hurt.") }}>DRINK</DrinkButton>
       </HydrationContainer>
 
     </div>

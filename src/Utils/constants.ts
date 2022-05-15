@@ -14,6 +14,8 @@ and also wire the first time you go there into the achievement system
 (and also possibly the levels of the menu);
 */
 //:) :) :)
+export const gaslightaboutZampanio = "ZampanioIs";
+
 export const STORAGE_KEY = "lp_route";
 export const HORROR_KEY = "zampanio_horror";
 export const THE_END_IS_NEVER = "01010100 01001000 01000101 00100000 01000101 01001110 01000100 00100000 01001001 01010011 00100000 01001110 01000101 01010110 01000101 01010010 00100000 01010100 01001000 01000101 00100000 01000101 01001110 01000100 00100000 01001001 01010011 00100000 01001110 01000101 01010110 01000101 01010010";

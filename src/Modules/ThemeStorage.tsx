@@ -1,5 +1,5 @@
 import { humanJoining } from '../Utils/ArrayUtils';
-import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RECAP, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, WARROOM } from '../Utils/constants';
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, gaslightaboutZampanio, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RECAP, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, WARROOM } from '../Utils/constants';
 import SeededRandom from '../Utils/SeededRandom';
 import { AchievementTrigger } from './ObserverBot/AchievementTriggers/AchievementTrigger';
 import { ExceedValueTrigger } from './ObserverBot/AchievementTriggers/ExceedValue';
@@ -30,6 +30,7 @@ import { TruthReward } from './Quests/Rewards/TruthReward';
 import { ApocalypseReward } from './Quests/Rewards/ApocalypseReward';
 import { getRandomNumberBetween, pickFrom } from '../Utils/NonSeededRandUtils';
 import { QuestReward } from './Quests/Rewards/QuestReward';
+import { valueAsArray } from '../Utils/LocalStorageUtils';
 
 //categories within a theme
 export const PERSON = "person-key";
@@ -1763,22 +1764,28 @@ export const initThemes = () => {
 //none of these should have unlock requirements
 // but can have minor trigger requirements.
 export const genericStartingQuests = () => {
-
-    //why YES, this means that each person to play hydration sim gets a different description of what Zampanio was
-    // that is stable for them but conflicting between users. thank you for noticing.
-    let chosenDescription = localStorage.getItem("ZampanioWas");
-    if (!chosenDescription) {
-        const zampanioWas = ["colonizing your mind already.", "the game you're playing right now.", "a really good game, you should play it!", "a game with an insane but hidden fandom.", "a game that changes you.", "a story about an office worker who goes mad.", "a space adventure about pirates.", "not a game.", "a western rpg about greek gods.", "a jrpg with a lot of glitches.", "an old school text adventure game.", "a game about obession.", "full of secrets.", "full of glitches.", "incredibly personalized for each player.", "a lost game where only fanworks remain.", "possibly the inspiration of house of leaves (or the other way around if the rumors of it being from the 70s are wrong).", "a game that is shrouded in rumor.", "said to have come out in 1972, in Italy."];
-        chosenDescription = pickFrom(zampanioWas);
-        if (chosenDescription) {
-            localStorage.setItem("ZampanioWas", chosenDescription);
-        }
-    }
-
+    let chosenDescriptions = valueAsArray(gaslightaboutZampanio)
     const ret = [
         new QuestObject(
             "",
-            `Zampanio is ${chosenDescription} You'll need to stay hydrated if you intend to continue playing it. `,
+            `Zampanio is ${pickFrom(chosenDescriptions)} You'll need to stay hydrated if you intend to continue playing it. `,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+
+        new QuestObject(
+            "",
+            `Zampanio is ${pickFrom(chosenDescriptions)} Make sure you drink while playing it. `,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `How much do you think waffles cost? `,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -1922,7 +1929,7 @@ export const genericStartingQuests = () => {
         ),
         new QuestObject(
             "",
-            `It has been said to take upwards of two weeks to complete Zampanio to the point where you are prepared. The human body can only survive three days without water. You need to drink.`,
+            `Zampanio is ${pickFrom(chosenDescriptions)} It has been said to take upwards of two weeks to complete it to the point where you are prepared. The human body can only survive three days without water. You need to drink.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -2017,6 +2024,15 @@ export const genericStartingQuests = () => {
 
 export const genericMiddleQuests = () => {
     const ret = [
+
+        new QuestObject(
+            "",
+            `While you wait to drink, you notice you are in a room. There is ${LOC_DESC} here.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
         new QuestObject(
             "",
             `I promise. No harm will come to you if you drink. No ${EFFECTS} will occur.`,
@@ -2168,7 +2184,7 @@ export const genericMiddleQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
-        ),  new QuestObject(
+        ), new QuestObject(
             "",
             `Two directions behave as you would expect. One takes you to unexpected locations. Where does the final direction lead you?`,
             ``,
