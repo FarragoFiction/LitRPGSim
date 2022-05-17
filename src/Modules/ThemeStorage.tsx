@@ -31,6 +31,7 @@ import { ApocalypseReward } from './Quests/Rewards/ApocalypseReward';
 import { getRandomNumberBetween, pickFrom } from '../Utils/NonSeededRandUtils';
 import { QuestReward } from './Quests/Rewards/QuestReward';
 import { valueAsArray } from '../Utils/LocalStorageUtils';
+import { sentenceCase } from '../Utils/StringUtils';
 
 //categories within a theme
 export const PERSON = "person-key";
@@ -2077,7 +2078,7 @@ export const genericMiddleQuests = () => {
         ),
         new QuestObject(
             "",
-            `${EFFECTS}.`,
+            `${sentenceCase(EFFECTS)}.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -2216,7 +2217,7 @@ export const genericMiddleQuests = () => {
         ,
         new QuestObject(
             "",
-            `Your head pounds and you smell ${SMELL}. You can hear ${SOUND} in the distance.  ${PHILOSOPHY}`,
+            `Your head pounds and you smell ${SMELL}. You can hear ${SOUND} in the distance.  ${sentenceCase(PHILOSOPHY)}`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
