@@ -2070,7 +2070,7 @@ export const genericMiddleQuests = () => {
         ),
         new QuestObject(
             "",
-            `I promise. No harm will come to you if you drink. No ${EFFECTS} will occur.`,
+            `I promise. No harm will come to you if you drink.`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
