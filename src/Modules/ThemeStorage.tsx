@@ -1703,7 +1703,7 @@ const initQuests = () => {
 
         new QuestObject(
             `${GODNAME}'s Gift!`,
-            `${GODNAME}, the God of ${GODDOMAINS} desires additional loyalty. Purge 216 ${ADJ} ${OBJECT}S. `,
+            `${GODNAME}, the God of ${GODDOMAINS} desires additional loyalty. Purge 216 ${ADJ} ${OBJECT}s. `,
             `With a flash of divine power, you feel even closer to ${GODNAME}.`,
             [new SkillAcquired(false, ` ${GODDOMAINS}`)],
             [new AchievementTrigger(false)],
@@ -1713,7 +1713,7 @@ const initQuests = () => {
 
         new QuestObject(
             `${GODNAME}'s Bane!`,
-            `${GODNAME}, the God of ${GODDOMAINS} has opposed your God too many times. Purge 216 ${ADJ} ${OBJECT}S that have ${GODNAME}'s favor. `,
+            `${GODNAME}, the God of ${GODDOMAINS} has opposed your God too many times. Purge 216 ${ADJ} ${OBJECT}s that have ${GODNAME}'s favor. `,
             `You can feel the weakening influence of the hated ${GODNAME}.`,
             [new HasChosenGod(false)],
             [new StatExceedValueTrigger(false, Stat.BLOOD(10))],
