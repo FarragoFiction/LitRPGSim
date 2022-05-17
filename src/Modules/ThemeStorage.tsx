@@ -1766,7 +1766,7 @@ export const initThemes = () => {
 // but can have minor trigger requirements.
 export const genericStartingQuests = () => {
     let chosenDescriptions = valueAsArray(gaslightaboutZampanio)
-    const ret = [
+    const ret:QuestObject[] = [
         new QuestObject(
             "",
             `Zampanio is ${pickFrom(chosenDescriptions)} You'll need to stay hydrated if you intend to continue playing it. `,
@@ -2034,7 +2034,6 @@ export const genericStartingQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         ),
-        ,
         new QuestObject(
             "",
             `You should drink five glasses of water a minute to be fully hydrated.`,
@@ -2058,7 +2057,7 @@ export const genericStartingQuests = () => {
 }
 
 export const genericMiddleQuests = () => {
-    const ret = [
+    const ret:QuestObject[] = [
 
         new QuestObject(
             "",
