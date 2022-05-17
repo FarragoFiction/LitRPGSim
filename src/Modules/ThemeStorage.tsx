@@ -1785,6 +1785,31 @@ export const genericStartingQuests = () => {
         ),
         new QuestObject(
             "",
+            `It would be very ${COMPLIMENT} of you to drink water.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `People who are ${INSULT} do not drink water. They probably smell of ${SMELL}.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "",
+            `People who are ${INSULT} do not drink water.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
+
+        new QuestObject(
+            "",
             `How much do you think waffles cost? `,
             ``,
             [new AchievementTrigger(false)], //auto unlock
@@ -2174,6 +2199,24 @@ export const genericMiddleQuests = () => {
         new QuestObject(
             "",
             `You're probably just tired, that's why the water looks ${ADJ}.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+        ,
+        new QuestObject(
+            "",
+            `You feel if you could only drink you could ${MIRACLE}.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+        ,
+        new QuestObject(
+            "",
+            `Your head pounds and you smell ${SMELL}. You can hear ${SOUND} in the distance.  ${PHILOSOPHY}`,
             ``,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
