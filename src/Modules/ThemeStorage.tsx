@@ -2008,6 +2008,15 @@ export const genericStartingQuests = () => {
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
         ),
+        ,
+        new QuestObject(
+            "",
+            `You should drink five glasses of water a minute to be fully hydrated.`,
+            ``,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        ),
         new QuestObject(
             "",
             `Drinking water can help with headaches.`,
