@@ -968,7 +968,7 @@ const initLocDesc = () => {
     loc_desc[HEALING] = ["bandages and first aid kits neatly stacked up along a wall", "a large operating table in the center of the room", "healing potions and scrolls in a scattered pile"];
     loc_desc[PLANTS] = ["ferns and grass as far as the eye can see, growing right out of the floor", "potted plants lining the walls", "an entire forest impossibly contained in a single room"];
     loc_desc[HUNTING] = ["a butchered deer carcass laying right on the floor", "a gun rack lining the wall", "the footprints of something mysterious making its way through the room"];
-    loc_desc[DECAY] = ["disgusting mold covering every surface", "a rotting corpse lying right on the floor", "a half opened fridge along a wall, lights off, reeking spoiled food"];
+    loc_desc[DECAY] = ["disgusting mold covering every surface", "a rotting corpse lying right on the floor", "a half opened fridge along a wall, lights off, reeking of spoiled food"];
     loc_desc[CHOICES] = ["three smaller hallways bisecting the room", "a map of all possible choices impossibly small along a wall", "three small chests and the sinking feeling that only one can be opened"];
     loc_desc[ZAP] = ["a series of electrical pylons along a wall", "a tesla coil arcing bits of electricity at random throughout the room", "an electrified panel sparking dangerously in the center of the room"];
     loc_desc[LOVE] = ["a bed shaped like a heart", "a romantic candleit dinner laid out, complete with roses", "rose petals cutting a path through the room"];
