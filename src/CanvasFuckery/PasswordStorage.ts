@@ -105,12 +105,13 @@ export const passwords:PasswordMap = {
     ,"THE WANDERER": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/WANDERER/0.jpg",2)],undefined, "Secrets/WANDERER/0.js")
     ,"THE TWINS": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/TWINS/0.jpg",2)],undefined, "Secrets/TWINS/0.js")
     ,"THE SOLEMN": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-    ,"THE END IS NEVER THE END": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/THEENDISNEVERTHEND/clown.png",2)],undefined, "Secrets/THEENDISNEVERTHEND/0.js")
+    ,"THE END IS NEVER THE END": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/THEENDISNEVERTHEEND/clown.png",2)],undefined, "Secrets/THEENDISNEVERTHEEND/0.js")
     ,"YOU IS NEEDED TO END THE WORLD": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/YOUISNEEDEDTOENDTHEWORLD/0.jpg",2)],undefined, "Secrets/YOUISNEEDEDTOENDTHEWORLD/0.js")
     ,"https://www.youtube.com/watch?v=WOrF94annCY": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/YOUTUBE/0.jpg",2)],undefined, "Secrets/YOUTUBE/0.js")
 
     ,"THE TRUTH IS LAYERED": new Secret("L-O-R4 Daily Logs: 1",[new SourceDurationPair("Secrets/THETRUTHISLAYERED/0.jpg",2)],undefined, "Secrets/THETRUTHISLAYERED/0.js")
-    
+    ,"THE END IS NEVER": new Secret("Clown Diary",[new SourceDurationPair("Secrets/THEENDISNEVER/clown.png",2)],undefined, "Secrets/THEENDISNEVER/0.js")
+
     ,"7342": new Secret("L-O-R4 Daily Logs: 2",[new SourceDurationPair("Secrets/7342/0.jpg",2)],undefined, "Secrets/7342/0.js")
     
     
