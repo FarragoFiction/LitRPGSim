@@ -24,6 +24,7 @@ export const OneCharAtATimeDiv = (props: RoomProps) => {
     },[index,incrementIndex]);
 
     useEffect(()=>{
+        console.log("JR NOTE: OneCharAtATime got text", text);
         setSkip(false);
         setIndex(0);
     },[text]);

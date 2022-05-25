@@ -115,6 +115,7 @@ export const passwords:PasswordMap = {
     ,"7342": new Secret("L-O-R4 Daily Logs: 2",[new SourceDurationPair("Secrets/7342/0.jpg",2)],undefined, "Secrets/7342/0.js")
     
     
+    ,"OBSESSION LEADS TO RUIN": new Secret("Clown Diary",[new SourceDurationPair("Secrets/THEENDISNEVER/clown.png",2)],undefined, "Secrets/THEENDISNEVER/0.js")
 
     ,"1365": new Secret("L-O-R4 Daily Logs: 3",[new SourceDurationPair("Secrets/1365/0.jpg",2)],undefined, "Secrets/1365/0.js")
     ,"217": new Secret("L-O-R4 Daily Logs: 4",[new SourceDurationPair("Secrets/217/0.jpg",2)],undefined, "Secrets/217/0.js")
