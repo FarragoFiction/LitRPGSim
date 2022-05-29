@@ -221,7 +221,7 @@ I DREAM IN MY THROES OF BEING LOVED AGAIN`;
     if (ele) {
       (ele as any).src = "http://farragofiction.com/TwoGayJokes/Stories/normal_muzak_2.mp3";
     }
-    fancyLog("JR NOTE: ", "I'm impressed. You've started to drink. What else might you find if you search the depths? Or is this enough? Is your thirst for secrets quenched? Are you satisfied calling this an ending? Some of you will be. Even more won't even get this far. But what interests me is those who go further, who dig deeper and deeper. What drives those for whom an ending is not an ending? Tell me? Tell the world. If you dig deep enough you'll find a way.");
+    fancyLog("JR NOTE: ", "I'm impressed. You've started to drink. What else might you find if you search the depths? Or is this enough? Is your thirst for secrets quenched? Are you satisfied calling this an ending? Some of you will be. Even more won't even get this far. But what interests me is those who go further, who dig deeper and deeper. What drives those for whom an ending is not an ending? Tell me? Tell the world. If you dig deep enough you'll find a way.  Have a small gift for reaching this far: http://farragofiction.com/ClownDiarySim/  Do you understand how it works? Do you know what it connects to?");
   }
 
   //its not shitty code that should be refactored and cleand up its PERFORMANCE art
