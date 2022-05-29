@@ -144,7 +144,8 @@ export class Player {
     }
 
     generateQuests = (themes: Theme[])=>{
-        let quests = [...this.rand.pickXFrom(genericStartingQuests(),5)];
+
+        let quests = [...this.rand.pickXFrom(genericStartingQuests(),this.rand.getRandomNumberBetween(1,5))];
 
         const questsBeforeThemes = quests.length;
 
@@ -196,7 +197,6 @@ export class Player {
         quest.theme_keys = this.theme_keys;
         quest.rand = this.rand;
         if(quest.god_index ){
-            console.log("JR NOTE: there was a god index and it was", quest.god_index);
             if(quest.god_index === GodDescription.CHOSEN){
                 quest.god = this.chosen_god;
             }else if(quest.god_index === GodDescription.RIVAL) {

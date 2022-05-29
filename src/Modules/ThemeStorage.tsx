@@ -1617,6 +1617,47 @@ const initQuests = () => {
         )
     ]
 
+    quest_possibilities[MATH] = [
+        new QuestObject(
+            `A Numerical Connundrum`,
+            `Johnny has four ${OBJECT}S. Susan has 11. If they divide them equally between the two of them, bring the amount leftover to the hollow underneath the ${LOCATION} OF ${OBJECT}S.`,
+            `Correct! There is one ${OBJECT} left over! You did it! You get a GOLD STAR!`,
+            [new AchievementTrigger(false)],
+            [new ItemInInventory(false, `${OBJECT}`)],
+            [new ItemReward("GOLD STAR")]
+        )
+    ]
+
+
+
+    quest_possibilities[PLANTS] = [
+        
+        new QuestObject(
+            `The Forest's Hope`,
+            `You have stumbled into the Grotto of the Fae-Forest Wizard. They offer you one chance. Bring them a ${OBJECT} and they may yet teach you the secrets of the Forest.`,
+            `You deposit the ${OBJECT} into the gnarled hand of the Fae-Forest Wizard and they teach you how to summon a(n)  ${ADJ} ${OBJECT} at will in thanks.`,
+            [new AchievementTrigger(false)],
+            [new ItemInInventory(false, `${OBJECT}`)],
+            [new SkillReward(new CustomSkill(`${ADJ} ${OBJECT}`, 3, `A gently pulsating ${ADJ} ${OBJECT} shimmers into your hand.`))]
+        ),
+        new QuestObject(
+            `The Forest's Vengence`,
+            `The Fae-Forest Wizard approaches you with a request. The encroachment of Man has weakened the forest. Raid three LOGGING CAMPS to turn the tide.`,
+            `With a howl you sound off your blood vengence against those who would despoil the forest. Nature is healing.`,
+            [new StatExceedValueTrigger(false, undefined, 3)],
+            [new StatExceedValueTrigger(false, Stat.LIFE(10),10)],
+            [new StatReward((Stat.LIFE(10)))]
+        ),
+        new QuestObject(
+            `The Forest's Heir`,
+            `The Fae-Forest Wizard is dying and declares that anyone who can prove their strength shall be named their Heir.`,
+            `The Fae of the Forest kneel before you and vow eternal service.`,
+            [new StatExceedValueTrigger(false, Stat.LIFE(20),20)],
+            [new StatExceedValueTrigger(false, Stat.LIFE(30),30)],
+            [new CompanionReward("Fae of the Forest","They swear eternal elegiance, to you, their Wizard.","Forest Elf"),new CompanionReward("Fae of the Forest","They swear eternal elegiance, to you, their Wizard.","Forest Spirit"),new CompanionReward("Fae of the Forest","They swear eternal elegiance, to you, their Wizard.","Forest Gnome")]
+        ),
+    ]
+
     quest_possibilities[WASTE] = [
         new QuestObject(
             `Visit the Password Rabbithole`,
