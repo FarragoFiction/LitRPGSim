@@ -1620,7 +1620,7 @@ const initQuests = () => {
     quest_possibilities[MATH] = [
         new QuestObject(
             `A Numerical Connundrum`,
-            `Johnny has four ${OBJECT}S. Susan has 11. If they divide them equally between the two of them, bring the amount leftover to the hollow underneath the ${LOCATION} OF ${OBJECT}S.`,
+            `Johnny has four ${OBJECT}s. Susan has 11. If they divide them equally between the two of them, bring the amount leftover to the hollow underneath the ${LOCATION} OF ${OBJECT}s.`,
             `Correct! There is one ${OBJECT} left over! You did it! You get a GOLD STAR!`,
             [new AchievementTrigger(false)],
             [new ItemInInventory(false, `${OBJECT}`)],
@@ -1628,17 +1628,45 @@ const initQuests = () => {
         )
     ]
 
+    quest_possibilities[GUIDING] = [
+        new QuestObject(
+            `Interview With A Goblin King`,
+            `The Goblin King is lounging in one of the biggest rooms you've ever seen. There are ${LOC_DESC}.  He leers at you, and asks you to bring him the heads of three ${PERSON} Chieftons.`,
+            `The heads make a tidy pile. The Goblin King looks at you in approval and says he sees great potential in you.`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false, undefined, 5)],
+            [new ItemReward("Gobling King's Permit")]
+        ),
+        new QuestObject(
+            `Internship With A Goblin King`,
+            `The Goblin King is waiting for you. There are five rival ${PERSON}s he wants to outmanuever. How would you accomplish this?`,
+            `With that, the Goblin King is the undisputed ruler of the ${ADJ} Goblins. With you at his side, anything is possible.`,
+            [new ItemInInventory(false,"Gobling King's Permit")],
+            [new StatExceedValueTrigger(false, undefined, 10)],
+            [new ItemReward("Royal Advisor Permit")]
+        ),
+        new QuestObject(
+            `Backstabbing A Goblin King`,
+            `The Goblin King has grown lazy and indolent, relying on you. A group of hooded ${PERSON}s want to back you, instead.`,
+            `As you behead the final ${PERSON} you renew your pledge of loyalty to the Goblin King, may he reign eternal!`,
+            [new ItemInInventory(false,"Royal Advisor Permit")],
+            [new StatExceedValueTrigger(false, undefined, 20)],
+            [new SkillReward(new CustomSkill("Undying Loyalty",3,"For the next thirty seconds, so long as you act to further your master's wishes, you can not be killed."))]
+        )
+    ]
+
+
 
 
     quest_possibilities[PLANTS] = [
         
         new QuestObject(
             `The Forest's Hope`,
-            `You have stumbled into the Grotto of the Fae-Forest Wizard. They offer you one chance. Bring them a ${OBJECT} and they may yet teach you the secrets of the Forest.`,
+            `You have stumbled into the Grotto of the Fae-Forest Wizard. There are ${LOC_DESC} around them. They offer you one chance. Bring them a ${OBJECT} and they may yet teach you the secrets of the Forest.`,
             `You deposit the ${OBJECT} into the gnarled hand of the Fae-Forest Wizard and they teach you how to summon a(n)  ${ADJ} ${OBJECT} at will in thanks.`,
             [new AchievementTrigger(false)],
             [new ItemInInventory(false, `${OBJECT}`)],
-            [new SkillReward(new CustomSkill(`${ADJ} ${OBJECT}`, 3, `A gently pulsating ${ADJ} ${OBJECT} shimmers into your hand.`))]
+            [new StatReward(undefined, 20), new SkillReward(new CustomSkill(`${ADJ} ${OBJECT}`, 3, `A gently pulsating ${ADJ} ${OBJECT} shimmers into your hand.`))]
         ),
         new QuestObject(
             `The Forest's Vengence`,
@@ -1742,7 +1770,7 @@ const initQuests = () => {
 
         new QuestObject(
             `${GODNAME}'s Gift!`,
-            `${GODNAME}, the God of ${GODDOMAINS} desires additional loyalty. Purge 216 ${ADJ} ${OBJECT}S. `,
+            `${GODNAME}, the God of ${GODDOMAINS} desires additional loyalty. Purge 216 ${ADJ} ${OBJECT}s. `,
             `With a flash of divine power, you feel even closer to ${GODNAME}.`,
             [new SkillAcquired(false, ` ${GODDOMAINS}`)],
             [new AchievementTrigger(false)],
@@ -1752,7 +1780,7 @@ const initQuests = () => {
 
         new QuestObject(
             `${GODNAME}'s Bane!`,
-            `${GODNAME}, the God of ${GODDOMAINS} has opposed your God too many times. Purge 216 ${ADJ} ${OBJECT}S that have ${GODNAME}'s favor. `,
+            `${GODNAME}, the God of ${GODDOMAINS} has opposed your God too many times. Purge 216 ${ADJ} ${OBJECT}s that have ${GODNAME}'s favor. `,
             `You can feel the weakening influence of the hated ${GODNAME}.`,
             [new HasChosenGod(false)],
             [new StatExceedValueTrigger(false, Stat.BLOOD(10))],
@@ -1807,7 +1835,7 @@ export const genericStartingQuests = () => {
     const ret = [
         new QuestObject(
             "A New Beginning!",
-            `After finally joining the wild world of Zampanio, a ${PERSON} has given you a starter Quest! Bring them 4 ${ADJ} RABBITS! You can find them in STARTER ${LOCATION} during the DAY!`,
+            `After finally joining the wild world of Zampanio, a ${PERSON} has given you a starter Quest! Bring them 4 ${ADJ} rabbits! You can find them in starter ${LOCATION} during the DAY!`,
             `The ${PERSON} scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, they hand you ten rabbit skins. You.... guess they just really like rabbit?`,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
@@ -1874,8 +1902,8 @@ export const genericMiddleQuests = () => {
     const ret = [
         new QuestObject(
             "A Reputation Earned!",
-            `A ${PERSON} approaches you in desperate need of four ${ADJ} DRAGON'S killed. They've heard you're the only person up to the task, won't you please help them?`,
-            `With tears in their eyes, the  ${PERSON} transforms into a ${ADJ} DRAGON and thanks you for disposing of their rivals.`,
+            `A ${PERSON} approaches you in desperate need of four ${ADJ} Dragon's killed. They've heard you're the only person up to the task, won't you please help them?`,
+            `With tears in their eyes, the  ${PERSON} transforms into a ${ADJ} Dragon and thanks you for disposing of their rivals.`,
             [new StatExceedValueTrigger(false, undefined, 5)], 
             [new AchievementTrigger(false)],
             [new ItemReward(), new StatReward(undefined,5)]
