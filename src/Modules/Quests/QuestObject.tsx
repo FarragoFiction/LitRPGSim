@@ -1,6 +1,6 @@
 import { humanJoining } from "../../Utils/ArrayUtils";
 import SeededRandom from "../../Utils/SeededRandom";
-import { sentenceCase } from "../../Utils/StringUtils";
+import { sentenceCase, titleCase } from "../../Utils/StringUtils";
 import { God } from "../God";
 import { AchievementTrigger } from "../ObserverBot/AchievementTriggers/AchievementTrigger";
 import AchivementPopupKickoff from "../ObserverBot/AchivementPopup";
@@ -147,7 +147,7 @@ export class QuestObject {
                     ret = ret.replaceAll(key, this.string_possibilities[key]);
 
                 } else {
-                    ret = ret.replaceAll(key, sentenceCase(this.string_possibilities[key]));
+                    ret = ret.replaceAll(key, titleCase(this.string_possibilities[key]));
                 }
             }
         }

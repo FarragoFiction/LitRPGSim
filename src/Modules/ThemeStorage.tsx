@@ -30,6 +30,7 @@ import { TruthReward } from './Quests/Rewards/TruthReward';
 import { ApocalypseReward } from './Quests/Rewards/ApocalypseReward';
 import { getRandomNumberBetween, pickFrom } from '../Utils/NonSeededRandUtils';
 import { QuestReward } from './Quests/Rewards/QuestReward';
+import { HasTheme } from './ObserverBot/AchievementTriggers/HasTheme';
 
 //categories within a theme
 export const PERSON = "person-key";
@@ -1628,6 +1629,46 @@ const initQuests = () => {
         )
     ]
 
+    quest_possibilities[STEALING] = [
+        new QuestObject(
+            `Avast Ye Hearties`,
+            `Word on the street is that there is a VAST PIRATE TRESSURE just waiting for someone enterprising enough to 'recover' it. Will that be you?`,
+            `Just as you pick the final tumblr in the treasure chest's lock, a cage rattles down on you. A gang of grinning pirates stare at you in, laughing and cheering. They part down the middle, to reveal an older man with a grey beard and a respectable eyepatch. He lets you know that the crew of the ${ADJ} ${OBJECT} is in need of a Captain, and spread the rumor themselves to find themselves a good one. Think it over, he says, and let them know if you want the gig.`,
+            [new HasTheme(false,OCEAN)],
+            [new StatExceedValueTrigger(false, undefined, 5)],
+            [new ItemReward("Pirate  Booty"), new StatReward(undefined,5)]
+        ),new QuestObject(
+            `Captain Of The Deep Blue Sea`,
+            `If you're ready to become the pirate captain you always knew you would be, leave one ${OBJECT} buried on a deserted island. They'll know what it means.`,
+            `The newly christianed ${ADJ} ${OBJECT} is ready to set sail with you at her helm!`,
+            [new ItemInInventory(false,"Pirate  Booty")],
+            [new ItemInInventory(false,`${OBJECT}`)],
+            [new ItemReward("Captain's Hat"), new StatReward(undefined,5), new CompanionReward("First Mate","The First Mate is your second in command and is more than willing to show you the ropes. Literally.","Mate of Water"), new CompanionReward("Scurvy Dog","A low level pirate willing to fight and die for you.","Dog of Disease"), new CompanionReward("Scurvy Dog","A low level pirate willing to fight and die for you.","Dog of Disease"), new CompanionReward("Scurvy Dog","A low level pirate willing to fight and die for you.","Dog of Disease")]
+        ),new QuestObject(
+            `Sticky Fingers I`,
+            `You overhear a rumor that a local Nobel has more money than sense and has come into posession of a highly valued ${ADJ} ${OBJECT}. It could be yours, if you came up with a plan to lift it.`,
+            `And with that, now YOU have come into posession of the ${ADJ} ${OBJECT}!`,
+            [new AchievementTrigger(false)],
+            [new StatExceedValueTrigger(false, undefined, 5)],
+            [new ItemReward(`${ADJ} ${OBJECT}`),new StatReward(undefined, 5)]
+        )
+        ,new QuestObject(
+            `Sticky Fingers II`,
+            `You overhear a rumor that a local ${PERSON} has come into posession of a highly valued ${ADJ} ${OBJECT}. Are you up for the challenge?`,
+            `And with that, now YOU have come into posession of the ${ADJ} ${OBJECT}!`,
+            [new StatExceedValueTrigger(false, undefined, 10)],
+            [new StatExceedValueTrigger(false, undefined, 15)],
+            [new ItemReward(`${ADJ} ${OBJECT}`),new StatReward(undefined, 5)]
+        ),new QuestObject(
+            `Sticky Fingers III`,
+            `You are on the verge of stealing  a ${ADJ} ${OBJECT} from a particularly foolhardy ${PERSON} when the police force catches you. Are you ready to escape prison before your trial?`,
+            `As you are unlocking the final door between you and freedom, you spot the original ${ADJ} ${OBJECT} you wanted to steal in the first place, locked up in evidence.  Welp, alls well that ends well!`,
+            [new HasTheme(false,FREEDOM),new StatExceedValueTrigger(false, undefined, 10)],
+            [new StatExceedValueTrigger(false, undefined, 20)],
+            [new ItemReward(`${ADJ} ${OBJECT}`),new StatReward(undefined, 5)]
+        )
+    ]
+
     quest_possibilities[GUIDING] = [
         new QuestObject(
             `Interview With A Goblin King`,
@@ -1664,15 +1705,15 @@ const initQuests = () => {
             `The Forest's Hope`,
             `You have stumbled into the Grotto of the Fae-Forest Wizard. There are ${LOC_DESC} around them. They offer you one chance. Bring them a ${OBJECT} and they may yet teach you the secrets of the Forest.`,
             `You deposit the ${OBJECT} into the gnarled hand of the Fae-Forest Wizard and they teach you how to summon a(n)  ${ADJ} ${OBJECT} at will in thanks.`,
-            [new AchievementTrigger(false)],
+            [new HasTheme(false,MAGIC)],
             [new ItemInInventory(false, `${OBJECT}`)],
-            [new StatReward(undefined, 20), new SkillReward(new CustomSkill(`${ADJ} ${OBJECT}`, 3, `A gently pulsating ${ADJ} ${OBJECT} shimmers into your hand.`))]
+            [new StatReward(undefined, 5), new SkillReward(new CustomSkill(`${ADJ} ${OBJECT}`, 3, `A gently pulsating ${ADJ} ${OBJECT} shimmers into your hand.`))]
         ),
         new QuestObject(
             `The Forest's Vengence`,
             `The Fae-Forest Wizard approaches you with a request. The encroachment of Man has weakened the forest. Raid three LOGGING CAMPS to turn the tide.`,
             `With a howl you sound off your blood vengence against those who would despoil the forest. Nature is healing.`,
-            [new StatExceedValueTrigger(false, undefined, 3)],
+            [new StatExceedValueTrigger(false, undefined, 3),new HasTheme(false,MAGIC)],
             [new StatExceedValueTrigger(false, Stat.LIFE(10),10)],
             [new StatReward((Stat.LIFE(10)))]
         ),
@@ -1680,7 +1721,7 @@ const initQuests = () => {
             `The Forest's Heir`,
             `The Fae-Forest Wizard is dying and declares that anyone who can prove their strength shall be named their Heir.`,
             `The Fae of the Forest kneel before you and vow eternal service.`,
-            [new StatExceedValueTrigger(false, Stat.LIFE(20),20)],
+            [new StatExceedValueTrigger(false, Stat.LIFE(20),20),new HasTheme(false,MAGIC)],
             [new StatExceedValueTrigger(false, Stat.LIFE(30),30)],
             [new CompanionReward("Fae of the Forest","They swear eternal elegiance, to you, their Wizard.","Forest Elf"),new CompanionReward("Fae of the Forest","They swear eternal elegiance, to you, their Wizard.","Forest Spirit"),new CompanionReward("Fae of the Forest","They swear eternal elegiance, to you, their Wizard.","Forest Gnome")]
         ),
