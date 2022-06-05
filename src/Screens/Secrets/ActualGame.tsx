@@ -186,6 +186,7 @@ export const RenderedRoom = (props: RoomProps) => {
   const [message, setMessage] = useState("");
 
   let exits = "";
+  const storenames = ["-Mart", "-Shoppe","-Shop","Mart", "Shoppe","Shop","'s"];
 
   useEffect(() => {
     setError("");
@@ -194,11 +195,11 @@ export const RenderedRoom = (props: RoomProps) => {
   if (room.neighbors.length === 0) {
     exits = "A swirling vortex of madness.";
   } else if (room.neighbors.length === 1) {
-    exits = `SOUTH (${room.neighbors[0]}${props.player.buildingMetaData[room.neighbors[0]].unlocked ? "" : "🔒"}) `;
+    exits = `SOUTH (${room.neighbors[0]}${storenames[room.neighbors[0].length%storenames.length]}${props.player.buildingMetaData[room.neighbors[0]].unlocked ? "" : "🔒"}) `;
   } else if (room.neighbors.length === 2) {
-    exits = `NORTH (${room.neighbors[1]}${props.player.buildingMetaData[room.neighbors[1]].unlocked ? "" : "🔒"}) and SOUTH (${room.neighbors[0]}${props.player.buildingMetaData[room.neighbors[0]].unlocked ? "" : "🔒"})`;
+    exits = `NORTH (${room.neighbors[1]}${storenames[room.neighbors[1].length%storenames.length]}${props.player.buildingMetaData[room.neighbors[1]].unlocked ? "" : "🔒"}) and SOUTH (${room.neighbors[0]}${storenames[room.neighbors[0].length%storenames.length]}${props.player.buildingMetaData[room.neighbors[0]].unlocked ? "" : "🔒"})`;
   } else if (room.neighbors.length === 3) {
-    exits = `NORTH (${room.neighbors[1]}${props.player.buildingMetaData[room.neighbors[1]].unlocked ? "" : "🔒"}) and SOUTH (${room.neighbors[0]}${props.player.buildingMetaData[room.neighbors[0]].unlocked ? "" : "🔒"}) and EAST (${room.neighbors[2]}${props.player.buildingMetaData[room.neighbors[2]].unlocked ? "" : "🔒"})`;//never west, there are no left turns.
+    exits = `NORTH (${room.neighbors[1]}${storenames[room.neighbors[1].length%storenames.length]}${props.player.buildingMetaData[room.neighbors[1]].unlocked ? "" : "🔒"}) and SOUTH (${room.neighbors[0]}${storenames[room.neighbors[0].length%storenames.length]}${props.player.buildingMetaData[room.neighbors[0]].unlocked ? "" : "🔒"}) and EAST (${room.neighbors[2]}${storenames[room.neighbors[2].length%storenames.length]}${props.player.buildingMetaData[room.neighbors[2]].unlocked ? "" : "🔒"})`;//never west, there are no left turns.
   } else {
     exits = "A swirling vortex of madness";
   }
@@ -254,7 +255,7 @@ export const RenderedRoom = (props: RoomProps) => {
     const smell_euphamism = ["SNIFF", "SMELL", "SNORT", "INHALE", "WHIFF"];
     //should feel weird and fake
     const touch_euphemisms = ["FEEL", "CARESS", "TOUCH"];
-    const help_euphemisms = ["HELP", "LOST", "OPERATOR", "ASSIST", "AID", "SUPPORT", "TRUTH"];
+    const help_euphemisms = ["HELP", "LOST", "OPERATOR", "ASSIST", "AID", "SUPPORT", "TRUTH", "WHAT DO I DO"];
 
     for (let part of parts) {
       if (help_euphemisms.includes(part)) {
@@ -508,18 +509,18 @@ export const RenderedRoom = (props: RoomProps) => {
         <a href='http://farragnarok.com/Zampanio'>This Is Not Important (but the lonely robot inside it could really use a good conversation) (what is it with me and making lonely robots abandoned by everyone?)</a>
 
         </div>
-      <RoomName>{room.key}</RoomName>
+      <RoomName>{room.key}{storenames[room.key.length%storenames.length]}</RoomName>
       <RoomSection>
         <OneCharAtATimeDiv text={dir_flavor + room.description}></OneCharAtATimeDiv></RoomSection>
       <RoomSection>Obvious exits are: {exits}.</RoomSection>
-      {room.items.length > 0 ? <RoomSection>You see: <b>{room.items.join(", ")} </b>standing out.</RoomSection> : null}
-      {room.people.length > 0 ? <RoomSection>You see: <b>{room.people.join(", ")}</b> standing around. They are your friend.</RoomSection> : null}
+      {room.items.length > 0 ? <RoomSection>You see: <b>{room.items.join(", ")} </b>for sale.</RoomSection> : null}
+      {room.people.length > 0 ? <RoomSection>You see: <b>{room.people.join(", ")}</b> standing around, sorting merchandise and watching you attentively. {room.people.length === 1?"They seem to be an employee of this store.":"They seem to be employees of this store."}</RoomSection> : null}
 
-      {props.player.inventory.length > 0 && props.player.observer.inventoryMenuLevel > 0 ? <RoomSection>Your inventory is: {props.player.inventory.join(", ")}.</RoomSection> : null}
+      {props.player.inventory.length > 0 && props.player.observer.inventoryMenuLevel > 0 ? <RoomSection>Inside your shopping bag is: {props.player.inventory.join(", ")}.</RoomSection> : null}
       <RoomSection>You have the following skills unlocked: {props.player.unlocked_skills_no_stats().map((skill) => { return skill.name }).join(", ")}.</RoomSection>
       <RoomSection>You have the following quests available to turn in: {props.player.questsAvailableToTurnIn().map((quest) => { return quest.title }).join(", ")}.</RoomSection>
 
-      <RoomSection>You have: {props.numberFriends} friends remaining.</RoomSection>
+      <RoomSection>You have: {props.numberFriends} helpful salespeople remaining.</RoomSection>
       {error.trim() !== "" ? <ErrorSection>Error: {error}</ErrorSection> : null}
       {message.trim() !== "" ? <RoomSection>Success! <b>{message}</b></RoomSection> : null}
 

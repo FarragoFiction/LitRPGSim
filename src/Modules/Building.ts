@@ -45,7 +45,7 @@ export class BuildingMetaData {
     // There is a model anatomy skeleton in the corner.  There's a huge map of Zampanio on a wall."
     //"there is" or "you see",or "there's" is going to be added by the system. don't worry.
     generateDescription = (themes: Theme[]) => {
-        let ret = `You see ${this.rand.pickFrom(themes).pickPossibilityFor(this.rand, LOC_DESC)}. `;
+        let ret = `It is a mall store that seems to sell a variety of objects.  You see ${this.rand.pickFrom(themes).pickPossibilityFor(this.rand, LOC_DESC)}. `;
         const num = this.rand.getRandomNumberBetween(1, 3);
         for(let i = 0; i< 3; i++){
             const theme = this.rand.pickFrom(themes);

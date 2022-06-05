@@ -1407,6 +1407,11 @@ const initChildBackstories = () => {
 }
 
 
+
+//https://www.roblox.com/games/6245366135/The-longest-text-ever-on-a-free-modeled-sign
+//i don't know who made this but its so damn funny
+
+
 //it is at this moment i wish i just had a file for each theme the way SBURBSim did. 
 
 //but we're in it this far, baby, we're going to keep digging this hole
