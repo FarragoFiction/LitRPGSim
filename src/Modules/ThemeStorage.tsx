@@ -1626,7 +1626,7 @@ const initQuests = () => {
     quest_possibilities[MATH] = [
         new QuestObject(
             `A Numerical Connundrum`,
-            `Johnny has four ${OBJECT}s. Susan has 11. If they divide them equally between the two of them, bring the amount leftover to the hollow underneath the ${LOCATION} OF ${OBJECT}s.`,
+            `Johnny has four ${OBJECT}s. Susan has 11. If they divide them equally between the two of them, bring the amount leftover to the hollow underneath the ${LOCATION} Of ${OBJECT}s.`,
             `Correct! There is one ${OBJECT} left over! You did it! You get a GOLD STAR!`,
             [new AchievementTrigger(false)],
             [new ItemInInventory(false, `${OBJECT}`)],

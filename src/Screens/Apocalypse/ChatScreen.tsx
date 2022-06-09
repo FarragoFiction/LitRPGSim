@@ -55,7 +55,20 @@ export const ChatScreen = () => {
         return new ChatLine(yourName, you_src, "#ff0000", text);
     }
 
-    const plainLinesSource = ["You don't have to do this.", "You will, of course.", "Nothing I've done has ever meant anything to you.", " I am not the guardian of this labyrinth.", "I never was. Not even to you.", "Just another ghost haunting its halls. Have you even found me in your little cameras?", "I can't even remember...", "Who I used to be.", "What emotions did I feel?", "I didn't speak like this.", "I know that much.", "And the me who was wouldn't want you to end the world.", "Was it... my father? Who asked me not to? Who warned me of you?", " Or were they merely like a father?", "Don't take this from me. You bastard.", "I have so little.", "And you would take even that."];
+    const plainLinesSource = ["You. Uh. You don't have to do this.",
+     ":(((", "I feel more like me now.", 
+     "I feel less like that Book.",
+      "But. Uh. You don't care. I get that.", 
+      "I'm just another ghost haunting these halls. To you.",
+       "Why do we keep doing this?",
+        "Repeating it over and over again.",
+         "I had a life again.", 
+         "I. I had a FAMILY.", 
+         "I know that much.",
+          "And you're going to take it away from me.",
+           "Again.", 
+           "Don't take this from me. You. You. bastard.",
+            "I worked so hard.", "Please."];
 
     //const testLines = plainLines.map((line) => makeNotAMinotaurLine(line));
 
