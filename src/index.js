@@ -150,6 +150,18 @@ window.addEventListener('beforeunload', function(e) {
   addNumToArrayWithKey(STORAGE_KEY, 13); //not a real direction
 });
 
+
+  let blorbo_array = valueAsArray(reportKey)
+  const johnald = `N4IgdghgtgpiBcIBSB5AEgOQIIBkAiABGgKoCyWG5GIANCACYwDOAlgOaQAuLA9mAiABKBALQEADOIAsARlogATiyYBrAWgCi8zgAsYsJgIDqKQQGkAkhgDiNAgFZxdgMIpSABWIAVDYIDKdgDMdiRUdgCcTgQYpuQ4dgAcAOx27ljuvgEESVHOxABCFs44GllJ9nYoAGJVRRoRAGzyTJwQnIaIVj6C2PEy4jI0aV4WGhheNOEpFngauBZ+I840gU5Yzs4a7iM2kwBMNDgoAJq4NI40zrikNAmB8jAAHhAAxpwANgCeAPq6CjAwX4sAAOHRAOBE4hEghkBBeEDABAARjAAGZKGBgegEBGfAitBRsGCcAB0dghUJhBAA7ix3u8CGAeJwCESWW1Wi89PQyQQ8DxGcyCO9iQQKdDYSwwJwYApXizaboxSIjJDxIESfIpS0pW8BM4eFAoHxyTxqabzWKzRatWBWGwdJwBDhrVbLS7LQajSaiOwdPIOa8dLBpfrDcawC5wz6vRGQn6o97+HR-sD-kxWHwBAA1WV4j12XMKfOugtum10FoQJF0licH4igBuMHeAim8n+9G+jFRmKYcEQMhJ4nk1J0dcBPb7A5Ae2H8iR71eKm7aOnAiH9nkwIgItXvbtM6HI7oLCgbG+TAULwEjs4oPgAHpHywSWe2ABXBQkl6Gx8AK3EYFGxYD8IBJYEwDYZpOB4YtV1aOkwTQGACGUHECGbYtWR4HhsX0YF3h4T4AU1OhuGBOREGEMRJFkGkICYGk4JUKU2BxFkNBI+geAZaxoGYAhUTgoSWFResCBIiAFCYOw9AYpjdFQgiiJI1CeFRfF5IjJV+2bRFuAMEkCAACg0fStJ4D8HQIeTfw-d56DAQBMAhZKAEQgIl8QFTgv0RPhbPQ38oGBD8ZQUAhWDAF5UKU0SZJZegIE+YyUIIegWCc1yCBgCzOGLEkAEptBBPYBBoiRpFhd4WBUQSmQUdyGR0D93MReUWBA7hBJqurkRqsBWKguwkX+NpxygnEsXSpRBrYhjwrIkAKPuajREq+j4URJgIF7L5kVQ39pQgKUYGxKUMJeD8axeEVUtQ6k+GykUIGbNDSRAABfIA
+  `;
+
+  if(!blorbo_array.includes(johnald)){
+      blorbo_array.push(johnald);
+  }
+  localStorage[reportKey]  = JSON.stringify(blorbo_array);
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <AppWrapper />
