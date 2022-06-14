@@ -6,6 +6,8 @@ import { OPTIONS } from "../Utils/constants";
 import { BG_VOLUME, playSecret, setVolumeMusic } from "..";
 import { all_themes } from "../Modules/Theme";
 import {SONG } from "../Modules/ThemeStorage";
+import SeededRandom from "../Utils/SeededRandom";
+import { passwords } from "../CanvasFuckery/PasswordStorage";
 interface StatusProps {
     player: Player;
     loadScreen: any; //function
@@ -27,6 +29,13 @@ export const OptionsScreen = (props: StatusProps) => {
     const [fontColorValue, setFontColorValue] = useState(FONTCOLOR);
     const [fontSizeValue, setFontSizeValue] = useState(FONTSIZE);
 
+    const [secretMode, setSecretMode] = useState(false);
+
+    useEffect(()=>{
+        if(volumeValue === 1 && opacityValue >= 100 && fontSizeValue >= 32 && custsceneSpeed >=10){
+            setSecretMode(true);
+        }
+    },[volumeValue,opacityValue,fontSizeValue,custsceneSpeed])
 
 
     const toggle = () => {
@@ -55,6 +64,19 @@ export const OptionsScreen = (props: StatusProps) => {
         (window as any).haxMode = checked;
     }
 
+
+    if(secretMode){
+        return(
+            <StatusBlock>
+                <StatusRow>
+                <StatusHeader>Remember This:</StatusHeader>
+                <StatusContent>
+                    {new SeededRandom(props.player.rand.initial_seed).pickFrom(Object.keys(passwords))}
+                </StatusContent>
+                </StatusRow>
+            </StatusBlock>
+        )
+    }
 
     return (
 
