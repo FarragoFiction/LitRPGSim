@@ -50,7 +50,10 @@ export const wrong_password = async (canvas:HTMLCanvasElement, password: string,
     console.log("JR NOTE: Note: If you don't already know, I'd recommend finding the second Porcupine to make it easier to see the key image. http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=NotMinotaur")
     console.log("JR NOTE: http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=Minotaur")
 
-    const font = rand.pickFrom(fonts);
+    let font = rand.pickFrom(fonts);
+    if(password.includes("http")){
+        font = "Times New Roman";
+    }
     const feed = new CameraFeed(0,[new AnimationFrame(wrong_room, 1)], [new GraffitiSpot(password,20,250,font,48)]);
 
     

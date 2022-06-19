@@ -41,7 +41,18 @@ export const albhed_map = {
     "w": "F",
     "x": "Q",
     "y": "O",
-    "z": "W"
+    "z": "W",
+    "0":"http://gigglesnort.info/PressReleases/", //kr's branch
+    "1":"http://knucklessux.com/HydrationSim/", //a lure for the unwary, but not for you. you're already caught
+    "2":"http://knucklessux.com/PuzzleBox/Secrets/", //it was irrelevant but now the quotidians are colonizing
+    "3":"http://farragofiction.com/CodexOfRuin/", //so many paths here, is this your first time seeing it?
+    "4":"farragofiction.com/TwoGayJokes/Stories/", //the blorbos
+    "5":"http://farragofiction.com/ATranscript/", //perhaps you've never seen this before? if not, where have you seen it?
+    "6":"http://farragofiction.com/ZampanioHotlink/", //when is a door not a door?
+    "7":"http://farragofiction.com/LOMAT/", //do you see how it connects?
+    "8":"https://farragnarok.com/DoYouSeeHowItConnects",//how it all connects
+    "9":"https://archiveofourown.org/works/34187848",//9 artifacts
+
 
 }
 
@@ -77,7 +88,7 @@ export interface PasswordMap {
 /*
 each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
 */
-export const passwords:PasswordMap = {
+export const passwords :PasswordMap = {
     //quest rewards, both real and game mode drop these. you can't get ALL of them without going into game mode  "MallMusicMuzakMallOf1974/"
     
     "ALT": new Secret("A Series of IDS: 1",[new SourceDurationPair("Secrets/ALT/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 01 Mall Open.mp3", "Secrets/ALT/0.js")
