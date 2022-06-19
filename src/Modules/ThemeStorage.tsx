@@ -1622,6 +1622,7 @@ const initQuests = () => {
             [new QuestReward(dig2)]
         )
     ]
+    
 
     quest_possibilities[MATH] = [
         new QuestObject(

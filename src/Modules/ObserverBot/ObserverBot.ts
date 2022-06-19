@@ -77,20 +77,20 @@ export class ObserverBot{
     backstoryMenuLevel =0;
     cityBuildingMenuLevel =0;
     codeMenuLevel =0;
-    godsMenuLevel =1;
-    inventoryMenuLevel =100;
+    godsMenuLevel =0;
+    inventoryMenuLevel =0;
     skillPointsGainedFromMenu =0;
     skillPointsGainedFromBattle = 0;
     loreMenuLevel =0;
-    questsMenuLevel =100;
-    recapMenuLevel =100;
+    questsMenuLevel =0;
+    recapMenuLevel =0;
 
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;
     numberQuestsCompleted = 0;
 
-    companionsMenuLevel = 100;
+    companionsMenuLevel = 0;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
