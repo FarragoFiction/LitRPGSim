@@ -46,7 +46,7 @@ export const albhed_map = {
     "1":"http://knucklessux.com/HydrationSim/", //a lure for the unwary, but not for you. you're already caught
     "2":"http://knucklessux.com/PuzzleBox/Secrets/", //it was irrelevant but now the quotidians are colonizing
     "3":"http://farragofiction.com/CodexOfRuin/", //so many paths here, is this your first time seeing it?
-    "4":"farragofiction.com/TwoGayJokes/Stories/", //the blorbos
+    "4":"SBURBSim/index2.html?seed=owowhatsthis ", //i never noticed if anyone ever found this
     "5":"http://farragofiction.com/ATranscript/", //perhaps you've never seen this before? if not, where have you seen it?
     "6":"http://farragofiction.com/ZampanioHotlink/", //when is a door not a door?
     "7":"http://farragofiction.com/LOMAT/", //do you see how it connects?
