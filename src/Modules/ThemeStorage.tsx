@@ -593,8 +593,8 @@ const initMenuOptions = () => {
     menu_options[LOVE] = [COMPANIONS];
     menu_options[SOUL] = [STATUS];
     menu_options[ANGER] = [BACKSTORY, INVENTORY];
-    menu_options[WEB] = [COMPANIONS, QUEST, RECAP];
-    menu_options[ROYALTY] = [CITYBUILDING, QUEST, RECAP];
+    menu_options[WEB] = [COMPANIONS, QUESTS, RECAP];
+    menu_options[ROYALTY] = [CITYBUILDING, QUESTS, RECAP];
     menu_options[ENDINGS] = [LORE, QUESTS, RECAP];
     menu_options[KNOWING] = [STATISTICS];
     menu_options[GUIDING] = [QUESTS, RECAP];
@@ -1562,8 +1562,8 @@ const initQuests = () => {
     quest_possibilities[BUGS] = [
         new QuestObject(
             `The HiveQueen's Request`,
-            `The HiveQueen has approached you with a request: It is not fair that her Children starve while others have plenty. Bring her ${getRandomNumberBetween(1, 13)} ${PERSON}S to feed her Children. Any quality will do. `,
-            `The ${PERSON}S are dragged off by the Children. You try not to think of their fate.`,
+            `The HiveQueen has approached you with a request: It is not fair that her Children starve while others have plenty. Bring her ${getRandomNumberBetween(1, 13)} ${PERSON}s to feed her Children. Any quality will do. `,
+            `The ${PERSON}s are dragged off by the Children. You try not to think of their fate.`,
             [new StatExceedValueTrigger(false, Stat.LIFE(10))],
             [new AchievementTrigger(false)],
             [new SkillReward(new CustomSkill(`The Hive Children`, 3, `Thousands upon thousands of skittering many-legged Children devour your foes.`))]
