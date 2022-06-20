@@ -288,57 +288,13 @@ function App(props: AppProps) {
       
 
       Fast TODO (yeah)
-      <ul style={{display: "none"}}>
-        pretend to know facts about the user, such as they play cookie clicker
-        slow owl sounds in cctv mode
-        need more reasons for people to hang around with ghosts
-blackbirds cipher
-wasted ominous song (you blew it)
-literally index page of ZampanioSimsim
-update death popup to focus on "new character to play as" not reincarnation
-jadedResearcher — Today at 5:08 PM
-note: when its time to go live, have LITRPGSIM e point to something ominous
-jadedResearcher — Today at 7:12 PM
-jadedResearcher — Today at 7:20 PM
-        *persephone, hades, demeter quest.  QUESTS are more "combination of side quests and overarching story plot". (think land quests)
-        * session 0 is "the game is real i swear" notJR, the core of Truth is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
-        * port in fractal shit post (cant compile dart version anymore), associate different states of the fractal with diff words from gaslight array
-        * gaslight cursor revals a radius of true color (hidden yellow things in the pictures?)
-* post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
-* one password is aviary full o fanimated gull skeletons
-* another is just skelejr sitting in her wheelchair
-* sprinkle right pws at the 'end' of each path and more
-*zampanio (not the sim) is designed to spark Obsession in a target and convince them to attempt to enact or oppose the end of the world (the End can either cause the Unbinding of Chaos or the Binding of Madness).  if you unbind chaos then the page reloads and you are a player with every theme at once and then some.  if you bind maddness the page reloads and you are a custom spawned player with a coherent and human created backstory, skills, buildings, etc. regardless of which mode you can do a new ritual to Balance the Scales and return to regular mode. Which ritual you can attempt to do is decided by seed, and in order to Unbind Chaos you need to have 9 specific items spawn (from duskhollow) and attempt to use them in GAme Mode (they all have custome effects) 
-<li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
-        <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
-             <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
-              <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
-              <li>gigglesnort fnaf mod is creepy pasta</li>
-
-        <li>secrets under construction component, shitty geocities gif of construction.</li>
-        <li>creepy pastas scattered throughout the site, based on themes, of the form: "You sit down to play a game. It's weirdly obsessed with X. theme1 creepy. then thene2 creepy.  
-        * lightly themed ghosts (just enough variation for gaslighting)
-
-Suddenly, you can feel the pounding behind your eyes. "let me out" you hear, "let me out"."</li>
-         <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
-        <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
-      * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
-    * store missing TEMPLATE PLACEHOLDERS (VISUAL_EFFECT, MONSTER_EFFECT, OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
-    * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 
-The city guard knows it takes a PERSON  to catch a thief, and they have come to you.  The ADJ OBJ has been stolen from the LOCATION, with no witnesses. Will you be the one to finally crack the case?" 
-"if there is a companion who has a theme that matches TEMPLATE theme, they slot into anything that needs COMPANION name"
-
-    * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
-    * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
-<li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
-        <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
-      <li>fractal sim plus radio???</li>
-      <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
-      <li>first ending where you max out skills (or played long enough to reach the heat death of the universe (thru auto clicker)) and menu finally closes and then fake credits role</li>
-      
-        <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
-        <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.  if the game were working PROPERLY it should praise you for whatever skill you've used the most, but obviously you've never used a single skill so it just picks one at random or glitches out. have console logs about ERORR NO FAVORIE SKILL FOUND etc.</li>
-        <li>if i ever do a lets play of zampanio it should be a hacked version that never goes live that is different in many very important ways but subtle at first</li>        
+      <ul >
+        TODO: 
+        peewee is the protag, not the wanderer
+        its the illusion of West made real, all the blorbos are AI pantomimes of their formers selves
+        spawn the end, she kills anything she touches.
+        give complex ai to each blorbo.
+        make sure to redo the rabbit hole like you did to NorthNorth, make passwords leak easier (which char leaks them? flower chick?)
       </ul>
 
       </Fragment>

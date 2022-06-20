@@ -1,19 +1,15 @@
 
 export const text = `
+The god inside him, while dead, demands tribute. 
 
-Next time on ZampanioSim:
+Normally, Witherby just does whatever he desires to do. The thing inside him does not covet him, seeks not to change his body in ways that no man was ever meant to live as.
 
-the basic definition of the trope is "soulful brooding male hero meets wacky quirky female sidekick that teaches him to embrace life"
-we have:
- "soulful brooding male hero meets equally brooding female villain that teaches him i mean. nothing concrete he's just kind of scared the whole time"
-  and
- "brooding but also literally a cop with no restraints male hero meets ikea schedule manager that teaches him to chill the fuck out while she tries to figure out if he actually is the previous soulful brooding male hero"
+However, it demands to be fed.
 
-~~~~~~~~~~~~~
-a: see i love this connection weve found between two chars who never have yet shared a scene together 
+To please such a thing requires a set of elaborate rituals, long-forgotten by anyone but him. One of these is the ritualistic exorcizing of bad deeds, like back at the corporation. Those who partake in it are to list out their misdeeds, no matter how trivial, and he is only to listen, and then to forgive them.
 
-b: i mean it only makes sense
-b: they're both beaten junkyard dogs
-b: its just one of them is being trained by one of those dog agencies into a dog a family can adopt and the other one ran into the forest and eats peoples cats
+So he set up the confessional: a janky little box with two sides for each person, separated only by a grid window to make it hard to see. Those who wish to repent would sit inside, name their deeds, then leave-- and, in true fashion, he was to not speak a single word.
+
+Inside of it, he waited.
 
  `
