@@ -112,7 +112,7 @@ export const passwords :PasswordMap = {
 
     ,"TRUTH": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/TRUTH/0.jpg",2)],undefined, "Secrets/TRUTH/0.js")
     ,"RONIN": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/RONIN/0.jpg",2)],undefined, "Secrets/RONIN/0.js")
-    ,"THE WIGGLER EATER": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/THEWIGGLEREATER/0.jpg",2)],undefined, "Secrets/THEWIGGLEREATER/0.js")
+    ,"THE WIGGLER EATER": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/WIGGLEREATER/0.jpg",2)],undefined, "Secrets/WIGGLEREATER/0.js")
     ,"THE WANDERER": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/WANDERER/0.jpg",2)],undefined, "Secrets/WANDERER/0.js")
     ,"THE TWINS": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/TWINS/0.jpg",2)],undefined, "Secrets/TWINS/0.js")
     ,"THE SOLEMN": new Secret("Quorum Quantified",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
