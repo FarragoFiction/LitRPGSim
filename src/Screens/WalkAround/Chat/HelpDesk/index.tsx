@@ -27,6 +27,16 @@ height: 33px;
 width: 33px;
 `
 
+const RememberTheRememberingEye = styled.div`
+height: 200px;
+cursor: pointer;
+width: 100px;
+position: absolute;
+top: 0px;
+left: 0px;
+border: 1px solid black;
+`
+
 const [chatHelp, setChatHelp] = useState(false);
 const [closerHelp, setCloserHelp] = useState(false);
 
@@ -54,6 +64,7 @@ useEffect(() => {
 
   return(
       <Fragment>
+        <RememberTheRememberingEye onClick={()=>setCloserHelp(true)} id="remember_the_remembering_eye"/>
     <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
 
     {chatHelp ? <HelpChatBox /> : null}

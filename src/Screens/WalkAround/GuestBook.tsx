@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React,{ Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
 import { all_classes } from '../../Modules/RPGClass';
 import { pickFrom } from '../../Utils/NonSeededRandUtils';
@@ -66,7 +66,7 @@ export const GuestBook = () => {
         let ret = ["Tester"];
         const all_classes_values = Object.values(all_classes)
         //console.log("JR NOTE: all classes values is", all_classes_values)
-        for(let c of all_classes_values){
+        for (let c of all_classes_values) {
             ret = ret.concat(c.name_possibilities);
         }
         //console.log("JR NOTE: ret is",ret)
@@ -83,13 +83,13 @@ export const GuestBook = () => {
         { quip: "Please give me a quip to post here.", title: "Chronicler" },
         { quip: "Please give me a quip to post here.", title: "Speaker" },
         { quip: "Please give me a quip to post here.", title: "Forsaken" },
-        {quip: "Easy to know where to start. Impossible to know when to stop.",title: "Theorist"},
+        { quip: "Easy to know where to start. Impossible to know when to stop.", title: "Theorist" },
         { quip: "Okay!", title: "Wwatt Mann" },//i wonder what makes the below different than the above???
         { quip: "...", title: "Piper Rusting" },
         { quip: "I'm sure you'll understand if I want to make sure everything is in order before I sign.", title: "Jasna" },
         { quip: "Jeeeeeez, fine, its not like I was doing anything with it anyways! Can I have Skyrim now?", title: "Amelie Blightheart" },
         { quip: "Uh. Sure. I can sign that...", title: "Todd Brian Davidson" }
-        
+
     ];
     const [signatures, setSignatures] = useState(inititialSignatures);
     const quipRef = useRef<HTMLTextAreaElement>(null);
@@ -100,11 +100,11 @@ export const GuestBook = () => {
         }
     }, [initialShowing])
 
-    const onMyWayToStealYourName = ()=>{
+    const onMyWayToStealYourName = () => {
         const title = pickFrom(getPossibleTitles());
         window.alert("Thank you for the gift of your name :) :) :)")
-        if(quipRef.current){
-            setSignatures([{quip: quipRef.current.value,title: title},...signatures]);
+        if (quipRef.current) {
+            setSignatures([{ quip: quipRef.current.value, title: title }, ...signatures]);
         }
 
     }
@@ -117,8 +117,8 @@ export const GuestBook = () => {
                     <img src={book_graphic} />
                     <Signatures>
                         <ul>
-                            {signatures.map((item,index) => (
-                                <li key={item.title+index}>
+                            {signatures.map((item, index) => (
+                                <li key={item.title + index}>
                                     <Quip>{item.quip}</Quip>
                                     <hr></hr>
                                     <Title>-{item.title}</Title>

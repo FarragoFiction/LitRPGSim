@@ -166,7 +166,7 @@ export const CloserChatBox:React.FC<CloserProps> = ({close}) => {
                 <CustomerServiceHell ref={chatRef}>
                     {memory.map((m) => {
                         return (
-                            <ChatLine>
+                            <ChatLine key={"chatline"+m}>
                                 {m[0] !== "" ? (<ChatIcon>{m[0]}</ChatIcon>) : null}
                                 <ChatText>{m[1]}</ChatText>
                             </ChatLine>)
