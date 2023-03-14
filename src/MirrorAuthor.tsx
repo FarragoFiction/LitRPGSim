@@ -2,10 +2,13 @@ import styled from "@emotion/styled";
 import {MutableRefObject, useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
 import { pointWithinBoundingBox } from "./Author";
+import { achieveGnosis3, achieveGnosis4 } from "./gnosis";
 import { Item, ItemMap } from "./Truth";
 
 
+(window as any).achieveGnosis4 = achieveGnosis4;
 
+(window as any).achieveGnosis3 = achieveGnosis3;
 
 
 export type MirrorAuthorParams = {

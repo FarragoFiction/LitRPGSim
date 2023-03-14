@@ -127,7 +127,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
         if (rotRef.current < 10 || Math.random()>0.9) {
           setMirrorSrc({ loc: up, flip: false });
         }
-        if (prevTop < maxTop) {
+        if (prevTop < maxTop || (window as any).noClip) {
           speedY = 10;
         }
       } else if ((key === "W" || key === "ArrowUp")) {
@@ -135,11 +135,11 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
         if (rotRef.current  < 10 || Math.random()>0.9) {
           setMirrorSrc({ loc: down, flip: false });
         }
-        if (prevTop > minTop) {
+        if (prevTop > minTop || (window as any).noClip) {
           speedY = -10
         }
       } else if ((key === "A" || key === "ArrowLeft")) {
-        if (prevLeft > minLeft) {
+        if (prevLeft > minLeft || (window as any).noClip) {
           speedX = -10;
         }
         setSrc({ loc: left, flip: false });
@@ -148,7 +148,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
         }
 
       } else if ((key === "D" || key === "ArrowRight")) {
-        if (prevLeft < maxLeft) {
+        if (prevLeft < maxLeft || (window as any).noClip) {
           speedX = 10;
         }
         setSrc({ loc: left, flip: true });
@@ -211,6 +211,9 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
   }
 
   const checkCollisions = (top: number, left: number) => {
+    if((window as any).noClip){
+      return false;
+    }
     for (let item of Object.values(items)) {
       if (pointWithinBoundingBox(left, top, item.left, item.top, item.width ? item.width : 0, item.height ? item.height : 0)) {
         return true;
