@@ -3,6 +3,7 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { clearInterval } from "timers";
 import { feetEffect } from ".";
 import { CoreConcept } from "./CoreConcept";
+import { checkForTruth } from "./gnosis";
 import { Item, ItemMap } from "./Truth";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 
@@ -34,7 +35,7 @@ export type AuthorParams = {
   items: ItemMap;
   mirrorOffset: number;
   conceptRef: MutableRefObject<CoreConcept>;
-  rotRef: MutableRefObject <number>;
+  rotRef: MutableRefObject<number>;
   mirrorLocationRef: MutableRefObject<{ top: number, left: number }>;
 
 }
@@ -54,15 +55,15 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
-const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
+const Author: React.FC<AuthorParams> = ({ conceptRef, mirrorOffset, rotRef, mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
   const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
   const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
   const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
 
   const [src, setSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
   const [playerLocation, setPlayerLocation] = useState({ left: 215, top: 150 });
-  const [flavorText, setFlavorText]= useState<string|null>();
-  
+  const [flavorText, setFlavorText] = useState<string | null>();
+
   const playerWidth = 100;
   const playerHeight = 100;
   //because a ref is MORE accessible to static things like window events than a state would be rip
@@ -78,19 +79,19 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
     playerRef.current = playerLocation;
   }, [playerLocation])
 
-  
+
   useEffect(() => {
     if (flavorText) {
-        const timer = setTimeout(() => {
-            setFlavorText(null);
-        }, 3000)
+      const timer = setTimeout(() => {
+        setFlavorText(null);
+      }, 3000)
 
-        return () => {
-            clearTimeout(timer);
-        };
+      return () => {
+        clearTimeout(timer);
+      };
     }
 
-}, [flavorText])
+  }, [flavorText])
 
   useEffect(() => {
     northRef.current = goNorth;
@@ -124,7 +125,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
       if ((key === "S" || key === "ArrowDown")) {
         setSrc({ loc: down, flip: false });
-        if (rotRef.current < 10 || Math.random()>0.9) {
+        if (rotRef.current < 10 || Math.random() > 0.9) {
           setMirrorSrc({ loc: up, flip: false });
         }
         if (prevTop < maxTop || (window as any).noClip) {
@@ -132,7 +133,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
         }
       } else if ((key === "W" || key === "ArrowUp")) {
         setSrc({ loc: up, flip: false });
-        if (rotRef.current  < 10 || Math.random()>0.9) {
+        if (rotRef.current < 10 || Math.random() > 0.9) {
           setMirrorSrc({ loc: down, flip: false });
         }
         if (prevTop > minTop || (window as any).noClip) {
@@ -143,7 +144,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
           speedX = -10;
         }
         setSrc({ loc: left, flip: false });
-        if (rotRef.current  < 10 || Math.random()>0.9) {
+        if (rotRef.current < 10 || Math.random() > 0.9) {
           setMirrorSrc({ loc: left, flip: false });
         }
 
@@ -152,7 +153,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
           speedX = 10;
         }
         setSrc({ loc: left, flip: true });
-        if (rotRef.current  < 10 || Math.random()>0.9) {
+        if (rotRef.current < 10 || Math.random() > 0.9) {
           setMirrorSrc({ loc: left, flip: true });
         }
       } else {
@@ -164,19 +165,22 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
       const centerX = proposedX + playerWidth / 2;
       const centerY = proposedY + playerHeight;
-      if (!checkCollisions(centerY - playerWidth / 4+10, centerX)) {
+      if (!checkCollisions(centerY - playerWidth / 4 + 10, centerX)) {
         window.scrollBy(0, speedY);
         feetEffect();
+        checkForTruth(proposedY);
         setPlayerLocation({ top: proposedY, left: proposedX });
-        if(rotRef.current <75000){
+        if (rotRef.current < 75000) {
           setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left: proposedX });
-        }else{
-          setMirrorPlayerLocation({ top: getRandomNumberBetween(minTop, maxTop) - speedY, left: getRandomNumberBetween(minLeft, maxLeft) });  
+        } else {
+          setMirrorPlayerLocation({ top: getRandomNumberBetween(minTop, maxTop) - speedY, left: getRandomNumberBetween(minLeft, maxLeft) });
         }
 
-        checkForDoor(centerY, centerX);
-        checkCoreConcept(centerY, centerX);
-        checkMirror(centerY, centerX);
+        if (!(window as any).noClip) {
+          checkForDoor(centerY, centerX);
+          checkCoreConcept(centerY, centerX);
+          checkMirror(centerY, centerX);
+        }
 
       }
       //checkForItems(centerY, centerX);
@@ -185,7 +189,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
   //they do not move
   const checkCoreConcept = (top: number, left: number) => {
-    if(!conceptRef.current){
+    if (!conceptRef.current) {
       return;
     }
     const objLeft = 245;
@@ -197,8 +201,8 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
     }
   }
 
-  const checkMirror =(top: number, left: number) => {
-    if(!conceptRef.current){
+  const checkMirror = (top: number, left: number) => {
+    if (!conceptRef.current) {
       return;
     }
     const objLeft = 95;
@@ -211,7 +215,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
   }
 
   const checkCollisions = (top: number, left: number) => {
-    if((window as any).noClip){
+    if ((window as any).noClip) {
       return false;
     }
     for (let item of Object.values(items)) {
@@ -236,7 +240,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
       southRef.current();
       travelingRef.current = true;
       setPlayerLocation({ left: 215, top: 125 });
-      setMirrorPlayerLocation({left: 215, top: 150-mirrorOffset })
+      setMirrorPlayerLocation({ left: 215, top: 150 - mirrorOffset })
       window.scrollBy(0, -200);
       setFlavorText(null)
       return;
@@ -246,7 +250,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
       travelingRef.current = true;
       northRef.current();
       setPlayerLocation({ left: 215, top: 375 });
-      setMirrorPlayerLocation({left: 215, top: -100-mirrorOffset })
+      setMirrorPlayerLocation({ left: 215, top: -100 - mirrorOffset })
       window.scrollBy(0, 200);
       setFlavorText(null)
       return;
@@ -257,21 +261,22 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
 
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log("JR NOTE: toggleIdleGameMode() will have JR walk south forever  (we can make the Weaver's time more simple) :) :) :)");
-      (window as any).toggleIdleGameMode = ()=>{
-        autoWalk.current = !autoWalk.current;
-        console.log("JR NOTE: autowalk is", autoWalk.current)
+    (window as any).toggleIdleGameMode = () => {
+      autoWalk.current = !autoWalk.current;
+      console.log("JR NOTE: autowalk is", autoWalk.current)
+    }
+    //time to shamble
+    const timer = setInterval(() => {
+      if (autoWalk.current) {
+        processWalk("S");
       }
-      //time to shamble
-      const timer = setInterval(() => {
-        if(autoWalk.current){
-          processWalk("S");
-        }
     }, 100)
     return () => {
       clearInterval(timer);
-  };  },[]);
+    };
+  }, []);
 
 
   const handleUserKeyPress = ((event: KeyboardEvent) => {
@@ -288,9 +293,9 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
   }, [])
 
   return (
-    <div style={{ position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px`}}>
-    <img style={{position: "absolute",left:"0px",top: "0px", transform: src.flip ? "scaleX(-1)" : "scaleX(1)", width: "100px", imageRendering: "pixelated", }} src={src.loc} />
-    {flavorText? <Popup>{flavorText}</Popup>:null}
+    <div style={{ position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }}>
+      <img style={{ position: "absolute", left: "0px", top: "0px", transform: src.flip ? "scaleX(-1)" : "scaleX(1)", width: "100px", imageRendering: "pixelated", }} src={src.loc} />
+      {flavorText ? <Popup>{flavorText}</Popup> : null}
     </div>
   );
 }

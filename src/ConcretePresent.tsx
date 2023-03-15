@@ -6,6 +6,7 @@ import Bench from "./Bench";
 import CentralImage from "./CentralImage";
 import { all_concepts } from "./CoreConcept";
 import Door from "./Door";
+import { achieveGnosis3 } from "./gnosis";
 import MirrorAuthor from "./MirrorAuthor";
 import { RoomParams, RoomParamsPlusTravel } from "./Truth";
 
@@ -114,6 +115,9 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     if(!conceptsSeen.includes(room.coreConcept.src)){
       conceptsSeen.push(room.coreConcept.src);
     }
+    if(100*(conceptsSeen.length/all_concepts.length) === 100){
+      achieveGnosis3();
+    }
     if(index === 1000){
       const ICsversionoftoday = `Dear Princess Celestia,
 
@@ -136,6 +140,12 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     (window as any).toggleShake = ()=>{
       console.log("JR NOTE: shake is", shakeRef.current)
       shakeRef.current = !shakeRef.current;
+      setShake(shakeRef.current);
+    }
+
+    (window as any).noShake = ()=>{
+      console.log("JR NOTE: shake is", shakeRef.current)
+      shakeRef.current =false;
       setShake(shakeRef.current);
     }
   },[])

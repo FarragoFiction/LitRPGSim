@@ -18,7 +18,7 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
   },[concept])
   return (
     <Content>
-      <div dangerouslySetInnerHTML={{__html:concept.truthThought}}/>
+      <div style={{paddingBottom: "100px"}} id="truth" dangerouslySetInnerHTML={{__html:concept.truthThought}}/>
 
       
       <img width="50" onClick={()=>{(window as any).toggleIdleGameMode()}} src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png" style={{cursor:"pointer"}} alt="This Is Not A Lie"/>
