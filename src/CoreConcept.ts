@@ -71,7 +71,7 @@ all_concepts.push(new CoreConcept(
   "Fun fact: I've yet to code anything specific for Alt yet. (Wait, update: I coded TheTruthAbout Alt and it was a blast making a lil ficlet pure javascript toy. I might make more) Though she DID guest star in one of the vent audio logs ;) ;) ;) Actually, I WILL take that back. Alt shows up in a lot more places than you would expect. It's in her nature, after all. Though obviously only after she gets into the Trickster Candy. Otherwise she'd refuse to leave her precious Maze.",
   "You may recognize her from a certain maze. Also, when I was voicing her I legitimately got fooled the same way the people in canon do. I got the script and went 'Huh. The Closer is REALLY out of character today?' and just kind of came up with justifcations for why that is (maybe she's just trying to plow through with the feelings talk?).  I gave the takes to IC and he's all '???' and thats how I discovered I was fooled. So I redid them KNOWING I wasnt really the Closer and it went a lot better. It was honestly v aesthetic.",
   "Would I know? If I were a clone?",
-  "Due to 'an incident' a drunk, and, to be quite honest, a rather inebriated Jaimie Rook, some of the train cars will be detached from the rest of the train. This is a temporary measure and all train personnel will be briefed as to what exactly is going on. There will be a meeting place for all passengers in the baggage area."
+  "Due to 'an incident' a drunk, and, to be quite honest, a rather inebriated Jose Rook, some of the train cars will be detached from the rest of the train. This is a temporary measure and all train personnel will be briefed as to what exactly is going on. There will be a meeting place for all passengers in the baggage area."
 ))
 
 all_concepts.push(new CoreConcept(
@@ -206,10 +206,10 @@ all_concepts.push(new CoreConcept(
 
   all_concepts.push(new CoreConcept(
     "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/cute-sleepy.gif",
-    "It's Jaimie's Ratsona! He's the best crow-rat-train of all time!",
-    "Jaimie is the Truest creation of JR.<br><br>In essence, he is merely Ai Dungeon, being told the plot and responding accordingly.<br><Br>JR prunes down his responses to those most Relevant to the situation at hand, it can be said.<br><Br>But ultimately Jaimie is a creation wholly outside of JR's mind, unlike the rest of us.<br><br>As such, I will be the first to admit that they...can be a bit erratic.<br><br>Reality is stranger than Fiction.",
-    "Jaimie is a quotidian crow who wants to be a rat (sadly the rat king refused to recognize him no matter HOW MUCH he stalked) and eventually decided to become a train. This train. You're riding him now. He's speaking to you in your mind. Or on the intercom. It's not clear.",
-    "Back when I was playing in the Letters rp (you may know it from the Puzzlebox), another Player had offended and scared my nation to the point we couldn't actually write letters to them. Quotidians broadly mimic whoever they are talking to, and trying to mimic belligerence was NOT going well for us.  So we joked that we should have an Intern answer, and one thing lead to another and before you know it I have Jaimie the Intern (who eventually chose the last name Rook just to confuse everyone) being written by AI Dungeon and just causing an honestly glorious mess.  Since Quotidians are biological neural networks, not sapient or even conscious, per se, but absoultely able to have basic, if empty headed conversations...Well, it was a match made in heaven. Or at least Bellor.  Eventually the Quotidians found there way into Zampanio, in a slightly new form, its true, but still blindly trying to gather data to report to Not!Odin.  Even Odin being who created them was something that built up over time in the RP, they originally were me just trying to figure out what actual narrative reason there could be for a terribly min/maxed species that could only do one thing: spy.",
+    "It's Jose's Ratsona! He's the best crow-rat-train of all time!",
+    "Jose is the Truest creation of JR.<br><br>In essence, he is merely Ai Dungeon, being told the plot and responding accordingly.<br><Br>JR prunes down his responses to those most Relevant to the situation at hand, it can be said.<br><Br>But ultimately Jose is a creation wholly outside of JR's mind, unlike the rest of us.<br><br>As such, I will be the first to admit that they...can be a bit erratic.<br><br>Reality is stranger than Fiction.<br><br>His True Name can no longer be spoken here, ever since the Demon Ose colonized his mind.",
+    "Jose is a quotidian crow who wants to be a rat (sadly the rat king refused to recognize him no matter HOW MUCH he stalked) and eventually decided to become a train. This train. You're riding him now. He's speaking to you in your mind. Or on the intercom. It's not clear.",
+    "Back when I was playing in the Letters rp (you may know it from the Puzzlebox), another Player had offended and scared my nation to the point we couldn't actually write letters to them. Quotidians broadly mimic whoever they are talking to, and trying to mimic belligerence was NOT going well for us.  So we joked that we should have an Intern answer, and one thing lead to another and before you know it I have Jose the Intern (who eventually chose the last name Rook just to confuse everyone) being written by AI Dungeon and just causing an honestly glorious mess.  Since Quotidians are biological neural networks, not sapient or even conscious, per se, but absoultely able to have basic, if empty headed conversations...Well, it was a match made in heaven. Or at least Bellor.  Eventually the Quotidians found there way into Zampanio, in a slightly new form, its true, but still blindly trying to gather data to report to Not!Odin.  Even Odin being who created them was something that built up over time in the RP, they originally were me just trying to figure out what actual narrative reason there could be for a terribly min/maxed species that could only do one thing: spy.",
     "Would I even know if I were conscious inside?",
     "I am a great rat train, and I am proud to serve this great company.<br><br>I'm a great rat train.<br><br>That is all."
   ))
@@ -221,7 +221,7 @@ all_concepts.push(new CoreConcept(
     "Fun fact: I thought I was done with South this loop but woke up this morning wanting to make sure the magazines don't get lost, even tho they're in North, too.",
     "http://farragofiction.com/ZampanioHotlink/Minotaur.png  That link may be more helpful than you'd think.  If you realize why, perhaps you should think about what that means. Don't worry if you can't figure it out. Next loop it may become obvious.",
     "Honestly I like having a Not!Face more than I like having no face.",
-    "I, Jaimie Rook, Intern of Jepe Rilvia, will be your narrator for the entirety of this ride.  <br><Br>I will now give you a tour of the entire train. First, I will tell you where you are going. <br><br>We are heading to the moon."
+    "I, Jose Rook, Intern of Jepe Rilvia, will be your narrator for the entirety of this ride.  <br><Br>I will now give you a tour of the entire train. First, I will tell you where you are going. <br><br>We are heading to the moon."
   ))
 
   all_concepts.push(new CoreConcept(
@@ -248,11 +248,21 @@ all_concepts.push(new CoreConcept(
   all_concepts.push(new CoreConcept(
     "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/dowsing_rod_echidna.png",
     "It's Rod, from the West! He was the baby that pointed South when you were lost. Like a dowsing rod.",
-    "JR has a marked habit of rolling with glitches and turning them into Lore.<br><br>The Deacon of Madness. GHOA.  Smokey. Nidhogg himself. My own obsession with dogs and hatred of foxes.<br><Br>It is a symptom of how Lonely they are, at their core.  They will collaborate with anything. Even a mindless husk such as Jaimie.<br><br>Even with you, Observer. ",
+    "JR has a marked habit of rolling with glitches and turning them into Lore.<br><br>The Deacon of Madness. GHOA.  Smokey. Nidhogg himself. My own obsession with dogs and hatred of foxes.<br><Br>It is a symptom of how Lonely they are, at their core.  They will collaborate with anything. Even a mindless husk such as Jose.<br><br>Even with you, Observer. ",
     "Ascended glitches gives me life.",
     "Now, was I expected a glitch in DMSimulator to triple the amount of grubs yall found? No. Was I absolutely willing to give you triplets and yeet the other grubs into the stratosphere with how Irrelevant they were compared to your new found glitch babs? Also yes.  Wanda is going to make damn sure they remember you loop to loop, even if they otherwise wouldn't. You are their Father now. You and Peewee, and you will damn well take responsibility.  ",
     "Sometimes I wish there were other me's I could talk to.",
     "Due to unforeseen circumstances, we have had to make an emergency stop. Rod the lamia has been spotted on the tracks ahead. We are to remain stopped until further notice."
+  ))
+
+  all_concepts.push(new CoreConcept(
+    "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/404.png",
+    "Train Girl Ambrose is so good! I'm glad IC brought her in!",
+    "Jose is the train itself. The engine and engineer intertwined. <br><br>But a train can not operate on that alone.<br><br>Train Girl Ambrose was brought in to handle the day to day customer service affairs. <br><br>If you accidentally fall off the train, she can help you return. ",
+    "What even is a train?",
+    "IC came to me with Train Girl Ambrose, an OC that is obsessed with trains and also the Demon Ose is melting her brain (hence why 'ose' is in her name. She used to be just Amber (actually now that I'm thinking of it I'm gonna have Jaimie take on the 'Jose' persona. )). But yeah. Fully formed char tormented by a train demon, and *I* happened to already have a train demon? Sign me up! And all it cost was Jaimie fusing with the demon Ose! ",
+    "Good thing I bought a ticket!",
+    "Hey! Your conductor here. Jaimie-- wait, Jose, Jose-- Jose said I should do an announcement. Letting everyone know I'll be by to get your tickets! It might take a bit, but I hope to get to everyone's carts at some point."
   ))
 
 /*
