@@ -25,7 +25,7 @@ becuase i'll remember this but somehow NOT remember that South still exists */
 export const checkForTruth = (y) => {
 
   if (y > 500) {
-    noShake();
+    window.noShake();
     const truth = document.querySelector("#truth");
     //note, this is backwards
     if (y > 7500) {
