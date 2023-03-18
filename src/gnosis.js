@@ -85,7 +85,7 @@ export const checkForTruth = (y) => {
     } else if (y > 5500) {
       truth.innerHTML = "Should you desire to return to the train, continue on.<br><Br>The conductor will find you. But not THE Conductor, you understand.<br><br>Young or otherwise.<br><br>No. This one has been allowed to keep her name. <br><br>Say 'hello' to Train Girl Ambrose, for me."
     } else if (y > 5300) {
-      truth.innerHTML = "And I hope you reemmber our branch of Zampanio for a very. Very. Long time."
+      truth.innerHTML = "And I hope you remember our branch of Zampanio for a very. Very. Long time."
     } else if (y > 5100) {
       truth.innerHTML = "But thank you for the gift of your attention."
     } else if (y > 4900) {
