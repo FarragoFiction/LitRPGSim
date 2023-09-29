@@ -43,7 +43,7 @@ export function domWordMeaningFuckery(){
         for(let child of children){
             const subchildren = child.querySelectorAll("*");
             if(subchildren.length === 0){
-                child.textContent = gaslightWordMeanings(child.textContent, seed_multiplier);
+                child.innerHTML = gaslightWordMeanings(child.textContent, seed_multiplier);
             }
         }
     }
@@ -81,7 +81,7 @@ function gaslightWordMeanings(sentence, seed_multiplier){
      if(word === "you"){
          return "y'all";
      }
-    const gaslightOptions = ["echidna","[REDACTED]","null","dark","friendless","alone","minotaur","hunt","flesh","changeling","distortion","watcher","filth","minotaur","worm","bug","gas","flavor","evil fox","lazy dog","quick fox","dead fox","terrible fox","bad fox","fox","untrustworthy fox","taste","smell","feeling","failure","fear","horror","mistake","line","stay","good dog","canine","good boy","good boi","bark","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
+     const gaslightOptions = ["<a class='honk' href ='http://lavinraca.eyedolgames.com/'>honk</a>","<a class='honk' href ='http://lavinraca.eyedolgames.com/'>HONK</a>"];
     const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
     let chance = .99;
     if(window.megaGasLight){

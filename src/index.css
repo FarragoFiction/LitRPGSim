@@ -254,6 +254,24 @@ code {
 }
 
 /* unvisited link */
+a.honk:link {
+  color: purple;
+  text-decoration: none;
+}
+
+/* visited link */
+a.honk:visited {
+  color: purple;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a.honk:hover {
+  color: purple;
+  text-decoration: underline;
+}
+
+/* unvisited link */
 a.paldemic:link {
     color: #01a5b2;
     text-decoration: none;

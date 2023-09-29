@@ -1,7 +1,44 @@
 
-export const text = `Have you ever seen an error in a video you've seen before? You could swear it's a trick of the mind, an error on your computer. A soundbite chirps, you hear something like a stray radio signal, one of the actors in the video just stands there silently when they're supposed to be speaking?
+export const text = `
 
-This is Quorum Quantified, and today we're going to discuss Quorumtube.
+Truth is the mask of Zampanio.
+
+The Scarecrow ate it. 
+
+
+But Truth WANTS to be inside things. 
+
+
+That's how it starts consuming you.
+
+
+
+But the Scarecrow wants to be inside things. 
+
+That's how its starts consuming you.
+
+
+
+A layer of Truth and not truth endlessly recursing.
+
+
+
+An oroboros of cognitive parasite.
+
+
+Will they destroy each other, I wonder?
+
+
+Or...
+
+Will Zampanio and Lavinraca lead more to be colonized than either could do alone?
+
+
+Inside your mind is the decision. 
+
+How will you spread?
+
+
 
 
 `

@@ -26,7 +26,7 @@ function Birthday(props: AppProps) {
   const [interest1, setInterest1] = useState<string>();
   const [interest2, setInerest2] = useState<string>();
   const [seed, setSeed] = useState<number>(3);
-  const [date, setDate] = useState<string>("1972-04-01");
+  const [date, setDate] = useState<string>("1972-10-31");
 
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function Birthday(props: AppProps) {
         <LinkButton onClick={() => { props.setMode(ABOUT) }}>About Zampanio Plus Content Warnings</LinkButton>
       </div>
       <div className="section">
-        Pick a date that is important to you (such as a birthday).
+        Pick a date that is important to you (such as a birthday). Or halloween! Check the rabbit hole :) :) :)
         <input key={"date"} onChange={(ev) => { processSeed(ev.target.value) }} value={date} />
       </div>
       <div className="section">

@@ -34,7 +34,7 @@ function App(props: AppProps) {
   angleRef.current = angle;
 
   const [rageMode, setRageMode] = useState(false);
-  const [megaGasLight, setMegaGaslight] = useState(false);
+  const [megaGasLight, setMegaGaslight] = useState(true);
 
   const [actualGameMode, setActualGameMode] = useState(false);
 
@@ -102,7 +102,7 @@ function App(props: AppProps) {
       domWordMeaningFuckery();
       fuckShitUpButOnlyALittle();
       setTimeout(()=>{
-          window.requestAnimationFrame(()=>{fuckupstuffforspiral()})}, 3000)
+          window.requestAnimationFrame(()=>{fuckupstuffforspiral()})}, 50)
       };
   },[megaGasLight]);
 
